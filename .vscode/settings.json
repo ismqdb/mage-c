@@ -1,0 +1,28 @@
+{
+    "files.associations": {
+        "setup.h": "c",
+        "init.h": "c",
+        "load_shaders.h": "c",
+        "glad.h": "c",
+        "unordered_map": "c",
+        "istream": "c",
+        "numeric": "c",
+        "glfwsetup.h": "c",
+        "openglsetup.h": "c",
+        "loadshader.h": "c",
+        "oglheaders.h": "c",
+        "00_globals.h": "c",
+        "globals.h": "c",
+        "array": "c",
+        "charconv": "c",
+        "compare": "c",
+        "format": "c",
+        "functional": "c",
+        "tuple": "c",
+        "type_traits": "c",
+        "utility": "c",
+        "variant": "c",
+        "glfw3.h": "c",
+        "vertexarray.h": "c"
+    }
+}
