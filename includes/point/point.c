@@ -39,8 +39,6 @@ void preparePointForRender(struct point *point){
 /* ******************************************************************************** */
 
 void renderPoint(struct point *point){
-    glPointSize(10);
-    glBindVertexArray(point->vtxArray.vao[0]);
     glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, (void*)0);
 }
 

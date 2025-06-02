@@ -77,11 +77,12 @@ int gameLoop(){
         {GL_NONE, NULL}
     };
 
-    GLuint program = loadShader(shaders);
-    glUseProgram(program);
-
     glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);
+    glPointSize(10);
+
+    GLuint program = loadShader(shaders);
+    glUseProgram(program);
 
     openglSetup();
 
