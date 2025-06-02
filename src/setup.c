@@ -8,7 +8,8 @@
 /* ******************************************************************************** */
 
 void openglSetup(){
-    point = createPoint(0.0, 0.50, 0.46, 1.0);
+    point1 = createPoint(0.0, 0.50, 0.46, 1.0);
+    point2 = createPoint(0.0, -0.50, 0.46, 1.0);
 }
 
 /* ******************************************************************************** */
@@ -53,13 +54,16 @@ void update(){
 /* ******************************************************************************** */
 
 void render(double currentTime){
-    glClear(GL_COLOR_BUFFER_BIT);
-    GLfloat green[] = {0.0f, 0.25f, 0.0f, 1.0f};
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
+    GLfloat green[] = {0.0f, 0.25f, 0.0f, 1.0f};
     glClearBufferfv(GL_COLOR, 0, green);
 
-    preparePointForRender(&point);
-    renderPoint(&point);
+    preparePointForRender(&point1);
+    renderPoint(&point1);
+
+    preparePointForRender(&point2);
+    renderPoint(&point2);
 }
 
 /* ******************************************************************************** */
@@ -78,8 +82,6 @@ int gameLoop(){
 
     glDisable(GL_CULL_FACE);
     glDisable(GL_DEPTH_TEST);
-    
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     openglSetup();
 
