@@ -20,9 +20,9 @@ struct array createArray(enum arrayType type){
             array.data.ints[0] = '\0';
         break;
 
-        case ARRAY_DOUBLE:
-            array.data.doubles = heapAllocSized(double, array.capacity);
-            array.data.doubles[0] = '\0';
+        case ARRAY_FLOAT:
+            array.data.floats = heapAllocSized(float, array.capacity);
+            array.data.floats[0] = '\0';
         break;
     }
 
@@ -39,8 +39,8 @@ void destroyArray(struct array *array){
             free(array->data.ints);
         break;
 
-        case ARRAY_DOUBLE:
-            free(array->data.doubles);
+        case ARRAY_FLOAT:
+            free(array->data.floats);
         break;
     }
 }
@@ -55,7 +55,7 @@ void reserve(struct array *array){
                 heapRealloc(int, array->data.ints, array->capacity);
         break;
 
-        case ARRAY_DOUBLE:
+        case ARRAY_FLOAT:
             array->capacity *= 2;
             array->data.ints = 
                 heapRealloc(int, array->data.ints, array->capacity);
@@ -70,8 +70,8 @@ void* getBytes(struct array *array){
         case ARRAY_INT:
             return (void*)array->data.ints;
 
-        case ARRAY_DOUBLE:
-            return (void*)array->data.doubles;
+        case ARRAY_FLOAT:
+            return (void*)array->data.floats;
     }
 }
 
@@ -82,8 +82,8 @@ int byteSize(struct array *array){
         case ARRAY_INT:
             return sizeof(int) * array->size;
 
-        case ARRAY_DOUBLE:
-            return sizeof(double) * array->size;
+        case ARRAY_FLOAT:
+            return sizeof(float) * array->size;
     }
 }
 
@@ -99,11 +99,11 @@ int insertInt(struct array *array, int value){
 
 /* ******************************************************************************** */
 
-void insertDouble(struct array *array, double value){
+void insertFloat(struct array *array, float value){
     if(array->size == array->capacity)
         reserve(array);
 
-    array->data.doubles[array->size] = value;
+    array->data.floats[array->size] = value;
     array->size++;
 }
 

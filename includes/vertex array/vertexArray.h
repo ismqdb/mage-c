@@ -39,7 +39,7 @@ int indiceCount(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-double* verticesRaw(struct vertexArray*);
+float* verticesRaw(struct vertexArray*);
 int* indicesRaw(struct vertexArray*);
 
 /* ******************************************************************************** */
@@ -48,9 +48,9 @@ struct vertexArray {
     struct array vertices;
     struct array indices;
 
-    int vao;
-    int vbo;
-    int ebo;
+    int vao[1];
+    int vbo[1];
+    int ebo[1];
 };
 
 /* ******************************************************************************** */

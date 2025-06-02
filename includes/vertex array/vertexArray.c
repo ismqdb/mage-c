@@ -7,12 +7,12 @@
 struct vertexArray createVertexArray(){
     struct vertexArray vertexArray;
 
-    vertexArray.vertices  = createArray(ARRAY_DOUBLE);
+    vertexArray.vertices  = createArray(ARRAY_FLOAT);
     vertexArray.indices =   createArray(ARRAY_INT);
 
-    vertexArray.vao = -1;
-    vertexArray.vbo = -1;
-    vertexArray.ebo = -1;
+    vertexArray.vao[0] = -1;
+    vertexArray.vbo[0] = -1;
+    vertexArray.ebo[0] = -1;
 
     return vertexArray;
 }
@@ -23,18 +23,18 @@ void destroyVertexArray(struct vertexArray *vertexArray){
     destroyArray(&vertexArray->vertices);
     destroyArray(&vertexArray->indices);
 
-    vertexArray->vao = -1;
-    vertexArray->vbo = -1;
-    vertexArray->ebo = -1;
+    vertexArray->vao[0] = -1;
+    vertexArray->vbo[0] = -1;
+    vertexArray->ebo[0] = -1;
 }
 
 /* ******************************************************************************** */
 
 void insertPoint(struct vertexArray *array, struct vec4 vec){
-    insertDouble(&array->vertices, vec.x);
-    insertDouble(&array->vertices, vec.y);
-    insertDouble(&array->vertices, vec.z);
-    insertDouble(&array->vertices, vec.w);
+    insertFloat(&array->vertices, vec.x);
+    insertFloat(&array->vertices, vec.y);
+    insertFloat(&array->vertices, vec.z);
+    insertFloat(&array->vertices, vec.w);
 }
 
 /* ******************************************************************************** */
@@ -69,8 +69,8 @@ int indiceCount(struct vertexArray *array){
 
 /* ******************************************************************************** */
 
-double* verticesRaw(struct vertexArray *array){
-    return (double*)getBytes(&array->vertices);
+float* verticesRaw(struct vertexArray *array){
+    return (float*)getBytes(&array->vertices);
 }
 
 /* ******************************************************************************** */

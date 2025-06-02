@@ -19,7 +19,7 @@ enum arrayType {
     ARRAY_TYPE_MIN,
 
     ARRAY_INT,
-    ARRAY_DOUBLE,
+    ARRAY_FLOAT,
 
     ARRAY_TYPE_MAX
 };
@@ -31,7 +31,7 @@ struct array {
 
     union {
         int     *ints;
-        double  *doubles;
+        float  *floats;
     } data;
 
     int size;
@@ -55,6 +55,6 @@ int byteSize(struct array*);
 /* ******************************************************************************** */
 
 int insertInt(struct array*, int);
-void insertDouble(struct array*, double);
+void insertFloat(struct array*, float);
 
 /* ******************************************************************************** */
