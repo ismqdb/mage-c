@@ -83,3 +83,38 @@ int* indicesRaw(struct vertexArray *array){
 }
 
 /* ******************************************************************************** */
+
+void preparevtx(struct vertexArray* vtxarray){
+    glGenVertexArrays(1, vtxarray->vao);
+    glBindVertexArray(vtxarray->vao[0]);
+
+    glGenBuffers(1, vtxarray->vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, vtxarray->vbo[0]);
+
+    glBufferData(
+        GL_ARRAY_BUFFER,
+        vertexSizeof(vtxarray),
+        verticesRaw(vtxarray),
+        GL_DYNAMIC_DRAW
+    );
+
+    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
+    glEnableVertexAttribArray(0);
+
+    glGenBuffers(1, vtxarray->ebo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vtxarray->ebo[0]);
+    glBufferData(
+        GL_ELEMENT_ARRAY_BUFFER,
+        indicesSizeof(vtxarray),
+        indicesRaw(vtxarray),
+        GL_DYNAMIC_DRAW
+    );
+}
+
+/* ******************************************************************************** */
+
+void rendervtx(struct vertexArray* vtxarray){
+    glDrawElements(vtxarray->renderType, 1, GL_UNSIGNED_INT, NULL);
+}
+
+/* ******************************************************************************** */

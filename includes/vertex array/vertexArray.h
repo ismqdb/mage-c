@@ -73,3 +73,8 @@ float* verticesRaw(struct vertexArray*);
 int* indicesRaw(struct vertexArray*);
 
 /* ******************************************************************************** */
+
+void preparevtx(struct vertexArray*);
+void rendervtx(struct vertexArray*);
+
+/* ******************************************************************************** */
