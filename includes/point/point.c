@@ -9,7 +9,7 @@ struct point createPoint(double _x, double _y, double _z, double _w){
 
     struct point point;
 
-    point.vtxArray = createVertexArray();
+    point.vtxArray = createVertexArray(GL_POINTS);
     insertPoint(&point.vtxArray, vec);
     insertIndice(&point.vtxArray, 0);
 
@@ -39,7 +39,7 @@ void preparePointForRender(struct point *point){
 /* ******************************************************************************** */
 
 void renderPoint(struct point *point){
-    glDrawElements(GL_POINTS, 1, GL_UNSIGNED_INT, (void*)0);
+    glDrawElements(point->vtxArray.renderType, 1, GL_UNSIGNED_INT, (void*)0);
 }
 
 /* ******************************************************************************** */

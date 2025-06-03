@@ -14,12 +14,42 @@
 
 /* ******************************************************************************** */
 
+#include "../../glad/glad.h"
+#include <GLFW/glfw3.h>
+
+/* ******************************************************************************** */
+
 #include "../array/array.h"
 #include "../vec4/vec4.h"
 
 /* ******************************************************************************** */
 
-struct vertexArray createVertexArray();
+enum arrayRenderType {
+    ARRAY_RENDER_TYPE_MIN = -1,
+
+    POINTS  = GL_POINTS,
+    LINES   = GL_LINES,
+    TRI     = GL_TRIANGLES,
+
+    ARRAY_RENDER_TYPE_MAX
+};
+
+/* ******************************************************************************** */
+
+struct vertexArray {
+    enum arrayRenderType renderType;
+
+    struct array vertices;
+    struct array indices;
+
+    int vao[1];
+    int vbo[1];
+    int ebo[1];
+};
+
+/* ******************************************************************************** */
+
+struct vertexArray createVertexArray(enum arrayRenderType);
 void destroyVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
@@ -41,16 +71,5 @@ int indiceCount(struct vertexArray*);
 
 float* verticesRaw(struct vertexArray*);
 int* indicesRaw(struct vertexArray*);
-
-/* ******************************************************************************** */
-
-struct vertexArray {
-    struct array vertices;
-    struct array indices;
-
-    int vao[1];
-    int vbo[1];
-    int ebo[1];
-};
 
 /* ******************************************************************************** */

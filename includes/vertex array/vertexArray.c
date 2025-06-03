@@ -4,9 +4,12 @@
 
 /* ******************************************************************************** */
 
-struct vertexArray createVertexArray(){
+struct vertexArray createVertexArray(enum arrayRenderType rtype){
+    assert(rtype > ARRAY_RENDER_TYPE_MIN && rtype < ARRAY_RENDER_TYPE_MAX);
+
     struct vertexArray vertexArray;
 
+    vertexArray.renderType = rtype;
     vertexArray.vertices  = createArray(ARRAY_FLOAT);
     vertexArray.indices =   createArray(ARRAY_INT);
 
