@@ -33,11 +33,11 @@ void destroyVertexArray(struct vertexArray *vertexArray){
 
 /* ******************************************************************************** */
 
-void insertPoint(struct vertexArray *array, struct vec4 vec){
-    insertFloat(&array->vertices, vec.x);
-    insertFloat(&array->vertices, vec.y);
-    insertFloat(&array->vertices, vec.z);
-    insertFloat(&array->vertices, vec.w);
+void insertPoint(struct vertexArray *array, struct point point){
+    insertFloat(&array->vertices, point.position.x);
+    insertFloat(&array->vertices, point.position.y);
+    insertFloat(&array->vertices, point.position.z);
+    insertFloat(&array->vertices, point.position.w);
 }
 
 /* ******************************************************************************** */
@@ -114,7 +114,7 @@ void preparevtx(struct vertexArray* vtxarray){
 /* ******************************************************************************** */
 
 void rendervtx(struct vertexArray* vtxarray){
-    glDrawElements(vtxarray->renderType, 1, GL_UNSIGNED_INT, NULL);
+    glDrawElements(vtxarray->renderType, indiceCount(vtxarray), GL_UNSIGNED_INT, NULL);
 }
 
 /* ******************************************************************************** */

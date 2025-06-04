@@ -20,7 +20,7 @@
 /* ******************************************************************************** */
 
 #include "../array/array.h"
-#include "../vec4/vec4.h"
+#include "../point/point.h"
 
 /* ******************************************************************************** */
 
@@ -54,7 +54,7 @@ void destroyVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-void insertPoint(struct vertexArray*, struct vec4);
+void insertPoint(struct vertexArray*, struct point);
 void insertIndice(struct vertexArray*, int);
 
 /* ******************************************************************************** */

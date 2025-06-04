@@ -8,8 +8,22 @@
 /* ******************************************************************************** */
 
 void openglSetup(){
+    vtxarray = createVertexArray(GL_POINTS);
+
     point1 = createPoint(0.0, 0.50, 0.46, 1.0);
     point2 = createPoint(0.0, -0.50, 0.46, 1.0);
+    point3 = createPoint(0.5, 0.0, 0.46, 1.0);
+    point4 = createPoint(-0.5, 0.0, 0.46, 1.0);
+
+    insertPoint(&vtxarray, point1);
+    insertPoint(&vtxarray, point2);
+    insertPoint(&vtxarray, point3);
+    insertPoint(&vtxarray, point4);
+
+    insertIndice(&vtxarray, 0);
+    insertIndice(&vtxarray, 1);
+    insertIndice(&vtxarray, 2);
+    insertIndice(&vtxarray, 3);
 }
 
 /* ******************************************************************************** */
@@ -49,6 +63,8 @@ void update(){
                 break;
         }
     }
+
+    preparevtx(&vtxarray);
 }
 
 /* ******************************************************************************** */
@@ -59,11 +75,7 @@ void render(double currentTime){
     GLfloat green[] = {0.0f, 0.25f, 0.0f, 1.0f};
     glClearBufferfv(GL_COLOR, 0, green);
 
-    preparePointForRender(&point1);
-    renderPoint(&point1);
-
-    preparePointForRender(&point2);
-    renderPoint(&point2);
+    rendervtx(&vtxarray);
 }
 
 /* ******************************************************************************** */
