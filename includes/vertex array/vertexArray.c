@@ -9,9 +9,9 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
 
     struct vertexArray vertexArray;
 
-    vertexArray.renderType = rtype;
-    vertexArray.vertices  = createArray(ARRAY_FLOAT);
-    vertexArray.indices =   createArray(ARRAY_INT);
+    vertexArray.renderType  = rtype;
+    vertexArray.vertices    = createArray(ARRAY_FLOAT);
+    vertexArray.indices     = createArray(ARRAY_INT);
 
     vertexArray.vao[0] = -1;
     vertexArray.vbo[0] = -1;
@@ -38,6 +38,14 @@ void insertPoint(struct vertexArray *array, struct point point){
     insertFloat(&array->vertices, point.position.y);
     insertFloat(&array->vertices, point.position.z);
     insertFloat(&array->vertices, point.position.w);
+}
+
+/* ******************************************************************************** */
+
+void insertTriangle(struct vertexArray *array, struct triangle1 triangle){
+    insertPoint(array, triangle.point_a);
+    insertPoint(array, triangle.point_b);
+    insertPoint(array, triangle.point_c);
 }
 
 /* ******************************************************************************** */
@@ -103,6 +111,7 @@ void preparevtx(struct vertexArray* vtxarray){
 
     glGenBuffers(1, vtxarray->ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vtxarray->ebo[0]);
+
     glBufferData(
         GL_ELEMENT_ARRAY_BUFFER,
         indicesSizeof(vtxarray),
@@ -114,7 +123,12 @@ void preparevtx(struct vertexArray* vtxarray){
 /* ******************************************************************************** */
 
 void rendervtx(struct vertexArray* vtxarray){
-    glDrawElements(vtxarray->renderType, indiceCount(vtxarray), GL_UNSIGNED_INT, NULL);
+    glDrawElements(
+        vtxarray->renderType, 
+        indiceCount(vtxarray), 
+        GL_UNSIGNED_INT, 
+        NULL
+    );
 }
 
 /* ******************************************************************************** */

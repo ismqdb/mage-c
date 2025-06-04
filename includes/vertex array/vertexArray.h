@@ -21,6 +21,7 @@
 
 #include "../array/array.h"
 #include "../point/point.h"
+#include "../triangle/triangle.h"
 
 /* ******************************************************************************** */
 
@@ -56,6 +57,10 @@ void destroyVertexArray(struct vertexArray*);
 
 void insertPoint(struct vertexArray*, struct point);
 void insertIndice(struct vertexArray*, int);
+
+/* ******************************************************************************** */
+
+void insertTriangle(struct vertexArray*, struct triangle1);
 
 /* ******************************************************************************** */
 
