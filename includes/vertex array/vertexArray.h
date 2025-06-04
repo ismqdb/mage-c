@@ -27,9 +27,9 @@
 enum arrayRenderType {
     ARRAY_RENDER_TYPE_MIN = -1,
 
-    POINTS  = GL_POINTS,
-    LINES   = GL_LINES,
-    TRI     = GL_TRIANGLES,
+    POINTS      = GL_POINTS,
+    LINES       = GL_LINES,
+    TRIANGLES   = GL_TRIANGLES,
 
     ARRAY_RENDER_TYPE_MAX
 };

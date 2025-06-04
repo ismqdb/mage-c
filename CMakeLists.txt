@@ -14,6 +14,7 @@ set(LIB_FILES
     "includes/vertex array/vertexArray.c"
     "includes/vec4/vec4.c"
     "includes/point/point.c"
+    "includes/triangle/triangle.c"
 )
 
 add_executable(mage ${SOURCE_FILES} ${LIB_FILES} src/src.c src/setup.c)
