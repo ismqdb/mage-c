@@ -22,6 +22,7 @@
 #include "../array/array.h"
 #include "../point/point.h"
 #include "../triangle/triangle.h"
+#include "../circle/circle.h"
 
 /* ******************************************************************************** */
 

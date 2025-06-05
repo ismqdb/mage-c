@@ -10,27 +10,7 @@
 void openglSetup(){
     vtxarray = createVertexArray(GL_TRIANGLES);
 
-    point1 = createPoint(+0.25, +0.50, +0.46, 1.00);
-    point2 = createPoint(+0.25, -0.50, +0.46, 1.00);
-    point3 = createPoint(+0.75, +0.00, +0.46, 1.00);
-
-    point4 = createPoint(-0.50, +0.50, +0.46, 1.00);
-    point5 = createPoint(-0.50, -0.50, +0.46, 1.00);
-    point6 = createPoint(+0.00, +0.00, +0.46, 1.00);
-
-    triangle1 = createTriangle(point1, point2, point3);
-    triangle2 = createTriangle(point4, point5, point6);
-
-    insertTriangle(&vtxarray, triangle1);
-    insertTriangle(&vtxarray, triangle2);
-
-    insertIndice(&vtxarray, 0);
-    insertIndice(&vtxarray, 1);
-    insertIndice(&vtxarray, 2);
-
-    insertIndice(&vtxarray, 3);
-    insertIndice(&vtxarray, 4);
-    insertIndice(&vtxarray, 5);
+    circle = createCircle(createPoint(0.0, 0.0, 0.0, 1.0).position, 5, 16);
 }
 
 /* ******************************************************************************** */
