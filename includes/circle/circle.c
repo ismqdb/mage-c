@@ -5,7 +5,7 @@
 /* ******************************************************************************** */
 
 struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
-    assert(_rad > 0);
+    assert(_rad > 0 && _rad < 1.0);
     assert(noOfTri > 4);
 
     struct circle circle;
