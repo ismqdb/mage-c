@@ -10,6 +10,7 @@
 /* ******************************************************************************** */
 
 #include <assert.h>
+#include <math.h>
 
 /* ******************************************************************************** */
 
@@ -23,7 +24,7 @@ struct circle {
     unsigned noOfTriangles;
     struct vec4 position;
 
-    struct array triangles;
+    struct array vertices;
     struct array indices;
 };
 
