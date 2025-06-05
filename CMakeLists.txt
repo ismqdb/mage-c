@@ -15,6 +15,7 @@ set(LIB_FILES
     "includes/vec4/vec4.c"
     "includes/point/point.c"
     "includes/triangle/triangle.c"
+    "includes/circle/circle.c"
 )
 
 add_executable(mage ${SOURCE_FILES} ${LIB_FILES} src/src.c src/setup.c)
