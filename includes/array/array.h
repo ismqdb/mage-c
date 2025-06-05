@@ -57,4 +57,6 @@ int byteSize(struct array*);
 int insertInt(struct array*, int);
 void insertFloat(struct array*, float);
 
+void insertVec4(struct array*, struct vec4*);
+
 /* ******************************************************************************** */
