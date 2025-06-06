@@ -8,7 +8,7 @@
 /* ******************************************************************************** */
 
 void openglSetup(){
-    vtxarray = createVertexArray(GL_TRIANGLES);
+    vtxarray = createVertexArray(GL_POINTS);
 
     circle = createCircle(createPoint(0.0, 0.0, 0.0, 1.0).position, 0.25, 16);
 

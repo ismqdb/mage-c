@@ -26,7 +26,7 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
     float angle = 0.0;
     float angleRad = 0.0;
 
-    for(int i = 0; i < (noOfTri*2); i++){
+    for(int i = 0; i < noOfTri; i++){
         angleRad = (angle * 3.14)/360;
 
         pt2 = createPoint(
@@ -53,17 +53,14 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
         insertTriangle(&circle.vertices, _tempTri);
     }
 
-    int i = 0;
+    int i = 1;
 
-    for(; i < noOfTri*2; i++){
+    for(; i < noOfTri*3; i++){
         insertInt(&circle.indices, 0);
         insertInt(&circle.indices, i);
         insertInt(&circle.indices, i+1);
     }
 
-    insertInt(&circle.indices, 0);
-    insertInt(&circle.indices, i);
-    insertInt(&circle.indices, 1);
 
     return circle;
 }
