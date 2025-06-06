@@ -109,8 +109,25 @@ void insertFloat(struct array *array, float value){
 
 /* ******************************************************************************** */
 
-void addTriangle(struct array *array, struct triangle tri){
-    
+void insertPoint(struct array *array, struct point point){
+    insertFloat(array, point.position.x);
+    insertFloat(array, point.position.y);
+    insertFloat(array, point.position.z);
+    insertFloat(array, point.position.w);
+}
+
+/* ******************************************************************************** */
+
+void insertTriangle(struct array *array, struct triangle triangle){
+    insertPoint(array, triangle.point_a);
+    insertPoint(array, triangle.point_b);
+    insertPoint(array, triangle.point_c);
+}
+
+/* ******************************************************************************** */
+
+void insertIndice(struct array *array, int indice){
+    insertInt(array, indice);
 }
 
 /* ******************************************************************************** */

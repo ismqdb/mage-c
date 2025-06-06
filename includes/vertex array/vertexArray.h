@@ -56,15 +56,6 @@ void destroyVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-void insertPoint(struct vertexArray*, struct point);
-void insertIndice(struct vertexArray*, int);
-
-/* ******************************************************************************** */
-
-void insertTriangle(struct vertexArray*, struct triangle);
-
-/* ******************************************************************************** */
-
 int vertexSizeof(struct vertexArray*);
 int indicesSizeof(struct vertexArray*);
 

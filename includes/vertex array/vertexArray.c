@@ -33,29 +33,6 @@ void destroyVertexArray(struct vertexArray *vertexArray){
 
 /* ******************************************************************************** */
 
-void insertPoint(struct vertexArray *array, struct point point){
-    insertFloat(&array->vertices, point.position.x);
-    insertFloat(&array->vertices, point.position.y);
-    insertFloat(&array->vertices, point.position.z);
-    insertFloat(&array->vertices, point.position.w);
-}
-
-/* ******************************************************************************** */
-
-void insertTriangle(struct vertexArray *array, struct triangle triangle){
-    insertPoint(array, triangle.point_a);
-    insertPoint(array, triangle.point_b);
-    insertPoint(array, triangle.point_c);
-}
-
-/* ******************************************************************************** */
-
-void insertIndice(struct vertexArray *array, int indice){
-    insertInt(&array->indices, indice);
-}
-
-/* ******************************************************************************** */
-
 int vertexSizeof(struct vertexArray *array){
     return byteSize(&array->vertices);
 }

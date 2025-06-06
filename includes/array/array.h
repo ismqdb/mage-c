@@ -59,6 +59,11 @@ void insertFloat(struct array*, float);
 
 /* ******************************************************************************** */
 
-void addTriangle(struct array*, struct triangle);
+void insertPoint(struct array*, struct point);
+void insertIndice(struct array*, int);
+
+/* ******************************************************************************** */
+
+void insertTriangle(struct array*, struct triangle);
 
 /* ******************************************************************************** */
