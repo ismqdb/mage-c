@@ -37,6 +37,7 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
         );
 
         angle += circle.arcLen;
+        angleRad = (angle * 3.14)/360;
 
         pt3 = createPoint(
             _pos.x + _rad * cos(angleRad),
@@ -48,6 +49,8 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
         struct triangle _tempTri = createTriangle(centerPoint, pt2, pt3);
 
         angle += circle.arcLen;
+
+        insertTriangle(&circle.vertices, _tempTri);
     }
 
     int i = 0;
