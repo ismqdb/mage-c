@@ -61,7 +61,7 @@ void insertIndice(struct vertexArray*, int);
 
 /* ******************************************************************************** */
 
-void insertTriangle(struct vertexArray*, struct triangle1);
+void insertTriangle(struct vertexArray*, struct triangle);
 
 /* ******************************************************************************** */
 

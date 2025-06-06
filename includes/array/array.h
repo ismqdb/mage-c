@@ -11,7 +11,7 @@
 /* ******************************************************************************** */
 
 #include "../allocMacros.h"
-#include "../vec4/vec4.h"
+#include "../triangle/triangle.h"
 
 /* ******************************************************************************** */
 
@@ -31,7 +31,7 @@ struct array {
 
     union {
         int     *ints;
-        float  *floats;
+        float   *floats;
     } data;
 
     int size;
@@ -57,6 +57,8 @@ int byteSize(struct array*);
 int insertInt(struct array*, int);
 void insertFloat(struct array*, float);
 
-void insertVec4(struct array*, struct vec4*);
+/* ******************************************************************************** */
+
+void addTriangle(struct array*, struct triangle);
 
 /* ******************************************************************************** */

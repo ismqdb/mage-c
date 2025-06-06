@@ -109,11 +109,8 @@ void insertFloat(struct array *array, float value){
 
 /* ******************************************************************************** */
 
-void insertVec4(struct array *array, struct vec4 *vec){
-    insertFloat(array, vec->x);
-    insertFloat(array, vec->y);
-    insertFloat(array, vec->z);
-    insertFloat(array, vec->w);
+void addTriangle(struct array *array, struct triangle tri){
+    
 }
 
 /* ******************************************************************************** */

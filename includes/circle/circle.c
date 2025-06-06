@@ -18,24 +18,34 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
     circle.noOfTriangles = noOfTri;
     circle.arcLen = 360.0/noOfTri;
 
-    struct vec4 temp;
+    struct point centerPoint = createPoint(_pos.x, _pos.y, 0.0, 1.0);
+
+    struct point pt2;
+    struct point pt3;
+
     float angle = 0.0;
     float angleRad = 0.0;
-
-    temp.x = _pos.x;
-    temp.y = _pos.y;
-    temp.z = 0.0;
-    temp.w = 1.0;
-
-    insertVec4(&circle.vertices, &temp);
 
     for(int i = 0; i < (noOfTri*2); i++){
         angleRad = (angle * 3.14)/360;
 
-        temp.x = _pos.x + _rad * cos(angleRad);
-        temp.y = _pos.y + _rad * sin(angleRad);
+        pt2 = createPoint(
+            _pos.x + _rad * cos(angleRad),
+            _pos.x + _rad * sin(angleRad),
+            0.0,
+            1.0
+        );
 
-        insertVec4(&circle.vertices, &temp);
+        angle += circle.arcLen;
+
+        pt3 = createPoint(
+            _pos.x + _rad * cos(angleRad),
+            _pos.x + _rad * sin(angleRad),
+            0.0,
+            1.0
+        );
+
+        struct triangle _tempTri = createTriangle(centerPoint, pt2, pt3);
 
         angle += circle.arcLen;
     }

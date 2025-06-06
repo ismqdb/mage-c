@@ -8,11 +8,11 @@
 
 /* ******************************************************************************** */
 
-struct triangle1 createTriangle(struct point, struct point, struct point);
+struct triangle createTriangle(struct point, struct point, struct point);
 
 /* ******************************************************************************** */
 
-struct triangle1 {
+struct triangle {
     struct point point_a;
     struct point point_b;
     struct point point_c;

@@ -42,7 +42,7 @@ void insertPoint(struct vertexArray *array, struct point point){
 
 /* ******************************************************************************** */
 
-void insertTriangle(struct vertexArray *array, struct triangle1 triangle){
+void insertTriangle(struct vertexArray *array, struct triangle triangle){
     insertPoint(array, triangle.point_a);
     insertPoint(array, triangle.point_b);
     insertPoint(array, triangle.point_c);
