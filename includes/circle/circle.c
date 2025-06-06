@@ -6,7 +6,7 @@
 
 struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
     assert(_rad > 0 && _rad < 1.0);
-    assert(noOfTri > 4);
+    assert(noOfTri >= 4);
 
     struct circle circle;
 
@@ -53,14 +53,8 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
         insertTriangle(&circle.vertices, _tempTri);
     }
 
-    int i = 1;
-
-    for(; i < noOfTri*3; i++){
-        insertInt(&circle.indices, 0);
+    for(int i = 0; i < noOfTri*3; i++)
         insertInt(&circle.indices, i);
-        insertInt(&circle.indices, i+1);
-    }
-
 
     return circle;
 }

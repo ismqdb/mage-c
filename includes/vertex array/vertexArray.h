@@ -32,6 +32,7 @@ enum arrayRenderType {
     POINTS      = GL_POINTS,
     LINES       = GL_LINES,
     TRIANGLES   = GL_TRIANGLES,
+    TRI_FAN     = GL_TRIANGLE_FAN,
 
     ARRAY_RENDER_TYPE_MAX
 };
