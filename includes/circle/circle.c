@@ -5,8 +5,8 @@
 /* ******************************************************************************** */
 
 struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
-    assert(_rad > 0 && _rad < 1.0);
-    assert(noOfTri >= 4);
+    assert(_rad > 0.0 && _rad < 1.0);
+    assert(noOfTri >= 4 && noOfTri <= 32);
 
     struct circle circle;
 
@@ -19,6 +19,7 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
     circle.arcLen = 360.0/noOfTri;
 
     struct point centerPoint = createPoint(_pos.x, _pos.y, 0.0, 1.0);
+    insertPoint(&circle.vertices, centerPoint);
 
     struct point pt2;
     struct point pt3;
@@ -46,15 +47,21 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
             1.0
         );
 
-        struct triangle _tempTri = createTriangle(centerPoint, pt2, pt3);
+        insertPoint(&circle.vertices, pt2);
+        insertPoint(&circle.vertices, pt3);
 
         angle += circle.arcLen;
-
-        insertTriangle(&circle.vertices, _tempTri);
     }
 
-    for(int i = 0; i < noOfTri*3; i++)
+    for(int i = 0; i < (noOfTri*2); i++){
+        insertInt(&circle.indices, 0);
         insertInt(&circle.indices, i);
+        insertInt(&circle.indices, i+1);
+    }
+
+    insertInt(&circle.indices, 0);
+    insertInt(&circle.indices, noOfTri*2);
+    insertInt(&circle.indices, 1);
 
     return circle;
 }
