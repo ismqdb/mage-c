@@ -12,7 +12,8 @@ int pressed[GLFW_KEY_LAST];
 
 /* ******************************************************************************** */
 
-struct circle circle;
+struct circle circle1;
+struct circle circle2;
 
 struct vertexArray vtxarray;
 

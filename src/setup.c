@@ -10,9 +10,10 @@
 void openglSetup(){
     vtxarray = createVertexArray(GL_TRIANGLES);
 
-    circle = createCircle(createPoint(0.0, 0.0, 0.0, 1.0).position, 1.0/8, 32);
+    circle1 = createCircle(createPoint(0.0, 0.0, 0.0, 1.0).position, 1.0/8, 32);
+    circle2 = createCircle(createPoint(0.5, 0.0, 0.0, 1.0).position, 1.0/8, 32);
 
-    memcpy(&vtxarray.vertices, &circle.vertices, byteSize(&circle.vertices));
+    memcpy(&vtxarray.vertices, &circle1.vertices, byteSize(&circle1.vertices));
 }
 
 /* ******************************************************************************** */
