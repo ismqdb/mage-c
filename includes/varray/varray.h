@@ -15,24 +15,8 @@
 
 /* ******************************************************************************** */
 
-enum arrayType {
-    ARRAY_TYPE_MIN,
-
-    ARRAY_INT,
-    ARRAY_FLOAT,
-
-    ARRAY_TYPE_MAX
-};
-
-/* ******************************************************************************** */
-
-struct array {
-    enum arrayType type;
-
-    union {
-        int     *ints;
-        float   *floats;
-    } data;
+struct varray {
+    float *elems;
 
     int size;
     int capacity;
@@ -40,30 +24,25 @@ struct array {
 
 /* ******************************************************************************** */
 
-struct array createArray(enum arrayType);
-void destroyArray(struct array*);
+struct varray vcreateArray();
+void vdestroyArray(struct varray*);
 
 /* ******************************************************************************** */
 
-void reserve(struct array*);
+void vreserve(struct varray*);
 
 /* ******************************************************************************** */
 
-void* getBytes(struct array*);
-int byteSize(struct array*);
+void* vgetBytes(struct varray*);
+int vbyteSize(struct varray*);
 
 /* ******************************************************************************** */
 
-int insertInt(struct array*, int);
-void insertFloat(struct array*, float);
+void insertFloat(struct varray*, float);
 
 /* ******************************************************************************** */
 
-void insertPoint(struct array*, struct point);
-void insertIndice(struct array*, int);
-
-/* ******************************************************************************** */
-
-void insertTriangle(struct array*, struct triangle);
+void insertPoint(struct varray*, struct point);
+void insertTriangle(struct varray*, struct triangle);
 
 /* ******************************************************************************** */

@@ -19,10 +19,8 @@
 
 /* ******************************************************************************** */
 
-#include "../array/array.h"
-#include "../point/point.h"
-#include "../triangle/triangle.h"
-#include "../circle/circle.h"
+#include "../varray/varray.h"
+#include "../iarray/iarray.h"
 
 /* ******************************************************************************** */
 
@@ -42,8 +40,8 @@ enum arrayRenderType {
 struct vertexArray {
     enum arrayRenderType renderType;
 
-    struct array vertices;
-    struct array indices;
+    struct varray vertices;
+    struct iarray indices;
 
     int vao[1];
     int vbo[1];

@@ -10,8 +10,8 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
     struct vertexArray vertexArray;
 
     vertexArray.renderType  = rtype;
-    vertexArray.vertices    = createArray(ARRAY_FLOAT);
-    vertexArray.indices     = createArray(ARRAY_INT);
+    vertexArray.vertices    = vcreateArray();
+    vertexArray.indices     = icreateArray();
 
     vertexArray.vao[0] = -1;
     vertexArray.vbo[0] = -1;
@@ -23,8 +23,8 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
 /* ******************************************************************************** */
 
 void destroyVertexArray(struct vertexArray *vertexArray){
-    destroyArray(&vertexArray->vertices);
-    destroyArray(&vertexArray->indices);
+    vdestroyArray(&vertexArray->vertices);
+    idestroyArray(&vertexArray->indices);
 
     vertexArray->vao[0] = -1;
     vertexArray->vbo[0] = -1;
@@ -34,13 +34,13 @@ void destroyVertexArray(struct vertexArray *vertexArray){
 /* ******************************************************************************** */
 
 int vertexSizeof(struct vertexArray *array){
-    return byteSize(&array->vertices);
+    return vbyteSize(&array->vertices);
 }
 
 /* ******************************************************************************** */
 
 int indicesSizeof(struct vertexArray *array){
-    return byteSize(&array->indices);
+    return ibyteSize(&array->indices);
 }
 
 /* ******************************************************************************** */
@@ -58,13 +58,13 @@ int indiceCount(struct vertexArray *array){
 /* ******************************************************************************** */
 
 float* verticesRaw(struct vertexArray *array){
-    return (float*)getBytes(&array->vertices);
+    return (float*)vgetBytes(&array->vertices);
 }
 
 /* ******************************************************************************** */
 
 int* indicesRaw(struct vertexArray *array){
-    return (int*)getBytes(&array->indices);
+    return (int*)igetBytes(&array->indices);
 }
 
 /* ******************************************************************************** */

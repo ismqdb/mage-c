@@ -23,6 +23,9 @@
         "utility": "c",
         "variant": "c",
         "glfw3.h": "c",
-        "vertexarray.h": "c"
+        "vertexarray.h": "c",
+        "assert.h": "c",
+        "vec4.h": "c",
+        "varray.h": "c"
     }
 }

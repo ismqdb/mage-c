@@ -5,7 +5,12 @@
 /* ******************************************************************************** */
 
 #include "../vec4/vec4.h"
-#include "../array/array.h"
+
+#include "../point/point.h"
+#include "../triangle/triangle.h"
+
+#include "../varray/varray.h"
+#include "../iarray/iarray.h"
 
 /* ******************************************************************************** */
 
@@ -24,8 +29,8 @@ struct circle {
     unsigned noOfTriangles;
     struct vec4 position;
 
-    struct array vertices;
-    struct array indices;
+    struct varray vertices;
+    struct iarray indices;
 };
 
 /* ******************************************************************************** */
