@@ -32,7 +32,7 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
 
         pt2 = createPoint(
             _pos.x + _rad * cos(angleRad),
-            _pos.x + _rad * sin(angleRad),
+            _pos.y + _rad * sin(angleRad),
             0.0,
             1.0
         );
@@ -42,7 +42,7 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
 
         pt3 = createPoint(
             _pos.x + _rad * cos(angleRad),
-            _pos.x + _rad * sin(angleRad),
+            _pos.y + _rad * sin(angleRad),
             0.0,
             1.0
         );
