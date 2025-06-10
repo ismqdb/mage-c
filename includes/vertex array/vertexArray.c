@@ -69,6 +69,20 @@ int* indicesRaw(struct vertexArray *array){
 
 /* ******************************************************************************** */
 
+void appendVertices(struct vertexArray *vtxarray, struct varray *vertices){
+    for(int i = 0; i < vertices->size; i++)
+        insertFloat(&vtxarray->vertices, vertices->elems[i]);
+}
+
+/* ******************************************************************************** */
+
+void appendIndices(struct vertexArray *vtxarray, struct iarray *indices){
+    for(int i = 0; i < indices->size; i++)
+        insertInt(&vtxarray->indices, indices->elems[i]);
+}
+
+/* ******************************************************************************** */
+
 void preparevtx(struct vertexArray* vtxarray){
     glGenVertexArrays(1, vtxarray->vao);
     glBindVertexArray(vtxarray->vao[0]);

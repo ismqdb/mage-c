@@ -70,6 +70,11 @@ int* indicesRaw(struct vertexArray*);
 
 /* ******************************************************************************** */
 
+void appendVertices(struct vertexArray*, struct varray*);
+void appendIndices(struct vertexArray*, struct iarray*);
+
+/* ******************************************************************************** */
+
 void preparevtx(struct vertexArray*);
 void rendervtx(struct vertexArray*);
 
