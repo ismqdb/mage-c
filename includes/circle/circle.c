@@ -53,10 +53,10 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
         angle += circle.arcLen;
     }
 
-    for(int i = 0; i < (noOfTri*2); i++){
+    for(int i = 1; i < (noOfTri*2); i++){
         insertInt(&circle.indices, 0);
         insertInt(&circle.indices, i);
-        insertInt(&circle.indices, i+1);
+        insertInt(&circle.indices, i + 1);
     }
 
     insertInt(&circle.indices, 0);
