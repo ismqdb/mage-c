@@ -77,3 +77,15 @@ struct vec4 subVec(struct vec4 a, struct vec4 b, double perspective){
 }
 
 /* ******************************************************************************** */
+
+double magnitude(struct vec4 vec){
+    double sum = 0;
+
+    sum += vec.x*vec.x;
+    sum += vec.y*vec.y;
+    sum += vec.z*vec.z;
+
+    return sum;
+}
+
+/* ******************************************************************************** */
