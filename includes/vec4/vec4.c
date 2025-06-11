@@ -51,3 +51,29 @@ struct vec4 createVec4_4d(double _x, double _y, double _z, double _w){
 }
 
 /* ******************************************************************************** */
+
+struct vec4 addVec(struct vec4 a, struct vec4 b, double perspective){
+    struct vec4 result;
+
+    result.x = a.x + b.x;
+    result.y = a.y + b.y;
+    result.z = a.z + b.z;
+    result.w = perspective;
+
+    return result;
+}
+
+/* ******************************************************************************** */
+
+struct vec4 subVec(struct vec4 a, struct vec4 b, double perspective){
+    struct vec4 result;
+
+    result.x = a.x - b.x;
+    result.y = a.y - b.y;
+    result.z = a.z - b.z;
+    result.w = perspective;
+
+    return result;
+}
+
+/* ******************************************************************************** */

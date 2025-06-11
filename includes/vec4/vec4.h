@@ -14,6 +14,11 @@ struct vec4 createVec4_4d(double, double, double, double);
 
 /* ******************************************************************************** */
 
+struct vec4 addVec(struct vec4, struct vec4, double);
+struct vec4 subVec(struct vec4, struct vec4, double);
+
+/* ******************************************************************************** */
+
 struct vec4 {
     double x;
     double y;
