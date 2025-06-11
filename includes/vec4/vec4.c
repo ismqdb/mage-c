@@ -104,3 +104,19 @@ struct vec4 normalize(struct vec4 vec){
 }
 
 /* ******************************************************************************** */
+
+struct vec4 scalarMul(struct vec4 vec, int mul){
+    assert(mul != 0);
+
+    struct vec4 result;
+
+    result.x = vec.x*mul;
+    result.y = vec.y*mul;
+    result.z = vec.z*mul;
+
+    result.w = vec.w;
+
+    return result;
+}
+
+/* ******************************************************************************** */
