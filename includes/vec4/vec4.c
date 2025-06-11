@@ -120,3 +120,42 @@ struct vec4 scalarMul(struct vec4 vec, int mul){
 }
 
 /* ******************************************************************************** */
+
+struct vec4 componentProduct(struct vec4 a, struct vec4 b, double perspective){
+    struct vec4 result;
+
+    result.x = a.x * b.x;
+    result.y = a.y * b.y;
+    result.z = a.z * b.z;
+    result.w = perspective;
+
+    return result;
+}
+
+/* ******************************************************************************** */
+
+double dotProduct(struct vec4 a, struct vec4 b){
+    struct vec4 result;
+
+    result.x = a.x * b.x;
+    result.y = a.y * b.y;
+    result.z = a.z * b.z;
+
+    return result.x + result.y + result.z;
+}
+
+/* ******************************************************************************** */
+
+struct vec4 crossProduct(struct vec4 a, struct vec4 b, double perspective){
+    struct vec4 result;
+
+    result.x = a.y * b.z - a.z * b.y;
+    result.y = a.z * b.x - a.x * b.z;
+    result.z = a.x * b.y - a.y * a.x;
+
+    result.w = perspective;
+
+    return result;
+}
+
+/* ******************************************************************************** */
