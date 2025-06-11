@@ -89,3 +89,18 @@ double magnitude(struct vec4 vec){
 }
 
 /* ******************************************************************************** */
+
+struct vec4 normalize(struct vec4 vec){
+    struct vec4 result;
+    double _mag = magnitude(vec);
+
+    result.x = vec.x/_mag;
+    result.y = vec.y/_mag;
+    result.z = vec.z/_mag;
+
+    result.w = vec.w;
+
+    return result;
+}
+
+/* ******************************************************************************** */

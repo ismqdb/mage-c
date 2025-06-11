@@ -21,6 +21,7 @@ struct vec4 subVec(struct vec4, struct vec4, double);
 /* ******************************************************************************** */
 
 double magnitude(struct vec4);
+struct vec4 normalize(struct vec4);
 
 /* ******************************************************************************** */
 
