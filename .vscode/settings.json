@@ -26,6 +26,7 @@
         "vertexarray.h": "c",
         "assert.h": "c",
         "vec4.h": "c",
-        "varray.h": "c"
+        "varray.h": "c",
+        "allocmacros.h": "c"
     }
 }

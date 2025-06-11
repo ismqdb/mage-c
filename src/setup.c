@@ -10,22 +10,14 @@
 void openglSetup(){
     vtxarray = createVertexArray(GL_TRIANGLES);
 
-    struct varray vertices;
-
     point1 = createPoint(0.0, 0.50, 0.46, 1.0);
     point2 = createPoint(0.0, -0.50, 0.46, 1.0);
     point3 = createPoint(0.5, 0.0, 0.46, 1.0);
 
     triangle = createTriangle(point1, point2, point3);
 
-    struct iarray indices;
-
-    insertIndice(&indices, 0);
-    insertIndice(&indices, 1);
-    insertIndice(&indices, 2);
-
-    //appendVertices(&vtxarray, &triangle.);
-    //appendIndices(&vtxarray, &circle1.indices);
+    appendVertices(&vtxarray, &triangle.vertices);
+    appendIndices(&vtxarray, &triangle.indices);
 }
 
 /* ******************************************************************************** */

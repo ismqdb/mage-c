@@ -63,11 +63,3 @@ void insertPoint(struct varray *array, struct point point){
 }
 
 /* ******************************************************************************** */
-
-void insertTriangle(struct varray *array, struct triangle triangle){
-    insertPoint(array, triangle.point_a);
-    insertPoint(array, triangle.point_b);
-    insertPoint(array, triangle.point_c);
-}
-
-/* ******************************************************************************** */

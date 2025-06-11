@@ -10,8 +10,8 @@
 
 /* ******************************************************************************** */
 
+#include "../point/point.h"
 #include "../allocMacros.h"
-#include "../triangle/triangle.h"
 
 /* ******************************************************************************** */
 
@@ -43,6 +43,5 @@ void insertFloat(struct varray*, float);
 /* ******************************************************************************** */
 
 void insertPoint(struct varray*, struct point);
-void insertTriangle(struct varray*, struct triangle);
 
 /* ******************************************************************************** */
