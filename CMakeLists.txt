@@ -16,6 +16,7 @@ set(LIB_FILES
     "includes/vertex array/vertexArray.c"
     "includes/vec4/vec4.c"
     "includes/point/point.c"
+    "includes/mat4/mat4.c"
     "includes/triangle/triangle.c"
     "includes/circle/circle.c"
 )
