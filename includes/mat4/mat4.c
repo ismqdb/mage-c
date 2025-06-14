@@ -59,3 +59,14 @@ struct mat4 identityMatrix(){
 }
 
 /* ******************************************************************************** */
+
+struct mat4 translationMatrix(struct mat4 inputMat, struct vec4 vec){
+    inputMat.a03 = vec.x;
+    inputMat.a13 = vec.y;
+    inputMat.a23 = vec.z;
+    inputMat.a33 = 1.0;
+
+    return inputMat;
+}
+
+/* ******************************************************************************** */
