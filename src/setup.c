@@ -18,6 +18,10 @@ void openglSetup(){
 
     appendVertices(&vtxarray, &triangle.vertices);
     appendIndices(&vtxarray, &triangle.indices);
+
+    projectionMatrix = identityMatrix();
+    viewMatrix = identityMatrix();
+    modelMatrix = identityMatrix();
 }
 
 /* ******************************************************************************** */
@@ -69,6 +73,10 @@ void render(double currentTime){
     GLfloat green[] = {0.0f, 0.25f, 0.0f, 1.0f};
     glClearBufferfv(GL_COLOR, 0, green);
 
+    glUniformMatrix4fv(viewMatrixLocation,          1, GL_FALSE, &viewMatrix.a00);
+    glUniformMatrix4fv(projectionMatrixLocation,    1, GL_FALSE, &projectionMatrix.a00);
+    glUniformMatrix4fv(modelMatrixLocation,         1, GL_FALSE, &modelMatrix.a00);
+
     rendervtx(&vtxarray);
 }
 
@@ -89,6 +97,10 @@ int gameLoop(){
 
     GLuint program = loadShader(shaders);
     glUseProgram(program);
+
+    projectionMatrixLocation = glGetUniformLocation(program, "projection");
+    viewMatrixLocation = glGetUniformLocation(program, "view");
+    modelMatrixLocation = glGetUniformLocation(program, "model");
 
     openglSetup();
 
