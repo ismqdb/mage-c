@@ -21,6 +21,7 @@ struct mat4 identityMatrix();
 struct mat4 translationMatrix(struct mat4, struct vec4);
 struct mat4 scalingMatrix(struct mat4, float, float);
 struct mat4 rotationMatrix(struct mat4, float, float, float);
+struct mat4 reflectMatrix(struct mat4, int, int);
 
 /* ******************************************************************************** */
 

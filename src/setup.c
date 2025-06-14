@@ -25,7 +25,7 @@ void openglSetup(){
 
     translationVec = createVec4_3d(-0.5, 0.0, 0.0);
 
-    modelMatrix = translationMatrix(modelMatrix, translationVec);
+    modelMatrix = reflectMatrix(modelMatrix, 0, 1);
 }
 
 /* ******************************************************************************** */

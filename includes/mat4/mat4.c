@@ -104,3 +104,18 @@ struct mat4 rotationMatrix(struct mat4 inputMat, float xangle, float yangle, flo
 }
 
 /* ******************************************************************************** */
+
+struct mat4 reflectMatrix(struct mat4 inputMat, int xref, int yref){
+    assert(xref == 0 || xref == 1);
+    assert(yref == 0 || yref == 1);
+
+    if(xref)
+        inputMat.a11 = -1;
+
+    if(yref)
+        inputMat.a00 = -1;
+
+    return inputMat;
+}
+
+/* ******************************************************************************** */
