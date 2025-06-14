@@ -70,3 +70,12 @@ struct mat4 translationMatrix(struct mat4 inputMat, struct vec4 vec){
 }
 
 /* ******************************************************************************** */
+
+struct mat4 scalingMatrix(struct mat4 inputMat, float xScale, float yScale){
+    inputMat.a00 = xScale;
+    inputMat.a11 = yScale;
+
+    return inputMat;
+}
+
+/* ******************************************************************************** */
