@@ -10,22 +10,11 @@
 void openglSetup(){
     vtxarray = createVertexArray(GL_TRIANGLES);
 
-    point1 = createPoint(0.0, 0.50, 0.46, 1.0);
-    point2 = createPoint(0.0, -0.50, 0.46, 1.0);
-    point3 = createPoint(0.5, 0.0, 0.46, 1.0);
-
-    triangle = createTriangle(point1, point2, point3);
-
-    appendVertices(&vtxarray, &triangle.vertices);
-    appendIndices(&vtxarray, &triangle.indices);
+    
 
     projectionMatrix = identityMatrix();
     viewMatrix = identityMatrix();
     modelMatrix = identityMatrix();
-
-    translationVec = createVec4_3d(-0.5, 0.0, 0.0);
-
-    modelMatrix = reflectMatrix(modelMatrix, 0, 1);
 }
 
 /* ******************************************************************************** */
