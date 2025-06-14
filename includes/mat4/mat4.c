@@ -72,6 +72,9 @@ struct mat4 translationMatrix(struct mat4 inputMat, struct vec4 vec){
 /* ******************************************************************************** */
 
 struct mat4 scalingMatrix(struct mat4 inputMat, float xScale, float yScale){
+    assert(xScale > 0.0 && xScale <= 2.0);
+    assert(yScale > 0.0 && yScale <= 2.0);
+
     inputMat.a00 = xScale;
     inputMat.a11 = yScale;
 
