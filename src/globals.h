@@ -13,6 +13,10 @@ int pressed[GLFW_KEY_LAST];
 
 /* ******************************************************************************** */
 
+GLint projectionMatrixLocation;
+GLint viewMatrixLocation;
+GLint modelMatrixLocation;
+
 struct point point1;
 struct point point2;
 struct point point3;
