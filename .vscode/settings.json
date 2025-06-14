@@ -28,6 +28,7 @@
         "vec4.h": "c",
         "varray.h": "c",
         "allocmacros.h": "c",
-        "point.h": "c"
+        "point.h": "c",
+        "mat4.h": "c"
     }
 }

@@ -10,11 +10,16 @@
 void openglSetup(){
     vtxarray = createVertexArray(GL_TRIANGLES);
 
-    
+    cube = makeCube();
+
+    appendVertices(&vtxarray, &cube.vertices);
+    appendIndices(&vtxarray, &cube.indices);
 
     projectionMatrix = identityMatrix();
     viewMatrix = identityMatrix();
     modelMatrix = identityMatrix();
+
+    modelMatrix = rotationMatrix(modelMatrix, 45, 45, 45);
 }
 
 /* ******************************************************************************** */
@@ -84,9 +89,9 @@ int gameLoop(){
         {GL_NONE, NULL}
     };
 
-    glDisable(GL_CULL_FACE);
-    glDisable(GL_DEPTH_TEST);
-    glPointSize(10);
+    glEnable(GL_DEPTH_TEST);
+    glFrontFace(GL_CCW);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     GLuint program = loadShader(shaders);
     glUseProgram(program);
