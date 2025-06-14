@@ -83,22 +83,22 @@ struct mat4 scalingMatrix(struct mat4 inputMat, float xScale, float yScale){
 
 /* ******************************************************************************** */
 
-struct mat4 rotationMatrix(struct mat4 inputMat, float xangle, float yangle, float zangle){
-    assert(xangle >= -360.0 && xangle <= 360.0);
-    assert(yangle >= -360.0 && yangle <= 360.0);
-    assert(zangle >= -360.0 && zangle <= 360.0);
+struct mat4 rotationMatrix(struct mat4 inputMat, float x, float y, float z){
+    assert(x >= -360.0 && x <= 360.0);
+    assert(y >= -360.0 && y <= 360.0);
+    assert(z >= -360.0 && z <= 360.0);
 
-    inputMat.a00 = cos(yangle)*cos(zangle);
-    inputMat.a01 = cos(yangle)*sin(zangle);
-    inputMat.a02 = -sin(yangle);
+    inputMat.a00 = cos(y)*cos(z);
+    inputMat.a01 = cos(y)*sin(z);
+    inputMat.a02 = -sin(y);
 
-    inputMat.a10 = sin(xangle)*sin(yangle)*cos(zangle) - cos(xangle)*sin(zangle);
-    inputMat.a11 = sin(xangle)*sin(yangle)*sin(zangle) + cos(xangle)*cos(zangle);
-    inputMat.a12 = sin(xangle)*cos(yangle);
+    inputMat.a10 = sin(x)*sin(y)*cos(z) - cos(x)*sin(z);
+    inputMat.a11 = sin(x)*sin(y)*sin(z) + cos(x)*cos(z);
+    inputMat.a12 = sin(x)*cos(y);
 
-    inputMat.a20 = cos(xangle)*sin(yangle)*cos(zangle) + sin(xangle)*sin(zangle);
-    inputMat.a21 = cos(xangle)*sin(yangle)*sin(zangle) - sin(xangle)*cos(zangle);
-    inputMat.a22 = cos(xangle)*cos(yangle);
+    inputMat.a20 = cos(x)*sin(y)*cos(z) + sin(x)*sin(z);
+    inputMat.a21 = cos(x)*sin(y)*sin(z) - sin(x)*cos(z);
+    inputMat.a22 = cos(x)*cos(y);
 
     return inputMat;
 }
