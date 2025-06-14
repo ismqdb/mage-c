@@ -22,6 +22,10 @@ void openglSetup(){
     projectionMatrix = identityMatrix();
     viewMatrix = identityMatrix();
     modelMatrix = identityMatrix();
+
+    translationVec = createVec4_3d(-0.5, 0.0, 0.0);
+
+    modelMatrix = translationMatrix(modelMatrix, translationVec);
 }
 
 /* ******************************************************************************** */
@@ -75,7 +79,7 @@ void render(double currentTime){
 
     glUniformMatrix4fv(viewMatrixLocation,          1, GL_FALSE, &viewMatrix.a00);
     glUniformMatrix4fv(projectionMatrixLocation,    1, GL_FALSE, &projectionMatrix.a00);
-    glUniformMatrix4fv(modelMatrixLocation,         1, GL_FALSE, &modelMatrix.a00);
+    glUniformMatrix4fv(modelMatrixLocation,         1, GL_TRUE, &modelMatrix.a00);
 
     rendervtx(&vtxarray);
 }

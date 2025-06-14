@@ -22,6 +22,8 @@ struct mat4 projectionMatrix;
 struct mat4 viewMatrix;
 struct mat4 modelMatrix;
 
+struct vec4 translationVec;
+
 struct point point1;
 struct point point2;
 struct point point3;
