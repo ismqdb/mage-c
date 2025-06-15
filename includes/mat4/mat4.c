@@ -32,6 +32,34 @@ struct mat4 zeroMatrix(){
 
 /* ******************************************************************************** */
 
+struct mat4 oneMatrix(){
+    struct mat4 result;
+
+    result.a00 = 1;
+    result.a01 = 1;
+    result.a02 = 1;
+    result.a03 = 1;
+
+    result.a10 = 1;
+    result.a11 = 1;
+    result.a12 = 1;
+    result.a13 = 1;
+
+    result.a20 = 1;
+    result.a21 = 1;
+    result.a22 = 1;
+    result.a23 = 1;
+
+    result.a30 = 1;
+    result.a31 = 1;
+    result.a32 = 1;
+    result.a33 = 1;
+
+    return result;
+}
+
+/* ******************************************************************************** */
+
 struct mat4 identityMatrix(){
     struct mat4 result;
 
