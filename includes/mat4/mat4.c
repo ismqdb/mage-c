@@ -143,3 +143,28 @@ struct mat4 perspective(double zfar, double znear, double aratio, int fov){
 }
 
 /* ******************************************************************************** */
+
+struct mat4 lookat(struct vec4 eye, struct vec4 center, struct vec4 up){
+    struct vec4 f = normalize(subVec(center, eye, 1.0));
+    struct vec4 u = normalize(up);
+    struct vec4 s = normalize(crossProduct(f, u, 1.0));
+
+    struct mat4 result = oneMatrix();
+
+    result.a00 = s.x;
+    result.a10 = s.y;
+    result.a20 = s.z;
+    result.a01 = u.x;
+    result.a11 = u.y;
+    result.a21 = u.z;
+    result.a02 = -f.x;
+    result.a12 = -f.y;
+    result.a22 = -f.z;
+    result.a30 = -dotProduct(s, eye);
+    result.a31 = -dotProduct(u, eye);
+    result.a32 = dotProduct(f, eye);
+
+    return result;
+}
+
+/* ******************************************************************************** */

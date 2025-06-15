@@ -26,6 +26,7 @@ struct mat4 reflectMatrix(struct mat4, int, int);
 /* ******************************************************************************** */
 
 struct mat4 perspective(double, double, double, int);
+struct mat4 lookat(struct vec4, struct vec4, struct vec4);
 
 /* ******************************************************************************** */
 
