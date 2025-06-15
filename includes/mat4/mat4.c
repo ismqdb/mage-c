@@ -128,7 +128,7 @@ struct mat4 perspective(double zfar, double znear, double aratio, int fov){
         #define M_PI 3.14159265358979323846
     #endif
 
-    struct mat4 result = zeroMatrix();
+    struct mat4 result = identityMatrix();
 
     double rad = fov*M_PI/180.0;
     double tanHalfFov = tan(rad/2);
