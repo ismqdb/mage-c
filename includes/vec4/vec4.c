@@ -17,11 +17,7 @@ struct vec4 createVec4(){
 
 /* ******************************************************************************** */
 
-struct vec4 createVec4_3d(double _x, double _y, double _z){
-    assert(_x >= -1.0 && _x <= 1.0);
-    assert(_y >= -1.0 && _y <= 1.0);
-    assert(_z >= -1.0 && _z <= 1.0);
-    
+struct vec4 createVec4_3d(double _x, double _y, double _z){   
     struct vec4 vec;
 
     vec.x = _x;
@@ -35,11 +31,6 @@ struct vec4 createVec4_3d(double _x, double _y, double _z){
 /* ******************************************************************************** */
 
 struct vec4 createVec4_4d(double _x, double _y, double _z, double _w){
-    assert(_x >= -1.0 && _x <= 1.0);
-    assert(_y >= -1.0 && _y <= 1.0);
-    assert(_z >= -1.0 && _z <= 1.0);
-    assert(_w >= -1.0 && _w <= 1.0);
-    
     struct vec4 vec;
 
     vec.x = _x;
