@@ -16,7 +16,13 @@ void openglSetup(){
     appendIndices(&vtxarray, &cube.indices);
 
     projectionMatrix = perspective(10.0f, 1.0f, 800.0/600, 45);
-    viewMatrix = identityMatrix();
+
+    viewMatrix = lookat(
+        createVec4_3d(0.0f, 0.0f, 3.0f),
+        createVec4_3d(0.0f, 0.0f, 0.0f),
+        createVec4_3d(0.0f, 1.0f, 0.0f)
+    );
+
     modelMatrix = identityMatrix();
 
     modelMatrix = rotationMatrix(modelMatrix, 45, 45, 45);
