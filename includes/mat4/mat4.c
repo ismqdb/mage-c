@@ -119,3 +119,27 @@ struct mat4 reflectMatrix(struct mat4 inputMat, int xref, int yref){
 }
 
 /* ******************************************************************************** */
+
+struct mat4 perspective(double zfar, double znear, double aratio, int fov){
+    assert(aratio != 0);
+    assert(znear != zfar);
+
+    #ifndef M_PI
+        #define M_PI 3.14159265358979323846
+    #endif
+
+    struct mat4 result = zeroMatrix();
+
+    double rad = fov*M_PI/180.0;
+    double tanHalfFov = tan(rad/2);
+
+    result.a00 = 1/(aratio*tanHalfFov);
+    result.a11 = 1/tanHalfFov;
+    result.a22 = -((zfar+znear)/(zfar-znear));
+    result.a23 = -1;
+    result.a32 = -((2*zfar*znear)/(zfar-znear));
+
+    return result;
+}
+
+/* ******************************************************************************** */

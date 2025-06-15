@@ -15,11 +15,10 @@ void openglSetup(){
     appendVertices(&vtxarray, &cube.vertices);
     appendIndices(&vtxarray, &cube.indices);
 
-    projectionMatrix = identityMatrix();
+    projectionMatrix = perspective(100.0f, 0.1f, 800.0/600, 45);
     viewMatrix = identityMatrix();
     modelMatrix = identityMatrix();
 
-    modelMatrix = rotationMatrix(modelMatrix, 45, 45, 45);
 }
 
 /* ******************************************************************************** */

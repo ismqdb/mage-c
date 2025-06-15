@@ -25,6 +25,10 @@ struct mat4 reflectMatrix(struct mat4, int, int);
 
 /* ******************************************************************************** */
 
+struct mat4 perspective(double, double, double, int);
+
+/* ******************************************************************************** */
+
 struct mat4 {
     float a00, a10, a20, a30;
     float a01, a11, a21, a31;
