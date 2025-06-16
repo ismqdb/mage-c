@@ -173,7 +173,7 @@ struct mat4 perspective(double zfar, double znear, double aratio, int fov){
 /* ******************************************************************************** */
 
 struct mat4 lookat(struct vec4 eye, struct vec4 center, struct vec4 up){
-    struct vec4 f = normalize(subVec(center, eye, 1.0));
+    struct vec4 f = normalize(subVec(center, eye));
     struct vec4 u = normalize(up);
     struct vec4 s = normalize(crossProduct(f, u));
 

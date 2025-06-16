@@ -14,8 +14,8 @@ struct vec4 pointVec(double, double, double);
 
 /* ******************************************************************************** */
 
-struct vec4 addVec(struct vec4, struct vec4, double);
-struct vec4 subVec(struct vec4, struct vec4, double);
+struct vec4 addVec(struct vec4, struct vec4);
+struct vec4 subVec(struct vec4, struct vec4);
 
 /* ******************************************************************************** */
 
