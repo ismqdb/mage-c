@@ -137,14 +137,14 @@ double dotProduct(struct vec4 a, struct vec4 b){
 
 /* ******************************************************************************** */
 
-struct vec4 crossProduct(struct vec4 a, struct vec4 b, double perspective){
+struct vec4 crossProduct(struct vec4 a, struct vec4 b){
     struct vec4 result;
 
     result.x = a.y * b.z - a.z * b.y;
     result.y = a.z * b.x - a.x * b.z;
     result.z = a.x * b.y - a.y * a.x;
 
-    result.w = perspective;
+    result.w = 0.0;
 
     return result;
 }
