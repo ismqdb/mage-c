@@ -7,7 +7,7 @@
 struct point createPoint(double _x, double _y, double _z, double _w){
     struct point point;
 
-    point.position = createVec4_4d(_x, _y, _z, _w);
+    point.position = pointVec(_x, _y, _z);
 
     return point;
 }

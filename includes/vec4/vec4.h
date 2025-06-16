@@ -9,9 +9,8 @@
 
 /* ******************************************************************************** */
 
-struct vec4 createVec4();
-struct vec4 createVec4_3d(double, double, double);
-struct vec4 createVec4_4d(double, double, double, double);
+struct vec4 directionVec(double, double, double);
+struct vec4 pointVec(double, double, double);
 
 /* ******************************************************************************** */
 
