@@ -4,6 +4,8 @@
 
 /* ******************************************************************************** */
 
+#include "../types.h"
+
 #include <GL/gl.h>
 
 #include "../../glad/glad.h"
@@ -13,13 +15,13 @@
 
 struct shader {
     GLenum       type;
-    const char*  path;
+    const u8*    path;
     GLuint       name;
 };
 
 /* ******************************************************************************** */
 
 GLuint loadShader(struct shader*);
-static const GLchar* readShader(const char*);
+static const GLchar* readShader(const u8*);
 
 /* ******************************************************************************** */

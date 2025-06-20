@@ -9,33 +9,33 @@ GLFWwindow* window;
 
 /* ******************************************************************************** */
 
-void onResize(GLFWwindow* window, int w, int h){
+void onResize(GLFWwindow* window, i32 w, i32 h){
     info.windowWidth = w;
     info.windowHeight = h;
 }
 
 /* ******************************************************************************** */
 
-void onKey(GLFWwindow* window, int key, int scancode, int action, int mods){}
-void onMouseButton(GLFWwindow* window, int button, int action, int mods){}
-void onMouseMove(GLFWwindow* window, double x, double y){}
-void onMouseWheel(GLFWwindow* window, double xoffset, double yoffset){}
+void onKey(GLFWwindow* window, i32 key, i32 scancode, i32 action, i32 mods){}
+void onMouseButton(GLFWwindow* window, i32 button, i32 action, i32 mods){}
+void onMouseMove(GLFWwindow* window, f64 x, f64 y){}
+void onMouseWheel(GLFWwindow* window, f64 xoffset, f64 yoffset){}
 
 /* ******************************************************************************** */
 
-void setVsync(int enable){
+void setVsync(i32 enable){
     info.flags.vsync = enable ? 1 : 0;
-    glfwSwapInterval((int)info.flags.vsync);
+    glfwSwapInterval((i32)info.flags.vsync);
 }
 
 /* ******************************************************************************** */
 
-void getMousePosition(int *x, int *y){
-    double dx, dy;
+void getMousePosition(i32 *x, i32 *y){
+    f64 dx, dy;
     glfwGetCursorPos(window, &dx, &dy);
 
-    *x = (int)(floor(dx));
-    *y = (int)(floor(dy));
+    *x = (i32)(floor(dx));
+    *y = (i32)(floor(dy));
 }
 
 /* ******************************************************************************** */
@@ -45,7 +45,7 @@ void glfwSetup(){
 
     if (!glfwInit()) {
         const char* description;
-        int code = glfwGetError(&description);
+        i32 code = glfwGetError(&description);
         printf("GLFW init failed (%d): %s\n", code, description);
         abort();
     }

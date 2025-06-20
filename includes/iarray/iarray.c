@@ -10,7 +10,7 @@ struct iarray icreateArray(){
     array.size = 0;
     array.capacity = 16;
         
-    array.elems = heapAllocSized(int, array.capacity);
+    array.elems = heapAllocSized(i32, array.capacity);
     array.elems[0] = '\0';
 
     return array;
@@ -28,7 +28,7 @@ void idestroyArray(struct iarray *array){
 void ireserve(struct iarray *array){
     array->capacity *= 2;
     array->elems = 
-        heapRealloc(int, array->elems, array->capacity);
+        heapRealloc(i32, array->elems, array->capacity);
 }
 
 /* ******************************************************************************** */
@@ -39,13 +39,13 @@ void* igetBytes(struct iarray *array){
 
 /* ******************************************************************************** */
 
-int ibyteSize(struct iarray *array){
-    return sizeof(int) * array->size;
+i32 ibyteSize(struct iarray *array){
+    return sizeof(i32) * array->size;
 }
 
 /* ******************************************************************************** */
 
-int insertInt(struct iarray *array, int value){
+i32 insertInt(struct iarray *array, i32 value){
     if(array->size == array->capacity)
         ireserve(array);
 
@@ -55,7 +55,7 @@ int insertInt(struct iarray *array, int value){
 
 /* ******************************************************************************** */
 
-void insertIndice(struct iarray *array, int indice){
+void insertIndice(struct iarray *array, i32 indice){
     insertInt(array, indice);
 }
 

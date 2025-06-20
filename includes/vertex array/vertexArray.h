@@ -43,9 +43,9 @@ struct vertexArray {
     struct varray vertices;
     struct iarray indices;
 
-    int vao[1];
-    int vbo[1];
-    int ebo[1];
+    i32 vao[1];
+    i32 vbo[1];
+    i32 ebo[1];
 };
 
 /* ******************************************************************************** */
@@ -55,18 +55,18 @@ void destroyVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-int vertexSizeof(struct vertexArray*);
-int indicesSizeof(struct vertexArray*);
+i32 vertexSizeof(struct vertexArray*);
+i32 indicesSizeof(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-int vertexCount(struct vertexArray*);
-int indiceCount(struct vertexArray*);
+i32 vertexCount(struct vertexArray*);
+i32 indiceCount(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-float* verticesRaw(struct vertexArray*);
-int* indicesRaw(struct vertexArray*);
+f32* verticesRaw(struct vertexArray*);
+i32* indicesRaw(struct vertexArray*);
 
 /* ******************************************************************************** */
 

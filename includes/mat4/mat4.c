@@ -99,7 +99,7 @@ struct mat4 translationMatrix(struct mat4 inputMat, struct vec4 vec){
 
 /* ******************************************************************************** */
 
-struct mat4 scalingMatrix(struct mat4 inputMat, float xScale, float yScale){
+struct mat4 scalingMatrix(struct mat4 inputMat, f32 xScale, f32 yScale){
     assert(xScale > 0.0 && xScale <= 2.0);
     assert(yScale > 0.0 && yScale <= 2.0);
 
@@ -111,7 +111,7 @@ struct mat4 scalingMatrix(struct mat4 inputMat, float xScale, float yScale){
 
 /* ******************************************************************************** */
 
-struct mat4 rotationMatrix(struct mat4 inputMat, float x, float y, float z){
+struct mat4 rotationMatrix(struct mat4 inputMat, f32 x, f32 y, f32 z){
     assert(x >= -360.0 && x <= 360.0);
     assert(y >= -360.0 && y <= 360.0);
     assert(z >= -360.0 && z <= 360.0);
@@ -148,7 +148,7 @@ struct mat4 reflectMatrix(struct mat4 inputMat, int xref, int yref){
 
 /* ******************************************************************************** */
 
-struct mat4 perspective(double zfar, double znear, double aratio, int fov){
+struct mat4 perspective(f64 zfar, f64 znear, f64 aratio, int fov){
     assert(aratio != 0);
     assert(znear != zfar);
 
@@ -158,8 +158,8 @@ struct mat4 perspective(double zfar, double znear, double aratio, int fov){
 
     struct mat4 result = identityMatrix();
 
-    double rad = fov*M_PI/180.0;
-    double tanHalfFov = tan(rad/2);
+    f64 rad = fov*M_PI/180.0;
+    f64 tanHalfFov = tan(rad/2);
 
     result.a00 = 1/(aratio*tanHalfFov);
     result.a11 = 1/tanHalfFov;

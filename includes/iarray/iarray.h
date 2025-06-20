@@ -10,16 +10,17 @@
 
 /* ******************************************************************************** */
 
+#include "../types.h"
 #include "../point/point.h"
 #include "../allocMacros.h"
 
 /* ******************************************************************************** */
 
 struct iarray {
-    int *elems;
+    i32 *elems;
 
-    int size;
-    int capacity;
+    i32 size;
+    i32 capacity;
 };
 
 /* ******************************************************************************** */
@@ -34,14 +35,14 @@ void ireserve(struct iarray*);
 /* ******************************************************************************** */
 
 void* igetBytes(struct iarray*);
-int ibyteSize(struct iarray*);
+i32 ibyteSize(struct iarray*);
 
 /* ******************************************************************************** */
 
-int insertInt(struct iarray*, int);
+i32 insertInt(struct iarray*, i32);
 
 /* ******************************************************************************** */
 
-void insertIndice(struct iarray*, int);
+void insertIndice(struct iarray*, i32);
 
 /* ******************************************************************************** */

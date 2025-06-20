@@ -4,7 +4,7 @@
 
 /* ******************************************************************************** */
 
-struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
+struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
     assert(_rad > 0.0 && _rad < 1.0);
     assert(noOfTri >= 4 && noOfTri <= 32);
 
@@ -24,10 +24,10 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
     struct point pt2;
     struct point pt3;
 
-    float angle = 0.0;
-    float angleRad = 0.0;
+    f32 angle = 0.0;
+    f32 angleRad = 0.0;
 
-    for(int i = 0; i < noOfTri; i++){
+    for(i32 i = 0; i < noOfTri; i++){
         angleRad = (angle * 3.14)/360;
 
         pt2 = createPoint(
@@ -53,7 +53,7 @@ struct circle createCircle(struct vec4 _pos, float _rad, int noOfTri){
         angle += circle.arcLen;
     }
 
-    for(int i = 1; i < (noOfTri*2); i++){
+    for(i32 i = 1; i < (noOfTri*2); i++){
         insertInt(&circle.indices, 0);
         insertInt(&circle.indices, i);
         insertInt(&circle.indices, i + 1);

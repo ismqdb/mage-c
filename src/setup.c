@@ -38,7 +38,7 @@ void openglTeardown(){
 /* ******************************************************************************** */
 
 void update(){
-    for(int i = 0; i < GLFW_KEY_LAST; i++){
+    for(i32 i = 0; i < GLFW_KEY_LAST; i++){
         if(!pressed[i])
             continue;
 
@@ -72,7 +72,7 @@ void update(){
 
 /* ******************************************************************************** */
 
-void render(double currentTime){
+void render(f64 currentTime){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     GLfloat green[] = {0.0f, 0.25f, 0.0f, 1.0f};
@@ -87,8 +87,8 @@ void render(double currentTime){
 
 /* ******************************************************************************** */
 
-int gameLoop(){
-    int running = 1;
+i32 gameLoop(){
+    i32 running = 1;
 
     struct shader shaders[] = {
         {GL_VERTEX_SHADER, "../shaders/vs.vert"},

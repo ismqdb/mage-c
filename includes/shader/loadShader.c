@@ -14,7 +14,7 @@
 
 /* ******************************************************************************** */
 
-static const GLchar* readShader(const char* path){
+static const GLchar* readShader(const u8* path){
     #ifdef WIN32
         FILE* infile;
         fopen_s(&infile, path, "rb");
@@ -30,7 +30,7 @@ static const GLchar* readShader(const char* path){
     }
 
     fseek(infile, 0, SEEK_END);
-    int len = ftell(infile);
+    i32 len = ftell(infile);
     fseek(infile, 0, SEEK_SET);
 
     GLchar* source = (GLchar*)malloc(sizeof(GLchar)*(len+1));

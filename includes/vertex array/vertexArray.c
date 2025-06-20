@@ -33,51 +33,51 @@ void destroyVertexArray(struct vertexArray *vertexArray){
 
 /* ******************************************************************************** */
 
-int vertexSizeof(struct vertexArray *array){
+i32 vertexSizeof(struct vertexArray *array){
     return vbyteSize(&array->vertices);
 }
 
 /* ******************************************************************************** */
 
-int indicesSizeof(struct vertexArray *array){
+i32 indicesSizeof(struct vertexArray *array){
     return ibyteSize(&array->indices);
 }
 
 /* ******************************************************************************** */
 
-int vertexCount(struct vertexArray *array){
+i32 vertexCount(struct vertexArray *array){
     return array->vertices.size;
 }
 
 /* ******************************************************************************** */
 
-int indiceCount(struct vertexArray *array){
+i32 indiceCount(struct vertexArray *array){
     return array->indices.size;
 }
 
 /* ******************************************************************************** */
 
-float* verticesRaw(struct vertexArray *array){
-    return (float*)vgetBytes(&array->vertices);
+f32* verticesRaw(struct vertexArray *array){
+    return (f32*)vgetBytes(&array->vertices);
 }
 
 /* ******************************************************************************** */
 
-int* indicesRaw(struct vertexArray *array){
-    return (int*)igetBytes(&array->indices);
+i32* indicesRaw(struct vertexArray *array){
+    return (i32*)igetBytes(&array->indices);
 }
 
 /* ******************************************************************************** */
 
 void appendVertices(struct vertexArray *vtxarray, struct varray *vertices){
-    for(int i = 0; i < vertices->size; i++)
+    for(i32 i = 0; i < vertices->size; i++)
         insertFloat(&vtxarray->vertices, vertices->elems[i]);
 }
 
 /* ******************************************************************************** */
 
 void appendIndices(struct vertexArray *vtxarray, struct iarray *indices){
-    for(int i = 0; i < indices->size; i++)
+    for(i32 i = 0; i < indices->size; i++)
         insertInt(&vtxarray->indices, indices->elems[i]);
 }
 

@@ -4,6 +4,8 @@
 
 /* ******************************************************************************** */
 
+#include "../types.h"
+
 #include "../vec4/vec4.h"
 
 #include "../point/point.h"
@@ -19,14 +21,14 @@
 
 /* ******************************************************************************** */
 
-struct circle createCircle(struct vec4, float, int);
+struct circle createCircle(struct vec4, f32, i32);
 
 /* ******************************************************************************** */
 
 struct circle {
-    float radius;
-    float arcLen;
-    unsigned noOfTriangles;
+    f32 radius;
+    f32 arcLen;
+    u32 noOfTriangles;
     struct vec4 position;
 
     struct varray vertices;

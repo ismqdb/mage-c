@@ -16,6 +16,7 @@
 
 /* ******************************************************************************** */
 
+#include "../types.h"
 #include "../appInfo.h"
 
 /* ******************************************************************************** */
@@ -25,16 +26,16 @@ extern GLFWwindow* window;
 
 /* ******************************************************************************** */
 
-void onResize(GLFWwindow*, int, int);
-void onKey(GLFWwindow*, int, int, int, int);
-void onMouseButton(GLFWwindow*, int, int, int);
-void onMouseMove(GLFWwindow*, double, double);
-void onMouseWheel(GLFWwindow*, double, double);
+void onResize(GLFWwindow*, i32, i32);
+void onKey(GLFWwindow*, i32, i32, i32, i32);
+void onMouseButton(GLFWwindow*, i32, i32, i32);
+void onMouseMove(GLFWwindow*, f64, f64);
+void onMouseWheel(GLFWwindow*, f64, f64);
 
 /* ******************************************************************************** */
 
-void setVsync(int);
-void getMousePosition(int*, int*);
+void setVsync(i32);
+void getMousePosition(i32*, i32*);
 
 /* ******************************************************************************** */
 

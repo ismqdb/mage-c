@@ -10,7 +10,7 @@ struct varray vcreateArray(){
     array.size = 0;
     array.capacity = 16;
     
-    array.elems = heapAllocSized(float, array.capacity);
+    array.elems = heapAllocSized(f32, array.capacity);
     array.elems[0] = '\0';
 
     return array;
@@ -28,7 +28,7 @@ void vdestroyArray(struct varray *array){
 void vreserve(struct varray *array){
     array->capacity *= 2;
     array->elems = 
-        heapRealloc(float, array->elems, array->capacity);
+        heapRealloc(f32, array->elems, array->capacity);
 }
 
 /* ******************************************************************************** */
@@ -39,13 +39,13 @@ void* vgetBytes(struct varray *array){
 
 /* ******************************************************************************** */
 
-int vbyteSize(struct varray *array){
-    return sizeof(float) * array->size;
+i32 vbyteSize(struct varray *array){
+    return sizeof(f32) * array->size;
 }
 
 /* ******************************************************************************** */
 
-void insertFloat(struct varray *array, float value){
+void insertFloat(struct varray *array, f32 value){
     if(array->size == array->capacity)
         vreserve(array);
 

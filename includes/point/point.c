@@ -4,7 +4,7 @@
 
 /* ******************************************************************************** */
 
-struct point createPoint(double _x, double _y, double _z, double _w){
+struct point createPoint(f64 _x, f64 _y, f64 _z, f64 _w){
     struct point point;
 
     point.position = pointVec(_x, _y, _z);
