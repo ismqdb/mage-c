@@ -17,15 +17,11 @@ void openglSetup(){
 
     projectionMatrix = perspective(10.0f, 1.0f, 800.0/600, 45);
 
-    viewMatrix = lookat(
-        pointVec(0.0f, 0.0f, 3.0f),
-        pointVec(0.0f, 0.0f, 0.0f),
-        pointVec(0.0f, 1.0f, 0.0f)
-    );
-
+    viewMatrix = identityMatrix();
     modelMatrix = identityMatrix();
 
     modelMatrix = rotationMatrix(modelMatrix, 45, 45, 45);
+    modelMatrix = rotationMatrix(modelMatrix, 0, 167, 0);
     modelMatrix = translationMatrix(modelMatrix, pointVec(0.0f, 0.0f, -0.85f));
 }
 
