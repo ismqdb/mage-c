@@ -29,7 +29,7 @@ struct vec4 scalarMul(struct vec4, int);
 
 /* ******************************************************************************** */
 
-struct vec4 componentProduct(struct vec4, struct vec4, double);
+struct vec4 componentProduct(struct vec4, struct vec4);
 double dotProduct(struct vec4, struct vec4);
 struct vec4 crossProduct(struct vec4, struct vec4);
 

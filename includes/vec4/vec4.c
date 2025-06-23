@@ -102,13 +102,15 @@ struct vec4 scalarMul(struct vec4 vec, i32 mul){
 
 /* ******************************************************************************** */
 
-struct vec4 componentProduct(struct vec4 a, struct vec4 b, f64 perspective){
+struct vec4 componentProduct(struct vec4 a, struct vec4 b){
+    assert(a.w == b.w);
+
     struct vec4 result;
 
     result.x = a.x * b.x;
     result.y = a.y * b.y;
     result.z = a.z * b.z;
-    result.w = perspective;
+    result.w = a.w;
 
     return result;
 }
