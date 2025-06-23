@@ -4,7 +4,7 @@
 
 /* ******************************************************************************** */
 
-struct vec4 directionVec(f64 _x, f64 _y, f64 _z){   
+struct vec4 directionVec(f32 _x, f32 _y, f32 _z){   
     struct vec4 vec;
 
     vec.x = _x;
@@ -17,7 +17,7 @@ struct vec4 directionVec(f64 _x, f64 _y, f64 _z){
 
 /* ******************************************************************************** */
 
-struct vec4 pointVec(f64 _x, f64 _y, f64 _z){
+struct vec4 pointVec(f32 _x, f32 _y, f32 _z){
     struct vec4 vec;
 
     vec.x = _x;
@@ -59,8 +59,8 @@ struct vec4 subVec(struct vec4 a, struct vec4 b){
 
 /* ******************************************************************************** */
 
-f64 magnitude(struct vec4 vec){
-    f64 sum = 0;
+f32 magnitude(struct vec4 vec){
+    f32 sum = 0;
 
     sum += vec.x*vec.x;
     sum += vec.y*vec.y;
@@ -73,7 +73,7 @@ f64 magnitude(struct vec4 vec){
 
 struct vec4 normalize(struct vec4 vec){
     struct vec4 result;
-    f64 _mag = magnitude(vec);
+    f32 _mag = magnitude(vec);
 
     result.x = vec.x/_mag;
     result.y = vec.y/_mag;
@@ -117,7 +117,7 @@ struct vec4 componentProduct(struct vec4 a, struct vec4 b){
 
 /* ******************************************************************************** */
 
-f64 dotProduct(struct vec4 a, struct vec4 b){
+f32 dotProduct(struct vec4 a, struct vec4 b){
     struct vec4 result;
 
     result.x = a.x * b.x;
