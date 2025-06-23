@@ -88,62 +88,54 @@ struct mat4 identityMatrix(){
 
 /* ******************************************************************************** */
 
-struct mat4 translationMatrix(struct mat4 inputMat, struct vec4 vec){
-    inputMat.a03 = vec.x;
-    inputMat.a13 = vec.y;
-    inputMat.a23 = vec.z;
-    inputMat.a33 = 1.0;
-
-    return inputMat;
+void translationMatrix(struct mat4 *inputMat, struct vec4 vec){
+    inputMat->a03 = vec.x;
+    inputMat->a13 = vec.y;
+    inputMat->a23 = vec.z;
+    inputMat->a33 = 1.0;
 }
 
 /* ******************************************************************************** */
 
-struct mat4 scalingMatrix(struct mat4 inputMat, f32 xScale, f32 yScale){
+void scalingMatrix(struct mat4 *inputMat, f32 xScale, f32 yScale){
     assert(xScale > 0.0 && xScale <= 2.0);
     assert(yScale > 0.0 && yScale <= 2.0);
 
-    inputMat.a00 = xScale;
-    inputMat.a11 = yScale;
-
-    return inputMat;
+    inputMat->a00 = xScale;
+    inputMat->a11 = yScale;
 }
 
 /* ******************************************************************************** */
 
-struct mat4 rotationMatrix(struct mat4 inputMat, f32 x, f32 y, f32 z){
+void rotationMatrix(struct mat4 *inputMat, f32 x, f32 y, f32 z){
     assert(x >= -360.0 && x <= 360.0);
     assert(y >= -360.0 && y <= 360.0);
     assert(z >= -360.0 && z <= 360.0);
 
-    inputMat.a00 = cos(y)*cos(z);
-    inputMat.a01 = cos(y)*sin(z);
-    inputMat.a02 = -sin(y);
+    inputMat->a00 = cos(y)*cos(z);
+    inputMat->a01 = cos(y)*sin(z);
+    inputMat->a02 = -sin(y);
 
-    inputMat.a10 = sin(x)*sin(y)*cos(z) - cos(x)*sin(z);
-    inputMat.a11 = sin(x)*sin(y)*sin(z) + cos(x)*cos(z);
-    inputMat.a12 = sin(x)*cos(y);
+    inputMat->a10 = sin(x)*sin(y)*cos(z) - cos(x)*sin(z);
+    inputMat->a11 = sin(x)*sin(y)*sin(z) + cos(x)*cos(z);
+    inputMat->a12 = sin(x)*cos(y);
 
-    inputMat.a20 = cos(x)*sin(y)*cos(z) + sin(x)*sin(z);
-    inputMat.a21 = cos(x)*sin(y)*sin(z) - sin(x)*cos(z);
-    inputMat.a22 = cos(x)*cos(y);
-
-    return inputMat;
+    inputMat->a20 = cos(x)*sin(y)*cos(z) + sin(x)*sin(z);
+    inputMat->a21 = cos(x)*sin(y)*sin(z) - sin(x)*cos(z);
+    inputMat->a22 = cos(x)*cos(y);
 }
 
 /* ******************************************************************************** */
 
-struct mat4 reflectMatrix(struct mat4 inputMat, int xref, int yref){
+void reflectMatrix(struct mat4 *inputMat, int xref, int yref){
     assert(xref == 0 || xref == 1);
     assert(yref == 0 || yref == 1);
 
     if(xref)
-        inputMat.a11 = -1;
+        inputMat->a11 = -1;
 
     if(yref)
-        inputMat.a00 = -1;
-
-    return inputMat;
+        inputMat->a00 = -1;
 }
 
 /* ******************************************************************************** */

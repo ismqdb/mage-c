@@ -20,10 +20,10 @@ struct mat4 identityMatrix();
 
 /* ******************************************************************************** */
 
-struct mat4 translationMatrix(struct mat4, struct vec4);
-struct mat4 scalingMatrix(struct mat4, f32, f32);
-struct mat4 rotationMatrix(struct mat4, f32, f32, f32);
-struct mat4 reflectMatrix(struct mat4, int, int);
+void translationMatrix(struct mat4*, struct vec4);
+void scalingMatrix(struct mat4*, f32, f32);
+void rotationMatrix(struct mat4*, f32, f32, f32);
+void reflectMatrix(struct mat4*, i32, i32);
 
 /* ******************************************************************************** */
 
