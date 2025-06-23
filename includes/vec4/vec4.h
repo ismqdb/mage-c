@@ -25,7 +25,7 @@ struct vec4 subVec(struct vec4, struct vec4);
 
 f32 magnitude(struct vec4);
 struct vec4 normalize(struct vec4);
-struct vec4 scalarMul(struct vec4, int);
+struct vec4 scalarMul(struct vec4, i32);
 
 /* ******************************************************************************** */
 

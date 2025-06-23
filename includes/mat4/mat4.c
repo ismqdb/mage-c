@@ -127,7 +127,7 @@ void rotationMatrix(struct mat4 *inputMat, f32 x, f32 y, f32 z){
 
 /* ******************************************************************************** */
 
-void reflectMatrix(struct mat4 *inputMat, int xref, int yref){
+void reflectMatrix(struct mat4 *inputMat, i32 xref, i32 yref){
     assert(xref == 0 || xref == 1);
     assert(yref == 0 || yref == 1);
 
@@ -140,7 +140,7 @@ void reflectMatrix(struct mat4 *inputMat, int xref, int yref){
 
 /* ******************************************************************************** */
 
-struct mat4 perspective(f64 zfar, f64 znear, f64 aratio, int fov){
+struct mat4 perspective(f64 zfar, f64 znear, f64 aratio, i32 fov){
     assert(aratio != 0);
     assert(znear != zfar);
 
