@@ -7,25 +7,25 @@
 struct mat4 zeroMatrix(){
     struct mat4 result;
 
-    result.a00 = 0;
-    result.a01 = 0;
-    result.a02 = 0;
-    result.a03 = 0;
+    result.elems[0][0] = 0;
+    result.elems[0][1] = 0;
+    result.elems[0][2] = 0;
+    result.elems[0][3] = 0;
 
-    result.a10 = 0;
-    result.a11 = 0;
-    result.a12 = 0;
-    result.a13 = 0;
+    result.elems[1][0] = 0;
+    result.elems[1][1] = 0;
+    result.elems[1][2] = 0;
+    result.elems[1][3] = 0;
 
-    result.a20 = 0;
-    result.a21 = 0;
-    result.a22 = 0;
-    result.a23 = 0;
+    result.elems[2][0] = 0;
+    result.elems[2][1] = 0;
+    result.elems[2][2] = 0;
+    result.elems[2][3] = 0;
 
-    result.a30 = 0;
-    result.a31 = 0;
-    result.a32 = 0;
-    result.a33 = 0;
+    result.elems[3][0] = 0;
+    result.elems[3][1] = 0;
+    result.elems[3][2] = 0;
+    result.elems[3][3] = 0;
 
     return result;
 }
@@ -35,25 +35,25 @@ struct mat4 zeroMatrix(){
 struct mat4 oneMatrix(){
     struct mat4 result;
 
-    result.a00 = 1;
-    result.a01 = 1;
-    result.a02 = 1;
-    result.a03 = 1;
+    result.elems[0][0] = 1;
+    result.elems[0][1] = 1;
+    result.elems[0][2] = 1;
+    result.elems[0][3] = 1;
 
-    result.a10 = 1;
-    result.a11 = 1;
-    result.a12 = 1;
-    result.a13 = 1;
+    result.elems[1][0] = 1;
+    result.elems[1][1] = 1;
+    result.elems[1][2] = 1;
+    result.elems[1][3] = 1;
 
-    result.a20 = 1;
-    result.a21 = 1;
-    result.a22 = 1;
-    result.a23 = 1;
+    result.elems[2][0] = 1;
+    result.elems[2][1] = 1;
+    result.elems[2][2] = 1;
+    result.elems[2][3] = 1;
 
-    result.a30 = 1;
-    result.a31 = 1;
-    result.a32 = 1;
-    result.a33 = 1;
+    result.elems[3][0] = 1;
+    result.elems[3][1] = 1;
+    result.elems[3][2] = 1;
+    result.elems[3][3] = 1;
 
     return result;
 }
@@ -63,25 +63,25 @@ struct mat4 oneMatrix(){
 struct mat4 identityMatrix(){
     struct mat4 result;
 
-    result.a00 = 1;
-    result.a01 = 0;
-    result.a02 = 0;
-    result.a03 = 0;
+    result.elems[0][0] = 1;
+    result.elems[0][1] = 0;
+    result.elems[0][2] = 0;
+    result.elems[0][3] = 0;
 
-    result.a10 = 0;
-    result.a11 = 1;
-    result.a12 = 0;
-    result.a13 = 0;
+    result.elems[1][0] = 0;
+    result.elems[1][1] = 1;
+    result.elems[1][2] = 0;
+    result.elems[1][3] = 0;
 
-    result.a20 = 0;
-    result.a21 = 0;
-    result.a22 = 1;
-    result.a23 = 0;
+    result.elems[2][0] = 0;
+    result.elems[2][1] = 0;
+    result.elems[2][2] = 1;
+    result.elems[2][3] = 0;
 
-    result.a30 = 0;
-    result.a31 = 0;
-    result.a32 = 0;
-    result.a33 = 1;
+    result.elems[3][0] = 0;
+    result.elems[3][1] = 0;
+    result.elems[3][2] = 0;
+    result.elems[3][3] = 1;
 
     return result;
 }
@@ -89,10 +89,10 @@ struct mat4 identityMatrix(){
 /* ******************************************************************************** */
 
 void translationMatrix(struct mat4 *inputMat, struct vec4 vec){
-    inputMat->a03 = vec.x;
-    inputMat->a13 = vec.y;
-    inputMat->a23 = vec.z;
-    inputMat->a33 = 1.0;
+    inputMat->elems[0][3] = vec.x;
+    inputMat->elems[1][3] = vec.y;
+    inputMat->elems[2][3] = vec.z;
+    inputMat->elems[3][3] = 1.0;
 }
 
 /* ******************************************************************************** */
@@ -101,8 +101,8 @@ void scalingMatrix(struct mat4 *inputMat, f32 xScale, f32 yScale){
     assert(xScale > 0.0 && xScale <= 2.0);
     assert(yScale > 0.0 && yScale <= 2.0);
 
-    inputMat->a00 = xScale;
-    inputMat->a11 = yScale;
+    inputMat->elems[0][0] = xScale;
+    inputMat->elems[1][1] = yScale;
 }
 
 /* ******************************************************************************** */
@@ -112,17 +112,17 @@ void rotationMatrix(struct mat4 *inputMat, f32 x, f32 y, f32 z){
     assert(y >= -360.0 && y <= 360.0);
     assert(z >= -360.0 && z <= 360.0);
 
-    inputMat->a00 = cos(y)*cos(z);
-    inputMat->a01 = cos(y)*sin(z);
-    inputMat->a02 = -sin(y);
+    inputMat->elems[0][0] = cos(y)*cos(z);
+    inputMat->elems[0][1] = cos(y)*sin(z);
+    inputMat->elems[0][2] = -sin(y);
 
-    inputMat->a10 = sin(x)*sin(y)*cos(z) - cos(x)*sin(z);
-    inputMat->a11 = sin(x)*sin(y)*sin(z) + cos(x)*cos(z);
-    inputMat->a12 = sin(x)*cos(y);
+    inputMat->elems[1][0] = sin(x)*sin(y)*cos(z) - cos(x)*sin(z);
+    inputMat->elems[1][1] = sin(x)*sin(y)*sin(z) + cos(x)*cos(z);
+    inputMat->elems[1][2] = sin(x)*cos(y);
 
-    inputMat->a20 = cos(x)*sin(y)*cos(z) + sin(x)*sin(z);
-    inputMat->a21 = cos(x)*sin(y)*sin(z) - sin(x)*cos(z);
-    inputMat->a22 = cos(x)*cos(y);
+    inputMat->elems[2][0] = cos(x)*sin(y)*cos(z) + sin(x)*sin(z);
+    inputMat->elems[2][1] = cos(x)*sin(y)*sin(z) - sin(x)*cos(z);
+    inputMat->elems[2][2] = cos(x)*cos(y);
 }
 
 /* ******************************************************************************** */
@@ -132,10 +132,10 @@ void reflectMatrix(struct mat4 *inputMat, i32 xref, i32 yref){
     assert(yref == 0 || yref == 1);
 
     if(xref)
-        inputMat->a11 = -1;
+        inputMat->elems[1][1] = -1;
 
     if(yref)
-        inputMat->a00 = -1;
+        inputMat->elems[0][0] = -1;
 }
 
 /* ******************************************************************************** */
@@ -153,11 +153,11 @@ struct mat4 perspective(f64 zfar, f64 znear, f64 aratio, i32 fov){
     f64 rad = fov*M_PI/180.0;
     f64 tanHalfFov = tan(rad/2);
 
-    result.a00 = 1/(aratio*tanHalfFov);
-    result.a11 = 1/tanHalfFov;
-    result.a22 = -((zfar+znear)/(zfar-znear));
-    result.a23 = -1;
-    result.a32 = -((2*zfar*znear)/(zfar-znear));
+    result.elems[0][0] = 1/(aratio*tanHalfFov);
+    result.elems[1][1] = 1/tanHalfFov;
+    result.elems[2][2] = -((zfar+znear)/(zfar-znear));
+    result.elems[2][3] = -1;
+    result.elems[3][2] = -((2*zfar*znear)/(zfar-znear));
 
     return result;
 }
@@ -171,18 +171,18 @@ struct mat4 lookat(struct vec4 eye, struct vec4 center, struct vec4 up){
 
     struct mat4 result = oneMatrix();
 
-    result.a00 = s.x;
-    result.a10 = s.y;
-    result.a20 = s.z;
-    result.a01 = u.x;
-    result.a11 = u.y;
-    result.a21 = u.z;
-    result.a02 = -f.x;
-    result.a12 = -f.y;
-    result.a22 = -f.z;
-    result.a30 = -dotProduct(s, eye);
-    result.a31 = -dotProduct(u, eye);
-    result.a32 = dotProduct(f, eye);
+    result.elems[0][0] = s.x;
+    result.elems[1][0] = s.y;
+    result.elems[2][0] = s.z;
+    result.elems[0][1] = u.x;
+    result.elems[1][1] = u.y;
+    result.elems[2][1] = u.z;
+    result.elems[0][2] = -f.x;
+    result.elems[1][2] = -f.y;
+    result.elems[2][2] = -f.z;
+    result.elems[3][0] = -dotProduct(s, eye);
+    result.elems[3][1] = -dotProduct(u, eye);
+    result.elems[3][2] = dotProduct(f, eye);
 
     return result;
 }
