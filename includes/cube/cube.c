@@ -20,26 +20,29 @@ struct cube makeCube(){
     insertPoint(&cube.vertices, createPoint(+0.25f, -0.25f, -0.50f, 1.0f));
     insertPoint(&cube.vertices, createPoint(-0.25f, -0.25f, -0.50f, 1.0f));
 
-    // Front
+    // Back
     insertIndice(&cube.indices, 0);
     insertIndice(&cube.indices, 1);
     insertIndice(&cube.indices, 2);
+
     insertIndice(&cube.indices, 2);
     insertIndice(&cube.indices, 3);
     insertIndice(&cube.indices, 0);
 
-    // Back
+    // Front
     insertIndice(&cube.indices, 4);
     insertIndice(&cube.indices, 5);
     insertIndice(&cube.indices, 6);
-    insertIndice(&cube.indices, 5);
-    insertIndice(&cube.indices, 6);
+
+    insertIndice(&cube.indices, 4);
     insertIndice(&cube.indices, 7);
+    insertIndice(&cube.indices, 6);
 
     // Right
     insertIndice(&cube.indices, 1);
     insertIndice(&cube.indices, 5);
     insertIndice(&cube.indices, 6);
+
     insertIndice(&cube.indices, 6);
     insertIndice(&cube.indices, 2);
     insertIndice(&cube.indices, 1);
@@ -48,6 +51,7 @@ struct cube makeCube(){
     insertIndice(&cube.indices, 4);
     insertIndice(&cube.indices, 7);
     insertIndice(&cube.indices, 3);
+
     insertIndice(&cube.indices, 3);
     insertIndice(&cube.indices, 0);
     insertIndice(&cube.indices, 4);
@@ -56,6 +60,7 @@ struct cube makeCube(){
     insertIndice(&cube.indices, 1);
     insertIndice(&cube.indices, 0);
     insertIndice(&cube.indices, 4);
+
     insertIndice(&cube.indices, 4);
     insertIndice(&cube.indices, 5);
     insertIndice(&cube.indices, 1);
@@ -64,6 +69,7 @@ struct cube makeCube(){
     insertIndice(&cube.indices, 2);
     insertIndice(&cube.indices, 3);
     insertIndice(&cube.indices, 7);
+    
     insertIndice(&cube.indices, 7);
     insertIndice(&cube.indices, 6);
     insertIndice(&cube.indices, 2);
