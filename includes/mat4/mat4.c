@@ -88,7 +88,7 @@ struct mat4 identityMatrix(){
 
 /* ******************************************************************************** */
 
-void translationMatrix(struct mat4 *inputMat, struct vec4 vec){
+void translate(struct mat4 *inputMat, struct vec4 vec){
     inputMat->elems[0][3] = vec.x;
     inputMat->elems[1][3] = vec.y;
     inputMat->elems[2][3] = vec.z;
@@ -97,7 +97,7 @@ void translationMatrix(struct mat4 *inputMat, struct vec4 vec){
 
 /* ******************************************************************************** */
 
-void scalingMatrix(struct mat4 *inputMat, f32 xScale, f32 yScale){
+void scale(struct mat4 *inputMat, f32 xScale, f32 yScale){
     assert(xScale > 0.0 && xScale <= 2.0);
     assert(yScale > 0.0 && yScale <= 2.0);
 
@@ -107,7 +107,7 @@ void scalingMatrix(struct mat4 *inputMat, f32 xScale, f32 yScale){
 
 /* ******************************************************************************** */
 
-void rotationMatrix(struct mat4 *inputMat, f32 x, f32 y, f32 z){
+void rotate(struct mat4 *inputMat, f32 x, f32 y, f32 z){
     assert(x >= -360.0 && x <= 360.0);
     assert(y >= -360.0 && y <= 360.0);
     assert(z >= -360.0 && z <= 360.0);
@@ -127,7 +127,7 @@ void rotationMatrix(struct mat4 *inputMat, f32 x, f32 y, f32 z){
 
 /* ******************************************************************************** */
 
-void reflectMatrix(struct mat4 *inputMat, i32 xref, i32 yref){
+void reflect(struct mat4 *inputMat, i32 xref, i32 yref){
     assert(xref == 0 || xref == 1);
     assert(yref == 0 || yref == 1);
 
