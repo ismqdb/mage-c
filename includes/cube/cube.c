@@ -4,7 +4,7 @@
 
 /* ******************************************************************************** */
 
-struct cube makeCube(){
+struct cube createCube(){
     struct cube cube;
 
     cube.vertices = vcreateArray();
