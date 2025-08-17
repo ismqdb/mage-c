@@ -10,7 +10,7 @@
 void openglSetup(){
     vtxarray = createVertexArray(GL_TRIANGLES);
 
-    cube = makeCube();
+    cube = createCube();
 
     appendVertices(&vtxarray, &cube.vertices);
     appendIndices(&vtxarray, &cube.indices);
@@ -24,7 +24,7 @@ void openglSetup(){
     );
 
     modelMatrix = identityMatrix();
-    rotationMatrix(&modelMatrix, 0, 35, 0);
+    rotate(&modelMatrix, 0, 35, 0);
 }
 
 /* ******************************************************************************** */
