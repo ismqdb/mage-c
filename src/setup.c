@@ -18,9 +18,9 @@ void openglSetup(){
     projectionMatrix = perspective(100.0f, 1.0f, 800.0/600, 45);
 
     viewMatrix = lookat(
-        pointVec(0.0f, 0.0f, 1.0f),
-        pointVec(0.0f, 0.0f, 0.0f),
-        pointVec(0.0f, 1.0f, 0.0f)
+        createVector(0.0f, 0.0f, 1.0f, 1.0f),
+        createVector(0.0f, 0.0f, 0.0f, 1.0f),
+        createVector(0.0f, 1.0f, 0.0f, 1.0f)
     );
 
     modelMatrix = identityMatrix();

@@ -7,7 +7,7 @@
 struct point createPoint(f64 _x, f64 _y, f64 _z, f64 _w){
     struct point point;
 
-    point.position = pointVec(_x, _y, _z);
+    point.position = createVector(_x, _y, _z, _w);
 
     return point;
 }

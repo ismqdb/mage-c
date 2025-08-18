@@ -4,26 +4,13 @@
 
 /* ******************************************************************************** */
 
-struct vec4 directionVec(f32 _x, f32 _y, f32 _z){   
+struct vec4 createVector(f32 _x, f32 _y, f32 _z, f32 _w){
     struct vec4 vec;
 
     vec.x = _x;
     vec.y = _y;
     vec.z = _z;
-    vec.w = 0.0;
-
-    return vec;
-}
-
-/* ******************************************************************************** */
-
-struct vec4 pointVec(f32 _x, f32 _y, f32 _z){
-    struct vec4 vec;
-
-    vec.x = _x;
-    vec.y = _y;
-    vec.z = _z;
-    vec.w = 1.0;
+    vec.w = _w;
 
     return vec;
 }
