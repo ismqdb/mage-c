@@ -169,7 +169,7 @@ struct mat4 lookat(struct vec4 eye, struct vec4 center, struct vec4 up){
     struct vec4 u = normalize(up);
     struct vec4 s = normalize(crossProduct(f, u));
 
-    struct mat4 result = oneMatrix();
+    struct mat4 result = identityMatrix();
 
     result.elems[0][0] = s.x;
     result.elems[1][0] = s.y;
