@@ -89,9 +89,9 @@ struct mat4 identityMatrix(){
 /* ******************************************************************************** */
 
 void translate(struct mat4 *inputMat, struct vec4 vec){
-    inputMat->elems[0][3] += vec.x;
-    inputMat->elems[1][3] += vec.y;
-    inputMat->elems[2][3] += vec.z;
+    inputMat->elems[3][0] += vec.x;
+    inputMat->elems[3][1] += vec.y;
+    inputMat->elems[3][2] += vec.z;
     inputMat->elems[3][3] = 1.0;
 }
 

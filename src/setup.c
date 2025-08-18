@@ -23,8 +23,11 @@ void openglSetup(){
         createVector(0.0f, 1.0f, 0.0f, 1.0f)
     );
 
+    struct vec4 vec = createVector(0.50f, 0.50f, 0.0f, 0.0f);
+
     modelMatrix = identityMatrix();
-    rotate(&modelMatrix, 0, 35, 0);
+    rotate(&modelMatrix, 0, 90, 0);
+    translate(&modelMatrix, vec);
 }
 
 /* ******************************************************************************** */
@@ -45,7 +48,6 @@ void update(){
                 break;
 
             case GLFW_KEY_RIGHT:
-
                 break;
 
             case GLFW_KEY_UP:
