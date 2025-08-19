@@ -23,11 +23,14 @@ void openglSetup(){
         createVector(0.0f, 1.0f, 0.0f, 1.0f)
     );
 
-    struct vec4 vec = createVector(0.50f, 0.50f, 0.0f, 0.0f);
+    struct vec4 vec = createVector(0.50f, 0.0f, 0.0f, 0.0f);
 
     modelMatrix = identityMatrix();
-    rotate(&modelMatrix, 0, 90, 0);
+    
     translate(&modelMatrix, vec);
+    //scale(&modelMatrix, 1);
+
+    rotate(&modelMatrix, 0, 90, 0);
 }
 
 /* ******************************************************************************** */

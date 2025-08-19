@@ -97,12 +97,12 @@ void translate(struct mat4 *inputMat, struct vec4 vec){
 
 /* ******************************************************************************** */
 
-void scale(struct mat4 *inputMat, f32 xScale, f32 yScale){
-    assert(xScale > 0.0 && xScale <= 2.0);
-    assert(yScale > 0.0 && yScale <= 2.0);
+void scale(struct mat4 *inputMat, f32 factor){
+    assert(factor > 0.0 && factor <= 2.0);
 
-    inputMat->elems[0][0] = xScale;
-    inputMat->elems[1][1] = yScale;
+    inputMat->elems[0][0] *= factor;
+    inputMat->elems[1][1] *= factor;
+    inputMat->elems[2][2] *= factor;
 }
 
 /* ******************************************************************************** */
