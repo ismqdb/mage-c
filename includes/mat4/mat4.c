@@ -88,10 +88,10 @@ struct mat4 identityMatrix(){
 
 /* ******************************************************************************** */
 
-void translate(struct mat4 *inputMat, struct vec4 vec){
-    inputMat->elems[3][0] += vec.x;
-    inputMat->elems[3][1] += vec.y;
-    inputMat->elems[3][2] += vec.z;
+void translate(struct mat4 *inputMat, f32 tx, f32 ty, f32 tz){
+    inputMat->elems[3][0] += tx;
+    inputMat->elems[3][1] += ty;
+    inputMat->elems[3][2] += tz;
     inputMat->elems[3][3] = 1.0;
 }
 

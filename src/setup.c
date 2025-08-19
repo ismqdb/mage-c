@@ -23,11 +23,9 @@ void openglSetup(){
         createVector(0.0f, 1.0f, 0.0f, 1.0f)
     );
 
-    struct vec4 vec = createVector(0.50f, 0.0f, 0.0f, 0.0f);
-
     modelMatrix = identityMatrix();
     
-    translate(&modelMatrix, vec);
+    translate(&modelMatrix, 0.5f, 0.0f, 0.0f);
     //scale(&modelMatrix, 1);
 
     rotate(&modelMatrix, 0, 90, 0);
