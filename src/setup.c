@@ -40,22 +40,29 @@ void openglTeardown(){
 /* ******************************************************************************** */
 
 void update(){
+    f32 deltaX = 1.0/64;
+    f32 deltaY = 1.0/64;
+    f32 deltaZ = 1.0/64;
+
     for(i32 i = 0; i < GLFW_KEY_LAST; i++){
         if(!pressed[i])
             continue;
 
         switch(i){
             case GLFW_KEY_LEFT:
+                translate(&modelMatrix, -deltaX, 0.0f, 0.0f);
                 break;
 
             case GLFW_KEY_RIGHT:
+                translate(&modelMatrix, +deltaX, 0.0f, 0.0f);
                 break;
 
             case GLFW_KEY_UP:
+                translate(&modelMatrix, 0.0f, +deltaY, 0.0f);
                 break;
 
             case GLFW_KEY_DOWN:
-
+                translate(&modelMatrix, 0.0f, -deltaY, 0.0f);
                 break;
 
             case GLFW_KEY_A:

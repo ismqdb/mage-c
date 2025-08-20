@@ -24,6 +24,8 @@
 extern struct appInfo info;
 extern GLFWwindow* window;
 
+extern i32 pressed[GLFW_KEY_LAST];
+
 /* ******************************************************************************** */
 
 void onResize(GLFWwindow*, i32, i32);

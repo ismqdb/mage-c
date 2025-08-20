@@ -7,6 +7,8 @@
 struct appInfo info;
 GLFWwindow* window;
 
+i32 pressed[GLFW_KEY_LAST];
+
 /* ******************************************************************************** */
 
 void onResize(GLFWwindow* window, i32 w, i32 h){
@@ -16,7 +18,22 @@ void onResize(GLFWwindow* window, i32 w, i32 h){
 
 /* ******************************************************************************** */
 
-void onKey(GLFWwindow* window, i32 key, i32 scancode, i32 action, i32 mods){}
+void onKey(GLFWwindow* window, i32 key, i32 scancode, i32 action, i32 mods){
+    if(key == GLFW_KEY_UNKNOWN)
+        return;
+
+    if(key == GLFW_KEY_ESCAPE && action == GLFW_PRESS) 
+        glfwSetWindowShouldClose(window, 1);
+    
+    for(i32 i = 0; i < GLFW_KEY_LAST; i++)
+        if(action == GLFW_PRESS && i == key)
+            pressed[key] = 1;
+        else if(action == GLFW_RELEASE && i == key)
+            pressed[key] = 0;
+}
+
+/* ******************************************************************************** */
+
 void onMouseButton(GLFWwindow* window, i32 button, i32 action, i32 mods){}
 void onMouseMove(GLFWwindow* window, f64 x, f64 y){}
 void onMouseWheel(GLFWwindow* window, f64 xoffset, f64 yoffset){}
