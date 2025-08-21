@@ -112,6 +112,14 @@ void rotate(struct mat4 *inputMat, f32 x, f32 y, f32 z){
     assert(y >= -360.0 && y <= 360.0);
     assert(z >= -360.0 && z <= 360.0);
 
+    #ifndef M_PI
+        #define M_PI 3.14159265358979323846
+    #endif
+
+    x = x*M_PI/180;
+    y = y*M_PI/180;
+    z = z*M_PI/180;
+
     inputMat->elems[0][0] = cos(y)*cos(z);
     inputMat->elems[0][1] = cos(y)*sin(z);
     inputMat->elems[0][2] = -sin(y);

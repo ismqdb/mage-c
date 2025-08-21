@@ -44,6 +44,9 @@ void update(){
     f32 deltaY = 1.0/64;
     f32 deltaZ = 1.0/64;
 
+    f32 rotDeltaX = 0.25f;
+    f32 rotDeltaY = 0.25f;
+
     for(i32 i = 0; i < GLFW_KEY_LAST; i++){
         if(!pressed[i])
             continue;
@@ -66,11 +69,11 @@ void update(){
                 break;
 
             case GLFW_KEY_A:
-
+                rotate(&modelMatrix, 90.0, 0.0, 0.0);
                 break;
             
             case GLFW_KEY_D:
-
+                rotate(&modelMatrix, 90.0, 0.0, 0.0);
                 break;
         }
     }
