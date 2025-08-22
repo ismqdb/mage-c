@@ -16,7 +16,11 @@ set(LIB_FILES
     "includes/vertex array/vertexArray.c"
     "includes/vec4/vec4.c"
     "includes/point/point.c"
-    "includes/mat4/mat4.c"
+
+    "includes/mat4/mat4Init.c"
+    "includes/mat4/mat4Ops.c"
+    "includes/mat4/mat4Transf.c"
+
     "includes/triangle/triangle.c"
     "includes/circle/circle.c"
     "includes/cube/cube.c"
