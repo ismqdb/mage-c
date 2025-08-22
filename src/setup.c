@@ -39,44 +39,60 @@ void update(){
     f32 deltaY = 1.0/64;
     f32 deltaZ = 1.0/64;
 
-    f32 rotDeltaX = 0.25f;
-    f32 rotDeltaY = 0.25f;
-
     for(i32 i = 0; i < GLFW_KEY_LAST; i++){
         if(!pressed[i])
             continue;
 
         switch(i){
+            // Translations
             case GLFW_KEY_LEFT:
-                translate(&modelMatrix, -deltaX, 0.0f, 0.0f);
+                modelMatrix = translate(modelMatrix, -deltaX, 0.0f, 0.0f);
                 break;
 
             case GLFW_KEY_RIGHT:
-                translate(&modelMatrix, +deltaX, 0.0f, 0.0f);
+                modelMatrix = translate(modelMatrix, +deltaX, 0.0f, 0.0f);
                 break;
 
             case GLFW_KEY_UP:
-                translate(&modelMatrix, 0.0f, +deltaY, 0.0f);
+                modelMatrix = translate(modelMatrix, 0.0f, +deltaY, 0.0f);
                 break;
 
             case GLFW_KEY_DOWN:
-                translate(&modelMatrix, 0.0f, -deltaY, 0.0f);
+                modelMatrix = translate(modelMatrix, 0.0f, -deltaY, 0.0f);
                 break;
 
+            // Rotations
             case GLFW_KEY_A:
-                rotate(&modelMatrix, 10.0, 0.0, 0.0);
+                modelMatrix = rotateX(modelMatrix, 10);
                 break;
             
+            case GLFW_KEY_S:
+                modelMatrix = rotateX(modelMatrix, -10);
+                break;
+
             case GLFW_KEY_D:
-                rotate(&modelMatrix, 10.0, 0.0, 0.0);
+                modelMatrix = rotateY(modelMatrix, 10);
+                break;
+            
+            case GLFW_KEY_F:
+                modelMatrix = rotateY(modelMatrix, -10);
                 break;
 
-            case GLFW_KEY_Q:
-                reflect(&modelMatrix, 1, 0);
+            case GLFW_KEY_G:
+                modelMatrix = rotateZ(modelMatrix, 10);
+                break;
+            
+            case GLFW_KEY_H:
+                modelMatrix = rotateZ(modelMatrix, -10);
                 break;
 
-            case GLFW_KEY_W:
-                reflect(&modelMatrix, 0, 1);
+            // Scaling
+            case GLFW_KEY_T:
+                modelMatrix = scale(modelMatrix, 0.99f);
+                break;
+
+            case GLFW_KEY_Y:
+                modelMatrix = scale(modelMatrix, 1.01f);
                 break;
         }
     }

@@ -196,49 +196,89 @@ struct mat4 mulMat4(struct mat4 a, struct mat4 b){
         + a.elems[1][3]*b.elems[3][1]
         + a.elems[2][3]*b.elems[3][2]
         + a.elems[3][3]*b.elems[3][3];
+
+    return result;
 }
 
 /* ******************************************************************************** */
 
-void translate(struct mat4 *inputMat, f32 tx, f32 ty, f32 tz){
-    inputMat->elems[3][0] += tx;
-    inputMat->elems[3][1] += ty;
-    inputMat->elems[3][2] += tz;
-    inputMat->elems[3][3] = 1.0;
+struct mat4 translate(struct mat4 inputMat, f32 tx, f32 ty, f32 tz){
+    struct mat4 translationMatrix = identityMatrix();
+
+    translationMatrix.elems[3][0] += tx;
+    translationMatrix.elems[3][1] += ty;
+    translationMatrix.elems[3][2] += tz;
+    translationMatrix.elems[3][3] = 1.0f;
+
+    return mulMat4(inputMat, translationMatrix);
 }
 
 /* ******************************************************************************** */
 
-void scale(struct mat4 *inputMat, f32 factor){
+struct mat4 scale(struct mat4 inputMat, f32 factor){
     assert(factor > 0.0 && factor <= 2.0);
 
-    inputMat->elems[0][0] *= factor;
-    inputMat->elems[1][1] *= factor;
-    inputMat->elems[2][2] *= factor;
+    struct mat4 translationMatrix = identityMatrix();
+
+    translationMatrix.elems[0][0] *= factor;
+    translationMatrix.elems[1][1] *= factor;
+    translationMatrix.elems[2][2] *= factor;
+
+    return mulMat4(inputMat, translationMatrix);
 }
 
 /* ******************************************************************************** */
 
-void rotate(struct mat4 *inputMat, f32 x, f32 y, f32 z){
-    assert(x >= -360.0 && x <= 360.0);
-    assert(y >= -360.0 && y <= 360.0);
-    assert(z >= -360.0 && z <= 360.0);
+struct mat4 rotateX(struct mat4 inputMat, f32 angle){
+    assert(angle >= -360.0 && angle <= 360.0);
 
-    x = x*M_PI/180;
-    y = y*M_PI/180;
-    z = z*M_PI/180;
+    f32 angleRad = angle*M_PI/180;
 
-    inputMat->elems[0][0] = cos(y)*cos(z);
-    inputMat->elems[0][1] = cos(y)*sin(z);
-    inputMat->elems[0][2] = -sin(y);
+    struct mat4 translationMatrix = identityMatrix();
 
-    inputMat->elems[1][0] = sin(x)*sin(y)*cos(z) - cos(x)*sin(z);
-    inputMat->elems[1][1] = sin(x)*sin(y)*sin(z) + cos(x)*cos(z);
-    inputMat->elems[1][2] = sin(x)*cos(y);
+    translationMatrix.elems[1][1] = cos(angleRad);
+    translationMatrix.elems[1][2] = -sin(angleRad);
 
-    inputMat->elems[2][0] = cos(x)*sin(y)*cos(z) + sin(x)*sin(z);
-    inputMat->elems[2][1] = cos(x)*sin(y)*sin(z) - sin(x)*cos(z);
-    inputMat->elems[2][2] = cos(x)*cos(y);
+    translationMatrix.elems[2][1] = sin(angleRad);
+    translationMatrix.elems[2][2] = cos(angleRad);
+
+    return mulMat4(inputMat, translationMatrix);
+}
+
+/* ******************************************************************************** */
+
+struct mat4 rotateY(struct mat4 inputMat, f32 angle){
+    assert(angle >= -360.0 && angle <= 360.0);
+
+    f32 angleRad = angle*M_PI/180;
+
+    struct mat4 translationMatrix = identityMatrix();
+
+    translationMatrix.elems[0][0] = cos(angleRad);
+    translationMatrix.elems[0][2] = sin(angleRad);
+
+    translationMatrix.elems[2][0] = -sin(angleRad);
+    translationMatrix.elems[2][2] = cos(angleRad);
+
+    return mulMat4(inputMat, translationMatrix);
+}
+
+/* ******************************************************************************** */
+
+struct mat4 rotateZ(struct mat4 inputMat, f32 angle){
+    assert(angle >= -360.0 && angle <= 360.0);
+
+    f32 angleRad = angle*M_PI/180;
+
+    struct mat4 translationMatrix = identityMatrix();
+
+    translationMatrix.elems[0][0] = cos(angleRad);
+    translationMatrix.elems[0][1] = sin(angleRad);
+
+    translationMatrix.elems[1][0] = -sin(angleRad);
+    translationMatrix.elems[1][1] = cos(angleRad);
+
+    return mulMat4(inputMat, translationMatrix);
 }
 
 /* ******************************************************************************** */
