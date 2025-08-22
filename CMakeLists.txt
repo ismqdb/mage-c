@@ -19,6 +19,7 @@ set(LIB_FILES
 
     "includes/mat4/mat4Init.c"
     "includes/mat4/mat4Ops.c"
+    "includes/mat4/mat4Camera.c"
     "includes/mat4/mat4Transf.c"
 
     "includes/triangle/triangle.c"
