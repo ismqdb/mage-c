@@ -4,6 +4,12 @@
 
 /* ******************************************************************************** */
 
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
+
+/* ******************************************************************************** */
+
 struct mat4 zeroMatrix(){
     struct mat4 result;
 
@@ -112,10 +118,6 @@ void rotate(struct mat4 *inputMat, f32 x, f32 y, f32 z){
     assert(y >= -360.0 && y <= 360.0);
     assert(z >= -360.0 && z <= 360.0);
 
-    #ifndef M_PI
-        #define M_PI 3.14159265358979323846
-    #endif
-
     x = x*M_PI/180;
     y = y*M_PI/180;
     z = z*M_PI/180;
@@ -151,10 +153,6 @@ void reflect(struct mat4 *inputMat, i32 xref, i32 yref){
 struct mat4 perspective(f64 zfar, f64 znear, f64 aratio, i32 fov){
     assert(aratio != 0);
     assert(znear != zfar);
-
-    #ifndef M_PI
-        #define M_PI 3.14159265358979323846
-    #endif
 
     struct mat4 result = identityMatrix();
 

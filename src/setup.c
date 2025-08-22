@@ -24,11 +24,6 @@ void openglSetup(){
     );
 
     modelMatrix = identityMatrix();
-    
-    translate(&modelMatrix, 0.5f, 0.0f, 0.0f);
-    //scale(&modelMatrix, 1);
-
-    rotate(&modelMatrix, 0, 90, 0);
 }
 
 /* ******************************************************************************** */
@@ -69,11 +64,11 @@ void update(){
                 break;
 
             case GLFW_KEY_A:
-                rotate(&modelMatrix, 90.0, 0.0, 0.0);
+                rotate(&modelMatrix, 10.0, 0.0, 0.0);
                 break;
             
             case GLFW_KEY_D:
-                rotate(&modelMatrix, 90.0, 0.0, 0.0);
+                rotate(&modelMatrix, 10.0, 0.0, 0.0);
                 break;
         }
     }
