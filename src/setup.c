@@ -70,6 +70,14 @@ void update(){
             case GLFW_KEY_D:
                 rotate(&modelMatrix, 10.0, 0.0, 0.0);
                 break;
+
+            case GLFW_KEY_Q:
+                reflect(&modelMatrix, 1, 0);
+                break;
+
+            case GLFW_KEY_W:
+                reflect(&modelMatrix, 0, 1);
+                break;
         }
     }
 
