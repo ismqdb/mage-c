@@ -26,7 +26,6 @@ struct vec4 addVec(struct vec4 a, struct vec4 b){
     result.y = a.y + b.y;
     result.z = a.z + b.z;
 
-
     return result;
 }
 
