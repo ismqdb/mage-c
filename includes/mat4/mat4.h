@@ -20,6 +20,10 @@ struct mat4 identityMatrix();
 
 /* ******************************************************************************** */
 
+struct mat4 mulMat4(struct mat4, struct mat4);
+
+/* ******************************************************************************** */
+
 void translate(struct mat4*, f32, f32, f32);
 void scale(struct mat4*, f32);
 void rotate(struct mat4*, f32, f32, f32);

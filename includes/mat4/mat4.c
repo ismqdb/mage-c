@@ -94,6 +94,12 @@ struct mat4 identityMatrix(){
 
 /* ******************************************************************************** */
 
+struct mat4 mulMat4(struct mat4 a, struct mat4 b){
+
+}
+
+/* ******************************************************************************** */
+
 void translate(struct mat4 *inputMat, f32 tx, f32 ty, f32 tz){
     inputMat->elems[3][0] += tx;
     inputMat->elems[3][1] += ty;
