@@ -94,6 +94,15 @@ void update(){
             case GLFW_KEY_Y:
                 modelMatrix = scale(modelMatrix, 1.01f);
                 break;
+
+            // Reflect
+            case GLFW_KEY_Q:
+                modelMatrix = reflectX(modelMatrix);
+                break;
+
+            case GLFW_KEY_W:
+                modelMatrix = reflectY(modelMatrix);
+                break;
         }
     }
 

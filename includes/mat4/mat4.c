@@ -283,15 +283,22 @@ struct mat4 rotateZ(struct mat4 inputMat, f32 angle){
 
 /* ******************************************************************************** */
 
-void reflect(struct mat4 *inputMat, i32 xref, i32 yref){
-    assert(xref == 0 || xref == 1);
-    assert(yref == 0 || yref == 1);
+struct mat4 reflectX(struct mat4 inputMat){
+    struct mat4 translationMatrix = identityMatrix();
 
-    if(xref)
-        inputMat->elems[1][1] = -1;
+    translationMatrix.elems[0][0] = -1;
 
-    if(yref)
-        inputMat->elems[0][0] = -1;
+    return mulMat4(inputMat, translationMatrix);
+}
+
+/* ******************************************************************************** */
+
+struct mat4 reflectY(struct mat4 inputMat){
+    struct mat4 translationMatrix = identityMatrix();
+
+    translationMatrix.elems[1][1] = -1;
+
+    return mulMat4(inputMat, translationMatrix);
 }
 
 /* ******************************************************************************** */
