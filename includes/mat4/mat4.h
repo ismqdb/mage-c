@@ -26,6 +26,7 @@ struct mat4 identityMatrix();
 
 /* ******************************************************************************** */
 
+struct mat4 addMat4(struct mat4, struct mat4);
 struct mat4 mulMat4(struct mat4, struct mat4);
 
 /* ******************************************************************************** */
