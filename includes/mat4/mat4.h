@@ -22,6 +22,9 @@
 
 struct mat4 zeroMatrix();
 struct mat4 oneMatrix();
+
+/* ******************************************************************************** */
+
 struct mat4 identityMatrix();
 
 /* ******************************************************************************** */
@@ -31,19 +34,19 @@ struct mat4 mulMat4(struct mat4, struct mat4);
 
 /* ******************************************************************************** */
 
-struct mat4 translate(struct mat4, struct vec4);
-struct mat4 scale(struct mat4, f32);
+struct mat4 translateMat4(struct mat4, struct vec4);
+struct mat4 scaleMat4(struct mat4, f32);
 
 /* ******************************************************************************** */
 
-struct mat4 reflectX(struct mat4);
-struct mat4 reflectY(struct mat4);
+struct mat4 xreflectMat4(struct mat4);
+struct mat4 yreflectMat4(struct mat4);
 
 /* ******************************************************************************** */
 
-struct mat4 rotateX(struct mat4, f32);
-struct mat4 rotateY(struct mat4, f32);
-struct mat4 rotateZ(struct mat4, f32);
+struct mat4 xrotateMat4(struct mat4, f32);
+struct mat4 yrotateMat4(struct mat4, f32);
+struct mat4 zrotateMat4(struct mat4, f32);
 
 /* ******************************************************************************** */
 

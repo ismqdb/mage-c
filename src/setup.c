@@ -47,65 +47,65 @@ void update(){
             // Translations
             case GLFW_KEY_LEFT:
                 modelMatrix = 
-                    translate(modelMatrix, createVector(-deltaX, 0.0f, 0.0f, 1.0f));
+                    translateMat4(modelMatrix, createVector(-deltaX, 0.0f, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_RIGHT:
                 modelMatrix = 
-                    translate(modelMatrix, createVector(+deltaX, 0.0f, 0.0f, 1.0f));
+                    translateMat4(modelMatrix, createVector(+deltaX, 0.0f, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_UP:
                 modelMatrix = 
-                    translate(modelMatrix, createVector(0.0f, deltaY, 0.0f, 1.0f));
+                    translateMat4(modelMatrix, createVector(0.0f, deltaY, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_DOWN:
                 modelMatrix = 
-                    translate(modelMatrix, createVector(0.0f, -deltaY, 0.0f, 1.0f));
+                    translateMat4(modelMatrix, createVector(0.0f, -deltaY, 0.0f, 1.0f));
                 break;
 
             // Rotations
             case GLFW_KEY_A:
-                modelMatrix = rotateX(modelMatrix, 10);
+                modelMatrix = xrotateMat4(modelMatrix, 10);
                 break;
             
             case GLFW_KEY_S:
-                modelMatrix = rotateX(modelMatrix, -10);
+                modelMatrix = xrotateMat4(modelMatrix, -10);
                 break;
 
             case GLFW_KEY_D:
-                modelMatrix = rotateY(modelMatrix, 10);
+                modelMatrix = yrotateMat4(modelMatrix, 10);
                 break;
             
             case GLFW_KEY_F:
-                modelMatrix = rotateY(modelMatrix, -10);
+                modelMatrix = yrotateMat4(modelMatrix, -10);
                 break;
 
             case GLFW_KEY_G:
-                modelMatrix = rotateZ(modelMatrix, 10);
+                modelMatrix = zrotateMat4(modelMatrix, 10);
                 break;
             
             case GLFW_KEY_H:
-                modelMatrix = rotateZ(modelMatrix, -10);
+                modelMatrix = zrotateMat4(modelMatrix, -10);
                 break;
 
             // Scaling
             case GLFW_KEY_T:
-                modelMatrix = scale(modelMatrix, 0.99f);
+                modelMatrix = scaleMat4(modelMatrix, 0.99f);
                 break;
 
             case GLFW_KEY_Y:
-                modelMatrix = scale(modelMatrix, 1.01f);
+                modelMatrix = scaleMat4(modelMatrix, 1.01f);
                 break;
 
             // Reflect
             case GLFW_KEY_Q:
-                modelMatrix = reflectX(modelMatrix);
+                modelMatrix = xreflectMat4(modelMatrix);
                 break;
 
             case GLFW_KEY_W:
-                modelMatrix = reflectY(modelMatrix);
+                modelMatrix = yreflectMat4(modelMatrix);
                 break;
         }
     }
