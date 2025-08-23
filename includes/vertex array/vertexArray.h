@@ -55,18 +55,18 @@ void destroyVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-i32 vertexSizeof(struct vertexArray*);
-i32 indicesSizeof(struct vertexArray*);
+i32 sizeofVertices(struct vertexArray*);
+i32 sizeofIndices(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-i32 vertexCount(struct vertexArray*);
-i32 indiceCount(struct vertexArray*);
+i32 countVertices(struct vertexArray*);
+i32 countIndices(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-f32* verticesRaw(struct vertexArray*);
-i32* indicesRaw(struct vertexArray*);
+f32* rawVertices(struct vertexArray*);
+i32* rawIndices(struct vertexArray*);
 
 /* ******************************************************************************** */
 

@@ -33,90 +33,90 @@ void destroyVertexArray(struct vertexArray *vertexArray){
 
 /* ******************************************************************************** */
 
-i32 vertexSizeof(struct vertexArray *array){
+i32 sizeofVertices(struct vertexArray *array){
     return fbyteSize(&array->vertices);
 }
 
 /* ******************************************************************************** */
 
-i32 indicesSizeof(struct vertexArray *array){
+i32 sizeofIndices(struct vertexArray *array){
     return ibyteSize(&array->indices);
 }
 
 /* ******************************************************************************** */
 
-i32 vertexCount(struct vertexArray *array){
+i32 countVertices(struct vertexArray *array){
     return array->vertices.size;
 }
 
 /* ******************************************************************************** */
 
-i32 indiceCount(struct vertexArray *array){
+i32 countIndices(struct vertexArray *array){
     return array->indices.size;
 }
 
 /* ******************************************************************************** */
 
-f32* verticesRaw(struct vertexArray *array){
+f32* rawVertices(struct vertexArray *array){
     return (f32*)fgetBytes(&array->vertices);
 }
 
 /* ******************************************************************************** */
 
-i32* indicesRaw(struct vertexArray *array){
+i32* rawIndices(struct vertexArray *array){
     return (i32*)igetBytes(&array->indices);
 }
 
 /* ******************************************************************************** */
 
-void appendVertices(struct vertexArray *vtxarray, struct farray *vertices){
+void appendVertices(struct vertexArray *array, struct farray *vertices){
     for(i32 i = 0; i < vertices->size; i++)
-        insertFloat(&vtxarray->vertices, vertices->elems[i]);
+        insertFloat(&array->vertices, vertices->elems[i]);
 }
 
 /* ******************************************************************************** */
 
-void appendIndices(struct vertexArray *vtxarray, struct iarray *indices){
+void appendIndices(struct vertexArray *array, struct iarray *indices){
     for(i32 i = 0; i < indices->size; i++)
-        insertIndice(&vtxarray->indices, indices->elems[i]);
+        insertIndice(&array->indices, indices->elems[i]);
 }
 
 /* ******************************************************************************** */
 
-void prepareVertexArray(struct vertexArray* vtxarray){
-    glGenVertexArrays(1, vtxarray->vao);
-    glBindVertexArray(vtxarray->vao[0]);
+void prepareVertexArray(struct vertexArray *array){
+    glGenVertexArrays(1, array->vao);
+    glBindVertexArray(array->vao[0]);
 
-    glGenBuffers(1, vtxarray->vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, vtxarray->vbo[0]);
+    glGenBuffers(1, array->vbo);
+    glBindBuffer(GL_ARRAY_BUFFER, array->vbo[0]);
 
     glBufferData(
         GL_ARRAY_BUFFER,
-        vertexSizeof(vtxarray),
-        verticesRaw(vtxarray),
+        sizeofVertices(array),
+        rawVertices(array),
         GL_DYNAMIC_DRAW
     );
 
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(0);
 
-    glGenBuffers(1, vtxarray->ebo);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vtxarray->ebo[0]);
+    glGenBuffers(1, array->ebo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);
 
     glBufferData(
         GL_ELEMENT_ARRAY_BUFFER,
-        indicesSizeof(vtxarray),
-        indicesRaw(vtxarray),
+        sizeofIndices(array),
+        rawIndices(array),
         GL_DYNAMIC_DRAW
     );
 }
 
 /* ******************************************************************************** */
 
-void renderVertexArray(struct vertexArray* vtxarray){
+void renderVertexArray(struct vertexArray *array){
     glDrawElements(
-        vtxarray->renderType, 
-        indiceCount(vtxarray), 
+        array->renderType, 
+        countIndices(array), 
         GL_UNSIGNED_INT, 
         NULL
     );
