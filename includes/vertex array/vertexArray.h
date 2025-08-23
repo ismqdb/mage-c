@@ -19,7 +19,7 @@
 
 /* ******************************************************************************** */
 
-#include "../varray/varray.h"
+#include "../farray/farray.h"
 #include "../iarray/iarray.h"
 
 /* ******************************************************************************** */
@@ -40,7 +40,7 @@ enum arrayRenderType {
 struct vertexArray {
     enum arrayRenderType renderType;
 
-    struct varray vertices;
+    struct farray vertices;
     struct iarray indices;
 
     i32 vao[1];
@@ -70,7 +70,7 @@ i32* indicesRaw(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-void appendVertices(struct vertexArray*, struct varray*);
+void appendVertices(struct vertexArray*, struct farray*);
 void appendIndices(struct vertexArray*, struct iarray*);
 
 /* ******************************************************************************** */

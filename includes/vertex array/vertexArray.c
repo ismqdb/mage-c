@@ -10,7 +10,7 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
     struct vertexArray vertexArray;
 
     vertexArray.renderType  = rtype;
-    vertexArray.vertices    = vcreateArray();
+    vertexArray.vertices    = fcreateArray();
     vertexArray.indices     = icreateArray();
 
     vertexArray.vao[0] = -1;
@@ -23,7 +23,7 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
 /* ******************************************************************************** */
 
 void destroyVertexArray(struct vertexArray *vertexArray){
-    vdestroyArray(&vertexArray->vertices);
+    fdestroyArray(&vertexArray->vertices);
     idestroyArray(&vertexArray->indices);
 
     vertexArray->vao[0] = -1;
@@ -34,7 +34,7 @@ void destroyVertexArray(struct vertexArray *vertexArray){
 /* ******************************************************************************** */
 
 i32 vertexSizeof(struct vertexArray *array){
-    return vbyteSize(&array->vertices);
+    return fbyteSize(&array->vertices);
 }
 
 /* ******************************************************************************** */
@@ -58,7 +58,7 @@ i32 indiceCount(struct vertexArray *array){
 /* ******************************************************************************** */
 
 f32* verticesRaw(struct vertexArray *array){
-    return (f32*)vgetBytes(&array->vertices);
+    return (f32*)fgetBytes(&array->vertices);
 }
 
 /* ******************************************************************************** */
@@ -69,7 +69,7 @@ i32* indicesRaw(struct vertexArray *array){
 
 /* ******************************************************************************** */
 
-void appendVertices(struct vertexArray *vtxarray, struct varray *vertices){
+void appendVertices(struct vertexArray *vtxarray, struct farray *vertices){
     for(i32 i = 0; i < vertices->size; i++)
         insertFloat(&vtxarray->vertices, vertices->elems[i]);
 }

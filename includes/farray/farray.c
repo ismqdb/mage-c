@@ -1,11 +1,11 @@
 /* ******************************************************************************** */
 
-#include "./varray.h"
+#include "./farray.h"
 
 /* ******************************************************************************** */
 
-struct varray vcreateArray(){
-    struct varray array;
+struct farray fcreateArray(){
+    struct farray array;
 
     array.size = 0;
     array.capacity = 16;
@@ -18,14 +18,14 @@ struct varray vcreateArray(){
 
 /* ******************************************************************************** */
 
-void vdestroyArray(struct varray *array){
+void fdestroyArray(struct farray *array){
     array->size = 0;
     free(array->elems);
 }
 
 /* ******************************************************************************** */
 
-void vreserve(struct varray *array){
+void freserve(struct farray *array){
     array->capacity *= 2;
     array->elems = 
         heapRealloc(f32, array->elems, array->capacity);
@@ -33,21 +33,21 @@ void vreserve(struct varray *array){
 
 /* ******************************************************************************** */
 
-void* vgetBytes(struct varray *array){
+void* fgetBytes(struct farray *array){
     return (void*)array->elems;
 }
 
 /* ******************************************************************************** */
 
-i32 vbyteSize(struct varray *array){
+i32 fbyteSize(struct farray *array){
     return sizeof(f32) * array->size;
 }
 
 /* ******************************************************************************** */
 
-void insertFloat(struct varray *array, f32 value){
+void insertFloat(struct farray *array, f32 value){
     if(array->size == array->capacity)
-        vreserve(array);
+        freserve(array);
 
     array->elems[array->size] = value;
     array->size++;
@@ -55,7 +55,7 @@ void insertFloat(struct varray *array, f32 value){
 
 /* ******************************************************************************** */
 
-void insertPoint(struct varray *array, struct point point){
+void insertPoint(struct farray *array, struct point point){
     insertFloat(array, point.position.x);
     insertFloat(array, point.position.y);
     insertFloat(array, point.position.z);

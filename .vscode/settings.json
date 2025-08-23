@@ -30,6 +30,7 @@
         "allocmacros.h": "c",
         "point.h": "c",
         "mat4.h": "c",
-        "math.h": "c"
+        "math.h": "c",
+        "types.h": "c"
     }
 }

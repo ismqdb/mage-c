@@ -11,7 +11,7 @@ struct triangle createTriangle(struct point _a, struct point _b, struct point _c
     triangle.bpt = _b;
     triangle.cpt = _c;
 
-    triangle.vertices = vcreateArray();
+    triangle.vertices = fcreateArray();
     triangle.indices = icreateArray();
 
     insertPoint(&triangle.vertices, triangle.apt);

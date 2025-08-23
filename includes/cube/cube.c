@@ -7,7 +7,7 @@
 struct cube createCube(){
     struct cube cube;
 
-    cube.vertices = vcreateArray();
+    cube.vertices = fcreateArray();
     cube.indices = icreateArray();
 
     insertPoint(&cube.vertices, createPoint(-0.25f, +0.25f, +0.00f, 1.0f));

@@ -6,12 +6,18 @@
 
 #include "../types.h"
 
+/* ******************************************************************************** */
+
 #include "../vec4/vec4.h"
+
+/* ******************************************************************************** */
 
 #include "../point/point.h"
 #include "../triangle/triangle.h"
 
-#include "../varray/varray.h"
+/* ******************************************************************************** */
+
+#include "../farray/farray.h"
 #include "../iarray/iarray.h"
 
 /* ******************************************************************************** */
@@ -31,7 +37,7 @@ struct circle {
     u32 noOfTriangles;
     struct vec4 position;
 
-    struct varray vertices;
+    struct farray vertices;
     struct iarray indices;
 };
 

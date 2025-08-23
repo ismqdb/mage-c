@@ -15,7 +15,7 @@
 
 /* ******************************************************************************** */
 
-struct varray {
+struct farray {
     f32 *elems;
 
     i32 size;
@@ -24,24 +24,24 @@ struct varray {
 
 /* ******************************************************************************** */
 
-struct varray vcreateArray();
-void vdestroyArray(struct varray*);
+struct farray fcreateArray();
+void fdestroyArray(struct farray*);
 
 /* ******************************************************************************** */
 
-void vreserve(struct varray*);
+void freserve(struct farray*);
 
 /* ******************************************************************************** */
 
-void* vgetBytes(struct varray*);
-i32 vbyteSize(struct varray*);
+void* fgetBytes(struct farray*);
+i32 fbyteSize(struct farray*);
 
 /* ******************************************************************************** */
 
-void insertFloat(struct varray*, f32);
+void insertFloat(struct farray*, f32);
 
 /* ******************************************************************************** */
 
-void insertPoint(struct varray*, struct point);
+void insertPoint(struct farray*, struct point);
 
 /* ******************************************************************************** */

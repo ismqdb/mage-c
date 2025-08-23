@@ -6,7 +6,7 @@
 
 #include "../point/point.h"
 
-#include "../varray/varray.h"
+#include "../farray/farray.h"
 #include "../iarray/iarray.h"
 
 /* ******************************************************************************** */
@@ -16,7 +16,7 @@ struct cube createCube();
 /* ******************************************************************************** */
 
 struct cube {
-    struct varray vertices;
+    struct farray vertices;
     struct iarray indices;
 };
 
