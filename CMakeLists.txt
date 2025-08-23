@@ -17,10 +17,10 @@ set(LIB_FILES
     "includes/vec4/vec4.c"
     "includes/point/point.c"
 
-    "includes/mat4/mat4Init.c"
-    "includes/mat4/mat4Ops.c"
-    "includes/mat4/mat4Camera.c"
-    "includes/mat4/mat4Transf.c"
+    "includes/mat4/initMat4.c"
+    "includes/mat4/operationsMat4.c"
+    "includes/mat4/cameraMat4.c"
+    "includes/mat4/transformationsMat4.c"
 
     "includes/triangle/triangle.c"
     "includes/circle/circle.c"
