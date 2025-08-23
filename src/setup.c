@@ -110,7 +110,7 @@ void update(){
         }
     }
 
-    preparevtx(&vtxarray);
+    prepareVertexArray(&vtxarray);
 }
 
 /* ******************************************************************************** */
@@ -125,7 +125,7 @@ void render(f64 currentTime){
     glUniformMatrix4fv(projectionMatrixLocation,    1, GL_FALSE, &projectionMatrix.elems[0][0]);
     glUniformMatrix4fv(modelMatrixLocation,         1, GL_FALSE, &modelMatrix.elems[0][0]);
 
-    rendervtx(&vtxarray);
+    renderVertexArray(&vtxarray);
 }
 
 /* ******************************************************************************** */

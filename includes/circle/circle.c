@@ -54,14 +54,14 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
     }
 
     for(i32 i = 1; i < (noOfTri*2); i++){
-        insertInt(&circle.indices, 0);
-        insertInt(&circle.indices, i);
-        insertInt(&circle.indices, i + 1);
+        insertIndice(&circle.indices, 0);
+        insertIndice(&circle.indices, i);
+        insertIndice(&circle.indices, i + 1);
     }
 
-    insertInt(&circle.indices, 0);
-    insertInt(&circle.indices, noOfTri*2);
-    insertInt(&circle.indices, 1);
+    insertIndice(&circle.indices, 0);
+    insertIndice(&circle.indices, noOfTri*2);
+    insertIndice(&circle.indices, 1);
 
     return circle;
 }

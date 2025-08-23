@@ -18,9 +18,9 @@ struct triangle createTriangle(struct point _a, struct point _b, struct point _c
     insertPoint(&triangle.vertices, triangle.bpt);
     insertPoint(&triangle.vertices, triangle.cpt);
 
-    insertInt(&triangle.indices, 0);
-    insertInt(&triangle.indices, 1);
-    insertInt(&triangle.indices, 2);
+    insertIndice(&triangle.indices, 0);
+    insertIndice(&triangle.indices, 1);
+    insertIndice(&triangle.indices, 2);
 
     return triangle;
 }

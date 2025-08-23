@@ -78,12 +78,12 @@ void appendVertices(struct vertexArray *vtxarray, struct farray *vertices){
 
 void appendIndices(struct vertexArray *vtxarray, struct iarray *indices){
     for(i32 i = 0; i < indices->size; i++)
-        insertInt(&vtxarray->indices, indices->elems[i]);
+        insertIndice(&vtxarray->indices, indices->elems[i]);
 }
 
 /* ******************************************************************************** */
 
-void preparevtx(struct vertexArray* vtxarray){
+void prepareVertexArray(struct vertexArray* vtxarray){
     glGenVertexArrays(1, vtxarray->vao);
     glBindVertexArray(vtxarray->vao[0]);
 
@@ -113,7 +113,7 @@ void preparevtx(struct vertexArray* vtxarray){
 
 /* ******************************************************************************** */
 
-void rendervtx(struct vertexArray* vtxarray){
+void renderVertexArray(struct vertexArray* vtxarray){
     glDrawElements(
         vtxarray->renderType, 
         indiceCount(vtxarray), 

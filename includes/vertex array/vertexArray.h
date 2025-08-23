@@ -75,7 +75,7 @@ void appendIndices(struct vertexArray*, struct iarray*);
 
 /* ******************************************************************************** */
 
-void preparevtx(struct vertexArray*);
-void rendervtx(struct vertexArray*);
+void prepareVertexArray(struct vertexArray*);
+void renderVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */

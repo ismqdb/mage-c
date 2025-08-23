@@ -45,18 +45,12 @@ i32 ibyteSize(struct iarray *array){
 
 /* ******************************************************************************** */
 
-i32 insertInt(struct iarray *array, i32 value){
+void insertIndice(struct iarray *array, i32 value){
     if(array->size == array->capacity)
         ireserve(array);
 
     array->elems[array->size] = value;
     array->size++;
-}
-
-/* ******************************************************************************** */
-
-void insertIndice(struct iarray *array, i32 indice){
-    insertInt(array, indice);
 }
 
 /* ******************************************************************************** */
