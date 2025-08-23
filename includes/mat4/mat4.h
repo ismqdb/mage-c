@@ -30,7 +30,7 @@ struct mat4 mulMat4(struct mat4, struct mat4);
 
 /* ******************************************************************************** */
 
-struct mat4 translate(struct mat4, f32, f32, f32);
+struct mat4 translate(struct mat4, struct vec4);
 struct mat4 scale(struct mat4, f32);
 
 /* ******************************************************************************** */

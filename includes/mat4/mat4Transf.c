@@ -4,12 +4,14 @@
 
 /* ******************************************************************************** */
 
-struct mat4 translate(struct mat4 inputMat, f32 tx, f32 ty, f32 tz){
+struct mat4 translate(struct mat4 inputMat, struct vec4 vec){
+    assert(vec.x || vec.y || vec.z);
+
     struct mat4 translationMatrix = identityMatrix();
 
-    translationMatrix.elems[3][0] += tx;
-    translationMatrix.elems[3][1] += ty;
-    translationMatrix.elems[3][2] += tz;
+    translationMatrix.elems[3][0] += vec.x;
+    translationMatrix.elems[3][1] += vec.y;
+    translationMatrix.elems[3][2] += vec.z;
     translationMatrix.elems[3][3] = 1.0f;
 
     return mulMat4(inputMat, translationMatrix);

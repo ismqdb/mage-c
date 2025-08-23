@@ -46,19 +46,23 @@ void update(){
         switch(i){
             // Translations
             case GLFW_KEY_LEFT:
-                modelMatrix = translate(modelMatrix, -deltaX, 0.0f, 0.0f);
+                modelMatrix = 
+                    translate(modelMatrix, createVector(-deltaX, 0.0f, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_RIGHT:
-                modelMatrix = translate(modelMatrix, +deltaX, 0.0f, 0.0f);
+                modelMatrix = 
+                    translate(modelMatrix, createVector(+deltaX, 0.0f, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_UP:
-                modelMatrix = translate(modelMatrix, 0.0f, +deltaY, 0.0f);
+                modelMatrix = 
+                    translate(modelMatrix, createVector(0.0f, deltaY, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_DOWN:
-                modelMatrix = translate(modelMatrix, 0.0f, -deltaY, 0.0f);
+                modelMatrix = 
+                    translate(modelMatrix, createVector(0.0f, -deltaY, 0.0f, 1.0f));
                 break;
 
             // Rotations
