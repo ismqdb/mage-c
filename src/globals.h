@@ -26,6 +26,6 @@ struct mat4 modelMatrix;
 
 struct cube cube;
 
-struct vertexArray vtxarray;
+struct vertexArray vertexArray;
 
 /* ******************************************************************************** */

@@ -119,13 +119,30 @@ void prepareVertexArray(struct vertexArray *array){
 
     glBufferData(
         GL_ARRAY_BUFFER,
-        sizeofVertices(array),
-        rawVertices(array),
+        sizeofVertices(array) + sizeofColors(array),
+        NULL,
         GL_DYNAMIC_DRAW
+    );
+
+    glBufferSubData(
+        GL_ARRAY_BUFFER,
+        0,
+        sizeofVertices(array),
+        rawVertices(array)
+    );
+
+    glBufferSubData(
+        GL_ARRAY_BUFFER,
+        sizeofVertices(array),
+        sizeofColors(array),
+        rawColors(array)
     );
 
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(0);
+
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)sizeofColors(array));
+    glEnableVertexAttribArray(1);
 
     glGenBuffers(1, array->ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);

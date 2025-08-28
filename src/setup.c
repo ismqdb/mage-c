@@ -8,12 +8,13 @@
 /* ******************************************************************************** */
 
 void openglSetup(){
-    vtxarray = createVertexArray(GL_TRIANGLES);
+    vertexArray = createVertexArray(GL_TRIANGLES);
 
     cube = createCube();
 
-    appendVertices(&vtxarray, &cube.vertices);
-    appendIndices(&vtxarray, &cube.indices);
+    appendVertices(&vertexArray, &cube.vertices);
+    appendColors(&vertexArray, &cube.colors);
+    appendIndices(&vertexArray, &cube.indices);
 
     projectionMatrix = perspective(100.0f, 1.0f, 800.0/600, 45);
 
@@ -110,7 +111,7 @@ void update(){
         }
     }
 
-    prepareVertexArray(&vtxarray);
+    prepareVertexArray(&vertexArray);
 }
 
 /* ******************************************************************************** */
@@ -125,7 +126,7 @@ void render(f64 currentTime){
     glUniformMatrix4fv(projectionMatrixLocation,    1, GL_FALSE, &projectionMatrix.field[0][0]);
     glUniformMatrix4fv(modelMatrixLocation,         1, GL_FALSE, &modelMatrix.field[0][0]);
 
-    renderVertexArray(&vtxarray);
+    renderVertexArray(&vertexArray);
 }
 
 /* ******************************************************************************** */
