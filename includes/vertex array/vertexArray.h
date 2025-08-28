@@ -41,6 +41,7 @@ struct vertexArray {
     enum arrayRenderType renderType;
 
     struct farray vertices;
+    struct farray colors;
     struct iarray indices;
 
     i32 vao[1];
@@ -56,21 +57,25 @@ void destroyVertexArray(struct vertexArray*);
 /* ******************************************************************************** */
 
 i32 sizeofVertices(struct vertexArray*);
+i32 sizeofColors(struct vertexArray*);
 i32 sizeofIndices(struct vertexArray*);
 
 /* ******************************************************************************** */
 
 i32 countVertices(struct vertexArray*);
+i32 countColors(struct vertexArray*);
 i32 countIndices(struct vertexArray*);
 
 /* ******************************************************************************** */
 
 f32* rawVertices(struct vertexArray*);
+f32* rawColors(struct vertexArray*);
 i32* rawIndices(struct vertexArray*);
 
 /* ******************************************************************************** */
 
 void appendVertices(struct vertexArray*, struct farray*);
+void appendColors(struct vertexArray*, struct farray*);
 void appendIndices(struct vertexArray*, struct iarray*);
 
 /* ******************************************************************************** */

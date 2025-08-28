@@ -11,6 +11,7 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
 
     vertexArray.renderType  = rtype;
     vertexArray.vertices    = fcreateArray();
+    vertexArray.colors      = fcreateArray();
     vertexArray.indices     = icreateArray();
 
     vertexArray.vao[0] = -1;
@@ -24,6 +25,7 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
 
 void destroyVertexArray(struct vertexArray *vertexArray){
     fdestroyArray(&vertexArray->vertices);
+    fdestroyArray(&vertexArray->colors);
     idestroyArray(&vertexArray->indices);
 
     vertexArray->vao[0] = -1;
@@ -35,6 +37,12 @@ void destroyVertexArray(struct vertexArray *vertexArray){
 
 i32 sizeofVertices(struct vertexArray *array){
     return fbyteSize(&array->vertices);
+}
+
+/* ******************************************************************************** */
+
+i32 sizeofColors(struct vertexArray *array){
+    return fbyteSize(&array->colors);
 }
 
 /* ******************************************************************************** */
@@ -51,6 +59,12 @@ i32 countVertices(struct vertexArray *array){
 
 /* ******************************************************************************** */
 
+i32 countColors(struct vertexArray *array){
+    return array->colors.size;
+}
+
+/* ******************************************************************************** */
+
 i32 countIndices(struct vertexArray *array){
     return array->indices.size;
 }
@@ -59,6 +73,12 @@ i32 countIndices(struct vertexArray *array){
 
 f32* rawVertices(struct vertexArray *array){
     return (f32*)fgetBytes(&array->vertices);
+}
+
+/* ******************************************************************************** */
+
+f32* rawColors(struct vertexArray *array){
+    return (f32*)fgetBytes(&array->colors);
 }
 
 /* ******************************************************************************** */
@@ -72,6 +92,13 @@ i32* rawIndices(struct vertexArray *array){
 void appendVertices(struct vertexArray *array, struct farray *vertices){
     for(i32 i = 0; i < vertices->size; i++)
         insertFloat(&array->vertices, vertices->elems[i]);
+}
+
+/* ******************************************************************************** */
+
+void appendColors(struct vertexArray *array, struct farray *colors){
+    for(i32 i = 0; i < colors->size; i++)
+        insertFloat(&array->colors, colors->elems[i]);
 }
 
 /* ******************************************************************************** */
