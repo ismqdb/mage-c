@@ -7,7 +7,7 @@
 struct mat4 translateMat4(struct mat4 inputMat, struct vec4 vec){
     assert(vec.x || vec.y || vec.z);
 
-    struct mat4 translationMatrix = identityMatrix();
+    struct mat4 translationMatrix = identityMat4();
 
     translationMatrix.field[3][0] += vec.x;
     translationMatrix.field[3][1] += vec.y;
@@ -22,7 +22,7 @@ struct mat4 translateMat4(struct mat4 inputMat, struct vec4 vec){
 struct mat4 scaleMat4(struct mat4 inputMat, f32 factor){
     assert(factor > 0.0 && factor <= 2.0);
 
-    struct mat4 translationMatrix = identityMatrix();
+    struct mat4 translationMatrix = identityMat4();
 
     translationMatrix.field[0][0] *= factor;
     translationMatrix.field[1][1] *= factor;
@@ -38,7 +38,7 @@ struct mat4 xrotateMat4(struct mat4 inputMat, f32 angle){
 
     f32 angleRad = angle*M_PI/180;
 
-    struct mat4 translationMatrix = identityMatrix();
+    struct mat4 translationMatrix = identityMat4();
 
     translationMatrix.field[1][1] = cos(angleRad);
     translationMatrix.field[1][2] = -sin(angleRad);
@@ -56,7 +56,7 @@ struct mat4 yrotateMat4(struct mat4 inputMat, f32 angle){
 
     f32 angleRad = angle*M_PI/180;
 
-    struct mat4 translationMatrix = identityMatrix();
+    struct mat4 translationMatrix = identityMat4();
 
     translationMatrix.field[0][0] = cos(angleRad);
     translationMatrix.field[0][2] = sin(angleRad);
@@ -74,7 +74,7 @@ struct mat4 zrotateMat4(struct mat4 inputMat, f32 angle){
 
     f32 angleRad = angle*M_PI/180;
 
-    struct mat4 translationMatrix = identityMatrix();
+    struct mat4 translationMatrix = identityMat4();
 
     translationMatrix.field[0][0] = cos(angleRad);
     translationMatrix.field[0][1] = sin(angleRad);
@@ -88,7 +88,7 @@ struct mat4 zrotateMat4(struct mat4 inputMat, f32 angle){
 /* ******************************************************************************** */
 
 struct mat4 xreflectMat4(struct mat4 inputMat){
-    struct mat4 translationMatrix = identityMatrix();
+    struct mat4 translationMatrix = identityMat4();
 
     translationMatrix.field[0][0] = -1;
 
@@ -98,7 +98,7 @@ struct mat4 xreflectMat4(struct mat4 inputMat){
 /* ******************************************************************************** */
 
 struct mat4 yreflectMat4(struct mat4 inputMat){
-    struct mat4 translationMatrix = identityMatrix();
+    struct mat4 translationMatrix = identityMat4();
 
     translationMatrix.field[1][1] = -1;
 

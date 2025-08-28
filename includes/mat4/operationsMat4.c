@@ -5,7 +5,7 @@
 /* ******************************************************************************** */
 
 struct mat4 addMat4(struct mat4 a, struct mat4 b){
-    struct mat4 result = zeroMatrix();
+    struct mat4 result = zeroMat4();
 
     result.field[0][0] = a.field[0][0]+b.field[0][0];
     result.field[0][1] = a.field[0][1]+b.field[0][1];
@@ -33,7 +33,7 @@ struct mat4 addMat4(struct mat4 a, struct mat4 b){
 /* ******************************************************************************** */
 
 struct mat4 mulMat4(struct mat4 a, struct mat4 b){
-    struct mat4 result = zeroMatrix();
+    struct mat4 result = zeroMat4();
 
     // Column 0
     result.field[0][0] 

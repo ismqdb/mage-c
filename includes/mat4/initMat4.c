@@ -4,7 +4,7 @@
 
 /* ******************************************************************************** */
 
-struct mat4 zeroMatrix(){
+struct mat4 zeroMat4(){
     struct mat4 result;
 
     result.field[0][0] = 0;
@@ -32,7 +32,7 @@ struct mat4 zeroMatrix(){
 
 /* ******************************************************************************** */
 
-struct mat4 oneMatrix(){
+struct mat4 oneMat4(){
     struct mat4 result;
 
     result.field[0][0] = 1;
@@ -60,7 +60,7 @@ struct mat4 oneMatrix(){
 
 /* ******************************************************************************** */
 
-struct mat4 identityMatrix(){
+struct mat4 identityMat4(){
     struct mat4 result;
 
     result.field[0][0] = 1;

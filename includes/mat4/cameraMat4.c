@@ -8,7 +8,7 @@ struct mat4 perspective(f64 zfar, f64 znear, f64 aratio, i32 fov){
     assert(aratio != 0);
     assert(znear != zfar);
 
-    struct mat4 result = identityMatrix();
+    struct mat4 result = identityMat4();
 
     f64 rad = fov*M_PI/180.0;
     f64 tanHalfFov = tan(rad/2);
@@ -29,7 +29,7 @@ struct mat4 lookat(struct vec4 eye, struct vec4 center, struct vec4 up){
     struct vec4 u = normalize(up);
     struct vec4 s = normalize(crossProduct(f, u));
 
-    struct mat4 result = identityMatrix();
+    struct mat4 result = identityMat4();
 
     result.field[0][0] = s.x;
     result.field[1][0] = s.y;
