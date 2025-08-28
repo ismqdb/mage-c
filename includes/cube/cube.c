@@ -21,6 +21,16 @@ struct cube createCube(){
     insertVec4(&cube.vertices, createPoint(+0.25f, -0.25f, -0.50f, 1.0f).position);
     insertVec4(&cube.vertices, createPoint(-0.25f, -0.25f, -0.50f, 1.0f).position);
 
+    insertVec4(&cube.colors, createVec4(-0.25f, +0.25f, -0.50f, 1.0f));
+    insertVec4(&cube.colors, createVec4(+0.25f, +0.25f, -0.50f, 1.0f));
+    insertVec4(&cube.colors, createVec4(+0.25f, -0.25f, -0.50f, 1.0f));
+    insertVec4(&cube.colors, createVec4(-0.25f, -0.25f, -0.50f, 1.0f));
+
+    insertVec4(&cube.colors, createVec4(-0.25f, +0.25f, -0.50f, 1.0f));
+    insertVec4(&cube.colors, createVec4(+0.25f, +0.25f, -0.50f, 1.0f));
+    insertVec4(&cube.colors, createVec4(+0.25f, -0.25f, -0.50f, 1.0f));
+    insertVec4(&cube.colors, createVec4(-0.25f, -0.25f, -0.50f, 1.0f));
+
     // Back
     insertIndice(&cube.indices, 0);
     insertIndice(&cube.indices, 1);
