@@ -10,15 +10,15 @@ struct cube createCube(){
     cube.vertices = fcreateArray();
     cube.indices = icreateArray();
 
-    insertPoint(&cube.vertices, createPoint(-0.25f, +0.25f, +0.00f, 1.0f));
-    insertPoint(&cube.vertices, createPoint(+0.25f, +0.25f, +0.00f, 1.0f));
-    insertPoint(&cube.vertices, createPoint(+0.25f, -0.25f, +0.00f, 1.0f));
-    insertPoint(&cube.vertices, createPoint(-0.25f, -0.25f, +0.00f, 1.0f));
+    insertVec4(&cube.vertices, createPoint(-0.25f, +0.25f, +0.00f, 1.0f).position);
+    insertVec4(&cube.vertices, createPoint(+0.25f, +0.25f, +0.00f, 1.0f).position);
+    insertVec4(&cube.vertices, createPoint(+0.25f, -0.25f, +0.00f, 1.0f).position);
+    insertVec4(&cube.vertices, createPoint(-0.25f, -0.25f, +0.00f, 1.0f).position);
 
-    insertPoint(&cube.vertices, createPoint(-0.25f, +0.25f, -0.50f, 1.0f));
-    insertPoint(&cube.vertices, createPoint(+0.25f, +0.25f, -0.50f, 1.0f));
-    insertPoint(&cube.vertices, createPoint(+0.25f, -0.25f, -0.50f, 1.0f));
-    insertPoint(&cube.vertices, createPoint(-0.25f, -0.25f, -0.50f, 1.0f));
+    insertVec4(&cube.vertices, createPoint(-0.25f, +0.25f, -0.50f, 1.0f).position);
+    insertVec4(&cube.vertices, createPoint(+0.25f, +0.25f, -0.50f, 1.0f).position);
+    insertVec4(&cube.vertices, createPoint(+0.25f, -0.25f, -0.50f, 1.0f).position);
+    insertVec4(&cube.vertices, createPoint(-0.25f, -0.25f, -0.50f, 1.0f).position);
 
     // Back
     insertIndice(&cube.indices, 0);

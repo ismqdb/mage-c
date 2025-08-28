@@ -55,11 +55,11 @@ void insertFloat(struct farray *array, f32 value){
 
 /* ******************************************************************************** */
 
-void insertPoint(struct farray *array, struct point point){
-    insertFloat(array, point.position.x);
-    insertFloat(array, point.position.y);
-    insertFloat(array, point.position.z);
-    insertFloat(array, point.position.w);
+void insertVec4(struct farray *array, struct vec4 vec){
+    insertFloat(array, vec.x);
+    insertFloat(array, vec.y);
+    insertFloat(array, vec.z);
+    insertFloat(array, vec.w);
 }
 
 /* ******************************************************************************** */

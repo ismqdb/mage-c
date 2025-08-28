@@ -19,7 +19,7 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
     circle.arcLen = 360.0/noOfTri;
 
     struct point centerPoint = createPoint(_pos.x, _pos.y, 0.0, 1.0);
-    insertPoint(&circle.vertices, centerPoint);
+    insertVec4(&circle.vertices, centerPoint.position);
 
     struct point pt2;
     struct point pt3;
@@ -47,8 +47,8 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
             1.0
         );
 
-        insertPoint(&circle.vertices, pt2);
-        insertPoint(&circle.vertices, pt3);
+        insertVec4(&circle.vertices, pt2.position);
+        insertVec4(&circle.vertices, pt3.position);
 
         angle += circle.arcLen;
     }

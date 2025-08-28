@@ -42,6 +42,6 @@ void insertFloat(struct farray*, f32);
 
 /* ******************************************************************************** */
 
-void insertPoint(struct farray*, struct point);
+void insertVec4(struct farray*, struct vec4);
 
 /* ******************************************************************************** */
