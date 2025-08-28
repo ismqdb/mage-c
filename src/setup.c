@@ -18,9 +18,9 @@ void openglSetup(){
     projectionMatrix = perspective(100.0f, 1.0f, 800.0/600, 45);
 
     viewMatrix = lookat(
-        createVector(0.0f, 0.0f, 1.0f, 1.0f),
-        createVector(0.0f, 0.0f, 0.0f, 1.0f),
-        createVector(0.0f, 1.0f, 0.0f, 1.0f)
+        createVec(0.0f, 0.0f, 1.0f, 1.0f),
+        createVec(0.0f, 0.0f, 0.0f, 1.0f),
+        createVec(0.0f, 1.0f, 0.0f, 1.0f)
     );
 
     modelMatrix = identityMatrix();
@@ -47,22 +47,22 @@ void update(){
             // Translations
             case GLFW_KEY_LEFT:
                 modelMatrix = 
-                    translateMat4(modelMatrix, createVector(-deltaX, 0.0f, 0.0f, 1.0f));
+                    translateMat4(modelMatrix, createVec(-deltaX, 0.0f, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_RIGHT:
                 modelMatrix = 
-                    translateMat4(modelMatrix, createVector(+deltaX, 0.0f, 0.0f, 1.0f));
+                    translateMat4(modelMatrix, createVec(+deltaX, 0.0f, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_UP:
                 modelMatrix = 
-                    translateMat4(modelMatrix, createVector(0.0f, deltaY, 0.0f, 1.0f));
+                    translateMat4(modelMatrix, createVec(0.0f, deltaY, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_DOWN:
                 modelMatrix = 
-                    translateMat4(modelMatrix, createVector(0.0f, -deltaY, 0.0f, 1.0f));
+                    translateMat4(modelMatrix, createVec(0.0f, -deltaY, 0.0f, 1.0f));
                 break;
 
             // Rotations

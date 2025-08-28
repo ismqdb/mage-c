@@ -4,7 +4,7 @@
 
 /* ******************************************************************************** */
 
-struct vec4 createVector(f32 _x, f32 _y, f32 _z, f32 _w){
+struct vec4 createVec(f32 _x, f32 _y, f32 _z, f32 _w){
     struct vec4 vec;
 
     vec.x = _x;
