@@ -17,6 +17,7 @@ struct cube createCube();
 
 struct cube {
     struct farray vertices;
+    struct farray colors;
     struct iarray indices;
 };
 

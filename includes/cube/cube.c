@@ -7,8 +7,9 @@
 struct cube createCube(){
     struct cube cube;
 
-    cube.vertices = fcreateArray();
-    cube.indices = icreateArray();
+    cube.vertices   = fcreateArray();
+    cube.colors     = fcreateArray();
+    cube.indices    = icreateArray();
 
     insertVec4(&cube.vertices, createPoint(-0.25f, +0.25f, +0.00f, 1.0f).position);
     insertVec4(&cube.vertices, createPoint(+0.25f, +0.25f, +0.00f, 1.0f).position);
