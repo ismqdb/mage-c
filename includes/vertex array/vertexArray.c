@@ -89,27 +89,6 @@ i32* rawIndices(struct vertexArray *array){
 
 /* ******************************************************************************** */
 
-none appendVertices(struct vertexArray *array, struct farray *vertices){
-    for(i32 i = 0; i < vertices->size; i++)
-        insertFloat(&array->vertices, vertices->elems[i]);
-}
-
-/* ******************************************************************************** */
-
-none appendColors(struct vertexArray *array, struct farray *colors){
-    for(i32 i = 0; i < colors->size; i++)
-        insertFloat(&array->colors, colors->elems[i]);
-}
-
-/* ******************************************************************************** */
-
-none appendIndices(struct vertexArray *array, struct iarray *indices){
-    for(i32 i = 0; i < indices->size; i++)
-        insertIndice(&array->indices, indices->elems[i]);
-}
-
-/* ******************************************************************************** */
-
 none prepareVertexArray(struct vertexArray *array){
     glGenVertexArrays(1, array->vao);
     glBindVertexArray(array->vao[0]);

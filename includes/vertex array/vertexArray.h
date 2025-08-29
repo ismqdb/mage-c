@@ -74,12 +74,6 @@ i32* rawIndices(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-none appendVertices(struct vertexArray*, struct farray*);
-none appendColors(struct vertexArray*, struct farray*);
-none appendIndices(struct vertexArray*, struct iarray*);
-
-/* ******************************************************************************** */
-
 none prepareVertexArray(struct vertexArray*);
 none renderVertexArray(struct vertexArray*);
 
