@@ -24,6 +24,12 @@ none openglSetup(){
 
     cube2.modelMatrix = 
         translateMat4(cube2.modelMatrix, createVec4(+0.35f, 0.0f, 0.0f, 0.0f));
+
+    cube1.modelMatrix =
+        scaleMat4(cube1.modelMatrix, 0.5f);
+
+    cube2.modelMatrix = 
+        scaleMat4(cube2.modelMatrix, 0.5f);
 }
 
 /* ******************************************************************************** */
