@@ -13,11 +13,11 @@
 
 /* ******************************************************************************** */
 
-struct cube1 createCube();
+struct cube createCube();
 
 /* ******************************************************************************** */
 
-struct cube1 {
+struct cube {
     struct mat4 modelMatrix;
     struct vertexArray vertexArray;
 };
