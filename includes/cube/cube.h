@@ -9,8 +9,7 @@
 
 /* ******************************************************************************** */
 
-#include "../farray/farray.h"
-#include "../iarray/iarray.h"
+#include "../vertex array/vertexArray.h"
 
 /* ******************************************************************************** */
 
@@ -20,10 +19,7 @@ struct cube1 createCube();
 
 struct cube1 {
     struct mat4 modelMatrix;
-
-    struct farray vertices;
-    struct farray colors;
-    struct iarray indices;
+    struct vertexArray vertexArray;
 };
 
 /* ******************************************************************************** */

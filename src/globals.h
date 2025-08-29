@@ -22,7 +22,6 @@ GLint modelMatrixLocation;
 
 struct mat4 projectionMatrix;
 struct mat4 viewMatrix;
-struct mat4 modelMatrix;
 
 struct cube1 cube1;
 struct cube1 cube2;
