@@ -26,19 +26,19 @@ struct iarray {
 /* ******************************************************************************** */
 
 struct iarray icreateArray();
-void idestroyArray(struct iarray*);
+none idestroyArray(struct iarray*);
 
 /* ******************************************************************************** */
 
-void ireserve(struct iarray*);
+none ireserve(struct iarray*);
 
 /* ******************************************************************************** */
 
-void* igetBytes(struct iarray*);
+none* igetBytes(struct iarray*);
 i32 ibyteSize(struct iarray*);
 
 /* ******************************************************************************** */
 
-void insertIndice(struct iarray*, i32);
+none insertIndice(struct iarray*, i32);
 
 /* ******************************************************************************** */

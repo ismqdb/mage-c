@@ -28,20 +28,20 @@ extern i32 pressed[GLFW_KEY_LAST];
 
 /* ******************************************************************************** */
 
-void onResize(GLFWwindow*, i32, i32);
-void onKey(GLFWwindow*, i32, i32, i32, i32);
-void onMouseButton(GLFWwindow*, i32, i32, i32);
-void onMouseMove(GLFWwindow*, f64, f64);
-void onMouseWheel(GLFWwindow*, f64, f64);
+none onResize(GLFWwindow*, i32, i32);
+none onKey(GLFWwindow*, i32, i32, i32, i32);
+none onMouseButton(GLFWwindow*, i32, i32, i32);
+none onMouseMove(GLFWwindow*, f64, f64);
+none onMouseWheel(GLFWwindow*, f64, f64);
 
 /* ******************************************************************************** */
 
-void setVsync(i32);
-void getMousePosition(i32*, i32*);
+none setVsync(i32);
+none getMousePosition(i32*, i32*);
 
 /* ******************************************************************************** */
 
-void glfwSetup();
-void glfwTeardown();
+none glfwSetup();
+none glfwTeardown();
 
 /* ******************************************************************************** */

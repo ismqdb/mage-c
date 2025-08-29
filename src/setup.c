@@ -7,7 +7,7 @@
 
 /* ******************************************************************************** */
 
-void openglSetup(){
+none openglSetup(){
     vertexArray = createVertexArray(GL_TRIANGLES);
 
     cube = createCube();
@@ -29,13 +29,13 @@ void openglSetup(){
 
 /* ******************************************************************************** */
 
-void openglTeardown(){
+none openglTeardown(){
 
 }
 
 /* ******************************************************************************** */
 
-void update(){
+none update(){
     f32 deltaX = 1.0/64;
     f32 deltaY = 1.0/64;
     f32 deltaZ = 1.0/64;
@@ -116,7 +116,7 @@ void update(){
 
 /* ******************************************************************************** */
 
-void render(f64 currentTime){
+none render(f64 currentTime){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     GLfloat green[] = {0.0f, 0.25f, 0.0f, 1.0f};

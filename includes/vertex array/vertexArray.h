@@ -52,7 +52,7 @@ struct vertexArray {
 /* ******************************************************************************** */
 
 struct vertexArray createVertexArray(enum arrayRenderType);
-void destroyVertexArray(struct vertexArray*);
+none destroyVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
 
@@ -74,13 +74,13 @@ i32* rawIndices(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-void appendVertices(struct vertexArray*, struct farray*);
-void appendColors(struct vertexArray*, struct farray*);
-void appendIndices(struct vertexArray*, struct iarray*);
+none appendVertices(struct vertexArray*, struct farray*);
+none appendColors(struct vertexArray*, struct farray*);
+none appendIndices(struct vertexArray*, struct iarray*);
 
 /* ******************************************************************************** */
 
-void prepareVertexArray(struct vertexArray*);
-void renderVertexArray(struct vertexArray*);
+none prepareVertexArray(struct vertexArray*);
+none renderVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */

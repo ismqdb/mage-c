@@ -69,7 +69,7 @@ GLuint loadShader(struct shader* shaders){
         }
 
         glShaderSource(shader, 1, &source, NULL);
-        free((void*)source);
+        free((none*)source);
 
         glCompileShader(shader);
 

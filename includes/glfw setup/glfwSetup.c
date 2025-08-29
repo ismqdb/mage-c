@@ -11,14 +11,14 @@ i32 pressed[GLFW_KEY_LAST];
 
 /* ******************************************************************************** */
 
-void onResize(GLFWwindow* window, i32 w, i32 h){
+none onResize(GLFWwindow* window, i32 w, i32 h){
     info.windowWidth = w;
     info.windowHeight = h;
 }
 
 /* ******************************************************************************** */
 
-void onKey(GLFWwindow* window, i32 key, i32 scancode, i32 action, i32 mods){
+none onKey(GLFWwindow* window, i32 key, i32 scancode, i32 action, i32 mods){
     if(key == GLFW_KEY_UNKNOWN)
         return;
 
@@ -34,20 +34,20 @@ void onKey(GLFWwindow* window, i32 key, i32 scancode, i32 action, i32 mods){
 
 /* ******************************************************************************** */
 
-void onMouseButton(GLFWwindow* window, i32 button, i32 action, i32 mods){}
-void onMouseMove(GLFWwindow* window, f64 x, f64 y){}
-void onMouseWheel(GLFWwindow* window, f64 xoffset, f64 yoffset){}
+none onMouseButton(GLFWwindow* window, i32 button, i32 action, i32 mods){}
+none onMouseMove(GLFWwindow* window, f64 x, f64 y){}
+none onMouseWheel(GLFWwindow* window, f64 xoffset, f64 yoffset){}
 
 /* ******************************************************************************** */
 
-void setVsync(i32 enable){
+none setVsync(i32 enable){
     info.flags.vsync = enable ? 1 : 0;
     glfwSwapInterval((i32)info.flags.vsync);
 }
 
 /* ******************************************************************************** */
 
-void getMousePosition(i32 *x, i32 *y){
+none getMousePosition(i32 *x, i32 *y){
     f64 dx, dy;
     glfwGetCursorPos(window, &dx, &dy);
 
@@ -57,7 +57,7 @@ void getMousePosition(i32 *x, i32 *y){
 
 /* ******************************************************************************** */
 
-void glfwSetup(){
+none glfwSetup(){
     glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_X11);
 
     if (!glfwInit()) {
@@ -111,7 +111,7 @@ void glfwSetup(){
 
 /* ******************************************************************************** */
 
-void glfwTeardown(){
+none glfwTeardown(){
     glfwDestroyWindow(window);
     glfwTerminate();
 }

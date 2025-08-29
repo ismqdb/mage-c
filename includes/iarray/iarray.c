@@ -18,14 +18,14 @@ struct iarray icreateArray(){
 
 /* ******************************************************************************** */
 
-void idestroyArray(struct iarray *array){
+none idestroyArray(struct iarray *array){
     array->size = 0;
     free(array->elems);
 }
 
 /* ******************************************************************************** */
 
-void ireserve(struct iarray *array){
+none ireserve(struct iarray *array){
     array->capacity *= 2;
     array->elems = 
         heapRealloc(i32, array->elems, array->capacity);
@@ -33,8 +33,8 @@ void ireserve(struct iarray *array){
 
 /* ******************************************************************************** */
 
-void* igetBytes(struct iarray *array){
-    return (void*)array->elems;
+none* igetBytes(struct iarray *array){
+    return (none*)array->elems;
 }
 
 /* ******************************************************************************** */
@@ -45,7 +45,7 @@ i32 ibyteSize(struct iarray *array){
 
 /* ******************************************************************************** */
 
-void insertIndice(struct iarray *array, i32 value){
+none insertIndice(struct iarray *array, i32 value){
     if(array->size == array->capacity)
         ireserve(array);
 

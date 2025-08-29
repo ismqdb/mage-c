@@ -23,7 +23,7 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
 
 /* ******************************************************************************** */
 
-void destroyVertexArray(struct vertexArray *vertexArray){
+none destroyVertexArray(struct vertexArray *vertexArray){
     fdestroyArray(&vertexArray->vertices);
     fdestroyArray(&vertexArray->colors);
     idestroyArray(&vertexArray->indices);
@@ -89,28 +89,28 @@ i32* rawIndices(struct vertexArray *array){
 
 /* ******************************************************************************** */
 
-void appendVertices(struct vertexArray *array, struct farray *vertices){
+none appendVertices(struct vertexArray *array, struct farray *vertices){
     for(i32 i = 0; i < vertices->size; i++)
         insertFloat(&array->vertices, vertices->elems[i]);
 }
 
 /* ******************************************************************************** */
 
-void appendColors(struct vertexArray *array, struct farray *colors){
+none appendColors(struct vertexArray *array, struct farray *colors){
     for(i32 i = 0; i < colors->size; i++)
         insertFloat(&array->colors, colors->elems[i]);
 }
 
 /* ******************************************************************************** */
 
-void appendIndices(struct vertexArray *array, struct iarray *indices){
+none appendIndices(struct vertexArray *array, struct iarray *indices){
     for(i32 i = 0; i < indices->size; i++)
         insertIndice(&array->indices, indices->elems[i]);
 }
 
 /* ******************************************************************************** */
 
-void prepareVertexArray(struct vertexArray *array){
+none prepareVertexArray(struct vertexArray *array){
     glGenVertexArrays(1, array->vao);
     glBindVertexArray(array->vao[0]);
 
@@ -141,7 +141,7 @@ void prepareVertexArray(struct vertexArray *array){
     glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (const GLvoid*)sizeofColors(array));
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (const none*)sizeofColors(array));
     glEnableVertexAttribArray(1);
 
     glGenBuffers(1, array->ebo);
@@ -157,7 +157,7 @@ void prepareVertexArray(struct vertexArray *array){
 
 /* ******************************************************************************** */
 
-void renderVertexArray(struct vertexArray *array){
+none renderVertexArray(struct vertexArray *array){
     glDrawElements(
         array->renderType, 
         countIndices(array), 

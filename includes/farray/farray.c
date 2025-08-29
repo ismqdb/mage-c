@@ -18,14 +18,14 @@ struct farray fcreateArray(){
 
 /* ******************************************************************************** */
 
-void fdestroyArray(struct farray *array){
+none fdestroyArray(struct farray *array){
     array->size = 0;
     free(array->elems);
 }
 
 /* ******************************************************************************** */
 
-void freserve(struct farray *array){
+none freserve(struct farray *array){
     array->capacity *= 2;
     array->elems = 
         heapRealloc(f32, array->elems, array->capacity);
@@ -33,8 +33,8 @@ void freserve(struct farray *array){
 
 /* ******************************************************************************** */
 
-void* fgetBytes(struct farray *array){
-    return (void*)array->elems;
+none* fgetBytes(struct farray *array){
+    return (none*)array->elems;
 }
 
 /* ******************************************************************************** */
@@ -45,7 +45,7 @@ i32 fbyteSize(struct farray *array){
 
 /* ******************************************************************************** */
 
-void insertFloat(struct farray *array, f32 value){
+none insertFloat(struct farray *array, f32 value){
     if(array->size == array->capacity)
         freserve(array);
 
@@ -55,7 +55,7 @@ void insertFloat(struct farray *array, f32 value){
 
 /* ******************************************************************************** */
 
-void insertVec4(struct farray *array, struct vec4 vec){
+none insertVec4(struct farray *array, struct vec4 vec){
     insertFloat(array, vec.x);
     insertFloat(array, vec.y);
     insertFloat(array, vec.z);

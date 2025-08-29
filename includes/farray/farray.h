@@ -25,15 +25,15 @@ struct farray {
 /* ******************************************************************************** */
 
 struct farray fcreateArray();
-void fdestroyArray(struct farray*);
+none fdestroyArray(struct farray*);
 
 /* ******************************************************************************** */
 
-void freserve(struct farray*);
+none freserve(struct farray*);
 
 /* ******************************************************************************** */
 
-void* fgetBytes(struct farray*);
+none* fgetBytes(struct farray*);
 
 /* ******************************************************************************** */
 
@@ -41,10 +41,10 @@ i32 fbyteSize(struct farray*);
 
 /* ******************************************************************************** */
 
-void insertFloat(struct farray*, f32);
+none insertFloat(struct farray*, f32);
 
 /* ******************************************************************************** */
 
-void insertVec4(struct farray*, struct vec4);
+none insertVec4(struct farray*, struct vec4);
 
 /* ******************************************************************************** */
