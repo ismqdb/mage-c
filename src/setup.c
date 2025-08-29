@@ -23,8 +23,6 @@ none openglSetup(){
         createVec4(0.0f, 0.0f, 0.0f, 1.0f),
         createVec4(0.0f, 1.0f, 0.0f, 1.0f)
     );
-
-    modelMatrix = identityMat4();
 }
 
 /* ******************************************************************************** */
@@ -47,66 +45,66 @@ none update(){
         switch(i){
             // Translations
             case GLFW_KEY_LEFT:
-                modelMatrix = 
-                    translateMat4(modelMatrix, createVec4(-deltaX, 0.0f, 0.0f, 1.0f));
+                cube.modelMatrix = 
+                    translateMat4(cube.modelMatrix, createVec4(-deltaX, 0.0f, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_RIGHT:
-                modelMatrix = 
-                    translateMat4(modelMatrix, createVec4(+deltaX, 0.0f, 0.0f, 1.0f));
+                cube.modelMatrix = 
+                    translateMat4(cube.modelMatrix, createVec4(+deltaX, 0.0f, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_UP:
-                modelMatrix = 
-                    translateMat4(modelMatrix, createVec4(0.0f, deltaY, 0.0f, 1.0f));
+                cube.modelMatrix = 
+                    translateMat4(cube.modelMatrix, createVec4(0.0f, deltaY, 0.0f, 1.0f));
                 break;
 
             case GLFW_KEY_DOWN:
-                modelMatrix = 
-                    translateMat4(modelMatrix, createVec4(0.0f, -deltaY, 0.0f, 1.0f));
+                cube.modelMatrix = 
+                    translateMat4(cube.modelMatrix, createVec4(0.0f, -deltaY, 0.0f, 1.0f));
                 break;
 
             // Rotations
             case GLFW_KEY_A:
-                modelMatrix = xrotateMat4(modelMatrix, 10);
+                cube.modelMatrix = xrotateMat4(cube.modelMatrix, 10);
                 break;
             
             case GLFW_KEY_S:
-                modelMatrix = xrotateMat4(modelMatrix, -10);
+                cube.modelMatrix = xrotateMat4(cube.modelMatrix, -10);
                 break;
 
             case GLFW_KEY_D:
-                modelMatrix = yrotateMat4(modelMatrix, 10);
+                cube.modelMatrix = yrotateMat4(cube.modelMatrix, 10);
                 break;
             
             case GLFW_KEY_F:
-                modelMatrix = yrotateMat4(modelMatrix, -10);
+                cube.modelMatrix = yrotateMat4(cube.modelMatrix, -10);
                 break;
 
             case GLFW_KEY_G:
-                modelMatrix = zrotateMat4(modelMatrix, 10);
+                cube.modelMatrix = zrotateMat4(cube.modelMatrix, 10);
                 break;
             
             case GLFW_KEY_H:
-                modelMatrix = zrotateMat4(modelMatrix, -10);
+                cube.modelMatrix = zrotateMat4(cube.modelMatrix, -10);
                 break;
 
             // Scaling
             case GLFW_KEY_T:
-                modelMatrix = scaleMat4(modelMatrix, 0.99f);
+                cube.modelMatrix = scaleMat4(cube.modelMatrix, 0.99f);
                 break;
 
             case GLFW_KEY_Y:
-                modelMatrix = scaleMat4(modelMatrix, 1.01f);
+                cube.modelMatrix = scaleMat4(cube.modelMatrix, 1.01f);
                 break;
 
             // Reflect
             case GLFW_KEY_Q:
-                modelMatrix = xreflectMat4(modelMatrix);
+                cube.modelMatrix = xreflectMat4(cube.modelMatrix);
                 break;
 
             case GLFW_KEY_W:
-                modelMatrix = yreflectMat4(modelMatrix);
+                cube.modelMatrix = yreflectMat4(cube.modelMatrix);
                 break;
         }
     }
@@ -124,7 +122,7 @@ none render(f64 currentTime){
 
     glUniformMatrix4fv(viewMatrixLocation,          1, GL_FALSE, &viewMatrix.field[0][0]);
     glUniformMatrix4fv(projectionMatrixLocation,    1, GL_FALSE, &projectionMatrix.field[0][0]);
-    glUniformMatrix4fv(modelMatrixLocation,         1, GL_FALSE, &modelMatrix.field[0][0]);
+    glUniformMatrix4fv(modelMatrixLocation,         1, GL_FALSE, &cube.modelMatrix.field[0][0]);
 
     renderVertexArray(&vertexArray);
 }

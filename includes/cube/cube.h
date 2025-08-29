@@ -19,6 +19,8 @@ struct cube createCube();
 /* ******************************************************************************** */
 
 struct cube {
+    struct mat4 modelMatrix;
+
     struct farray vertices;
     struct farray colors;
     struct iarray indices;

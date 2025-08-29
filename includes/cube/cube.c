@@ -11,6 +11,8 @@ struct cube createCube(){
     cube.colors     = fcreateArray();
     cube.indices    = icreateArray();
 
+    cube.modelMatrix = identityMat4();
+
     insertVec4(&cube.vertices, createPoint(-0.25f, +0.25f, +0.00f, 1.0f).position);
     insertVec4(&cube.vertices, createPoint(+0.25f, +0.25f, +0.00f, 1.0f).position);
     insertVec4(&cube.vertices, createPoint(+0.25f, -0.25f, +0.00f, 1.0f).position);
