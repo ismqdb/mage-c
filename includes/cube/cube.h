@@ -14,11 +14,11 @@
 
 /* ******************************************************************************** */
 
-struct cube createCube();
+struct cube1 createCube();
 
 /* ******************************************************************************** */
 
-struct cube {
+struct cube1 {
     struct mat4 modelMatrix;
 
     struct farray vertices;
