@@ -117,10 +117,24 @@ none prepareVertexArray(struct vertexArray *array){
         rawColors(array)
     );
 
-    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
+    glVertexAttribPointer(
+        0, 
+        4, 
+        GL_FLOAT, 
+        GL_FALSE, 
+        0, 
+        NULL
+    );
     glEnableVertexAttribArray(0);
 
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, (const none*)sizeofColors(array));
+    glVertexAttribPointer(
+        1, 
+        4, 
+        GL_FLOAT, 
+        GL_FALSE, 
+        0, 
+        (const none*)sizeofColors(array)
+    );
     glEnableVertexAttribArray(1);
 
     glGenBuffers(1, array->ebo);
