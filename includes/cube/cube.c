@@ -88,3 +88,16 @@ struct cube createCube(){
 }
 
 /* ******************************************************************************** */
+
+none renderCube(struct cube *cube, i32 modelMatrixLocation){
+    glUniformMatrix4fv(
+        modelMatrixLocation, 
+        1, 
+        GL_FALSE, 
+        &cube->modelMatrix.field[0][0]
+    );
+
+    renderVertexArray(&cube->vertexArray);
+}
+
+/* ******************************************************************************** */

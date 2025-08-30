@@ -152,13 +152,9 @@ none render(f64 currentTime){
 
     glUniformMatrix4fv(viewMatrixLocation,          1, GL_FALSE, &viewMatrix.field[0][0]);
     glUniformMatrix4fv(projectionMatrixLocation,    1, GL_FALSE, &projectionMatrix.field[0][0]);
-    glUniformMatrix4fv(modelMatrixLocation,         1, GL_FALSE, &cube1.modelMatrix.field[0][0]);
-
-    renderVertexArray(&cube1.vertexArray);
-
-    glUniformMatrix4fv(modelMatrixLocation,         1, GL_FALSE, &cube2.modelMatrix.field[0][0]);
-
-    renderVertexArray(&cube2.vertexArray);
+    
+    renderCube(&cube1, modelMatrixLocation);
+    renderCube(&cube2, modelMatrixLocation);
 }
 
 /* ******************************************************************************** */

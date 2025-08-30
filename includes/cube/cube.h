@@ -17,6 +17,10 @@ struct cube createCube();
 
 /* ******************************************************************************** */
 
+none renderCube(struct cube*, i32);
+
+/* ******************************************************************************** */
+
 struct cube {
     struct mat4 modelMatrix;
     struct vertexArray vertexArray;
