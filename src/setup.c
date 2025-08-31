@@ -150,8 +150,19 @@ none render(f64 currentTime){
     GLfloat green[] = {0.0f, 0.25f, 0.0f, 1.0f};
     glClearBufferfv(GL_COLOR, 0, green);
 
-    glUniformMatrix4fv(viewMatrixLocation,          1, GL_FALSE, &viewMatrix.field[0][0]);
-    glUniformMatrix4fv(projectionMatrixLocation,    1, GL_FALSE, &projectionMatrix.field[0][0]);
+    glUniformMatrix4fv(
+        viewMatrixLocation,          
+        1, 
+        GL_FALSE, 
+        &viewMatrix.field[0][0]
+    );
+    
+    glUniformMatrix4fv(
+        projectionMatrixLocation,    
+        1, 
+        GL_FALSE, 
+        &projectionMatrix.field[0][0]
+    );
     
     renderCube(&cube1, modelMatrixLocation);
     renderCube(&cube2, modelMatrixLocation);
