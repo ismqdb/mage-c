@@ -24,6 +24,15 @@ none renderCube(struct cube*);
 
 /* ******************************************************************************** */
 
+none insertPointCube(struct cube*, struct point);
+none insertColorCube(struct cube*, struct vec4);
+
+/* ******************************************************************************** */
+
+none insertIndiceCube(struct cube*, i32);
+
+/* ******************************************************************************** */
+
 none translateCube(struct cube*, struct vec4);
 
 /* ******************************************************************************** */

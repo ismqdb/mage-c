@@ -21,81 +21,99 @@ struct cube createCube(i32 currentProgram){
         identityMat4()
     );
 
-    insertVec4(&cube.vertexArray.vertices.value, createPoint(-0.25f, +0.25f, +0.00f, 1.0f).position);
-    insertVec4(&cube.vertexArray.vertices.value, createPoint(+0.25f, +0.25f, +0.00f, 1.0f).position);
-    insertVec4(&cube.vertexArray.vertices.value, createPoint(+0.25f, -0.25f, +0.00f, 1.0f).position);
-    insertVec4(&cube.vertexArray.vertices.value, createPoint(-0.25f, -0.25f, +0.00f, 1.0f).position);
+    insertPointCube(&cube, createPoint(-0.25f, +0.25f, +0.00f, 1.0f));
+    insertPointCube(&cube, createPoint(+0.25f, +0.25f, +0.00f, 1.0f));
+    insertPointCube(&cube, createPoint(+0.25f, -0.25f, +0.00f, 1.0f));
+    insertPointCube(&cube, createPoint(-0.25f, -0.25f, +0.00f, 1.0f));
 
-    insertVec4(&cube.vertexArray.vertices.value, createPoint(-0.25f, +0.25f, -0.50f, 1.0f).position);
-    insertVec4(&cube.vertexArray.vertices.value, createPoint(+0.25f, +0.25f, -0.50f, 1.0f).position);
-    insertVec4(&cube.vertexArray.vertices.value, createPoint(+0.25f, -0.25f, -0.50f, 1.0f).position);
-    insertVec4(&cube.vertexArray.vertices.value, createPoint(-0.25f, -0.25f, -0.50f, 1.0f).position);
+    insertPointCube(&cube, createPoint(-0.25f, +0.25f, -0.50f, 1.0f));
+    insertPointCube(&cube, createPoint(+0.25f, +0.25f, -0.50f, 1.0f));
+    insertPointCube(&cube, createPoint(+0.25f, -0.25f, -0.50f, 1.0f));
+    insertPointCube(&cube, createPoint(-0.25f, -0.25f, -0.50f, 1.0f));
 
-    insertVec4(&cube.vertexArray.colors.value, createVec4(+0.95f, +0.25f, +0.80f, 1.0f));
-    insertVec4(&cube.vertexArray.colors.value, createVec4(+0.95f, +0.75f, +0.20f, 1.0f));
-    insertVec4(&cube.vertexArray.colors.value, createVec4(+0.95f, +0.95f, +0.70f, 1.0f));
-    insertVec4(&cube.vertexArray.colors.value, createVec4(-0.95f, +0.15f, +0.50f, 1.0f));
+    insertColorCube(&cube, createVec4(+0.95f, +0.25f, +0.80f, 1.0f));
+    insertColorCube(&cube, createVec4(+0.95f, +0.75f, +0.20f, 1.0f));
+    insertColorCube(&cube, createVec4(+0.95f, +0.95f, +0.70f, 1.0f));
+    insertColorCube(&cube, createVec4(-0.95f, +0.15f, +0.50f, 1.0f));
 
-    insertVec4(&cube.vertexArray.colors.value, createVec4(+0.25f, +0.45f, +0.70f, 1.0f));
-    insertVec4(&cube.vertexArray.colors.value, createVec4(+0.95f, +0.05f, +0.80f, 1.0f));
-    insertVec4(&cube.vertexArray.colors.value, createVec4(+0.95f, +0.05f, +0.30f, 1.0f));
-    insertVec4(&cube.vertexArray.colors.value, createVec4(+0.05f, +0.55f, +0.40f, 1.0f));
+    insertColorCube(&cube, createVec4(+0.25f, +0.45f, +0.70f, 1.0f));
+    insertColorCube(&cube, createVec4(+0.95f, +0.05f, +0.80f, 1.0f));
+    insertColorCube(&cube, createVec4(+0.95f, +0.05f, +0.30f, 1.0f));
+    insertColorCube(&cube, createVec4(+0.05f, +0.55f, +0.40f, 1.0f));
 
     // Back
-    insertIndice(&cube.vertexArray.indices, 0);
-    insertIndice(&cube.vertexArray.indices, 1);
-    insertIndice(&cube.vertexArray.indices, 2);
+    insertIndiceCube(&cube, 0);
+    insertIndiceCube(&cube, 1);
+    insertIndiceCube(&cube, 2);
 
-    insertIndice(&cube.vertexArray.indices, 2);
-    insertIndice(&cube.vertexArray.indices, 3);
-    insertIndice(&cube.vertexArray.indices, 0);
+    insertIndiceCube(&cube, 2);
+    insertIndiceCube(&cube, 3);
+    insertIndiceCube(&cube, 0);
 
     // Front
-    insertIndice(&cube.vertexArray.indices, 4);
-    insertIndice(&cube.vertexArray.indices, 5);
-    insertIndice(&cube.vertexArray.indices, 6);
+    insertIndiceCube(&cube, 4);
+    insertIndiceCube(&cube, 5);
+    insertIndiceCube(&cube, 6);
 
-    insertIndice(&cube.vertexArray.indices, 4);
-    insertIndice(&cube.vertexArray.indices, 7);
-    insertIndice(&cube.vertexArray.indices, 6);
+    insertIndiceCube(&cube, 4);
+    insertIndiceCube(&cube, 7);
+    insertIndiceCube(&cube, 6);
 
     // Right
-    insertIndice(&cube.vertexArray.indices, 1);
-    insertIndice(&cube.vertexArray.indices, 5);
-    insertIndice(&cube.vertexArray.indices, 6);
+    insertIndiceCube(&cube, 1);
+    insertIndiceCube(&cube, 5);
+    insertIndiceCube(&cube, 6);
 
-    insertIndice(&cube.vertexArray.indices, 6);
-    insertIndice(&cube.vertexArray.indices, 2);
-    insertIndice(&cube.vertexArray.indices, 1);
+    insertIndiceCube(&cube, 6);
+    insertIndiceCube(&cube, 2);
+    insertIndiceCube(&cube, 1);
 
     // Left
-    insertIndice(&cube.vertexArray.indices, 4);
-    insertIndice(&cube.vertexArray.indices, 7);
-    insertIndice(&cube.vertexArray.indices, 3);
+    insertIndiceCube(&cube, 4);
+    insertIndiceCube(&cube, 7);
+    insertIndiceCube(&cube, 3);
 
-    insertIndice(&cube.vertexArray.indices, 3);
-    insertIndice(&cube.vertexArray.indices, 0);
-    insertIndice(&cube.vertexArray.indices, 4);
+    insertIndiceCube(&cube, 3);
+    insertIndiceCube(&cube, 0);
+    insertIndiceCube(&cube, 4);
 
     // Top
-    insertIndice(&cube.vertexArray.indices, 1);
-    insertIndice(&cube.vertexArray.indices, 0);
-    insertIndice(&cube.vertexArray.indices, 4);
+    insertIndiceCube(&cube, 1);
+    insertIndiceCube(&cube, 0);
+    insertIndiceCube(&cube, 4);
 
-    insertIndice(&cube.vertexArray.indices, 4);
-    insertIndice(&cube.vertexArray.indices, 5);
-    insertIndice(&cube.vertexArray.indices, 1);
+    insertIndiceCube(&cube, 4);
+    insertIndiceCube(&cube, 5);
+    insertIndiceCube(&cube, 1);
 
     // Bottom
-    insertIndice(&cube.vertexArray.indices, 2);
-    insertIndice(&cube.vertexArray.indices, 3);
-    insertIndice(&cube.vertexArray.indices, 7);
+    insertIndiceCube(&cube, 2);
+    insertIndiceCube(&cube, 3);
+    insertIndiceCube(&cube, 7);
     
-    insertIndice(&cube.vertexArray.indices, 7);
-    insertIndice(&cube.vertexArray.indices, 6);
-    insertIndice(&cube.vertexArray.indices, 2);
+    insertIndiceCube(&cube, 7);
+    insertIndiceCube(&cube, 6);
+    insertIndiceCube(&cube, 2);
 
     return cube;
+}
+
+/* ******************************************************************************** */
+
+none insertPointCube(struct cube *cube, struct point point){
+    insertVec4(&cube->vertexArray.vertices.value, point.position);
+}
+
+/* ******************************************************************************** */
+
+none insertColorCube(struct cube *cube, struct vec4 color){
+    insertVec4(&cube->vertexArray.colors.value, color);
+}
+
+/* ******************************************************************************** */
+
+none insertIndiceCube(struct cube *cube, i32 ind){
+    insertIndice(&cube->vertexArray.indices, ind);
 }
 
 /* ******************************************************************************** */
