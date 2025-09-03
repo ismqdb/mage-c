@@ -160,3 +160,15 @@ none renderVertexArray(struct vertexArray *array){
 }
 
 /* ******************************************************************************** */
+
+none renderVertexArrayInstanced(struct vertexArray *array, i32 count){
+    glDrawElementsInstanced(
+        array->renderType, 
+        countIndices(array), 
+        GL_UNSIGNED_INT, 
+        NULL,
+        count
+    );
+}
+
+/* ******************************************************************************** */

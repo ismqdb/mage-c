@@ -87,3 +87,20 @@ struct mat4 identityMat4(){
 }
 
 /* ******************************************************************************** */
+
+struct mat4 randomMat4(i32 lo, i32 hi){
+    assert(lo >= -1 && lo <= 1);
+    assert(hi >= -1 && hi <= 1);
+
+    assert(lo < hi);
+
+    struct mat4 result;
+
+    for(i32 i = 0; i < 4; i++)
+        for(i32 j = 0; j < 4; j++)
+            result.field[i][j] = getRand(lo, hi);
+
+    return result;
+}
+
+/* ******************************************************************************** */

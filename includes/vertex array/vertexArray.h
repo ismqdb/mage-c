@@ -75,6 +75,10 @@ i32* rawIndices(struct vertexArray*);
 /* ******************************************************************************** */
 
 none prepareVertexArray(struct vertexArray*);
+
+/* ******************************************************************************** */
+
 none renderVertexArray(struct vertexArray*);
+none renderVertexArrayInstanced(struct vertexArray*, i32);
 
 /* ******************************************************************************** */

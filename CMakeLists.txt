@@ -13,6 +13,8 @@ set(LIB_FILES
     "includes/farray/farray.c"
     "includes/iarray/iarray.c"
 
+    "includes/rand/rand.c"
+
     "includes/vertex array/vertexArray.c"
     "includes/vec4/vec4.c"
     "includes/point/point.c"
