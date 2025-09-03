@@ -8,7 +8,7 @@
 
 /* ******************************************************************************** */
 
-none objectsSetup(){
+none objectSetup(){
     cube1 = createCube(program);
     cube2 = createCube(program);
 
@@ -103,7 +103,7 @@ i32 gameLoop(){
     i32 running = 1;
 
     openglSetup();
-    objectsSetup();
+    objectSetup();
 
     while (running) {
         render(glfwGetTime());
