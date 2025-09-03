@@ -4,6 +4,7 @@
 #include "../includes/openglSetup.h"
 
 #include "./globals.h"
+#include "../includes/rand/rand.h"
 
 /* ******************************************************************************** */
 
