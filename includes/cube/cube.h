@@ -43,6 +43,10 @@ none zrotateCube(struct cube*, f32);
 
 /* ******************************************************************************** */
 
+none onKeyCube(struct cube*, i32);
+
+/* ******************************************************************************** */
+
 struct cube {
     i32 program;
     struct uniformMat4 modelMatrix;

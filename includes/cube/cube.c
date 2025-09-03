@@ -145,6 +145,76 @@ none yreflectCube(struct cube *cube){
 
 /* ******************************************************************************** */
 
+none onKeyCube(struct cube *cube, i32 key){
+    f32 deltaX = 1.0/64;
+    f32 deltaY = 1.0/64;
+    f32 deltaZ = 1.0/64;
+
+    switch(key){
+        // Translations
+        case GLFW_KEY_LEFT:
+            translateCube(cube, createVec4(-deltaX, 0.0f, 0.0f, 1.0f));
+            break;
+
+        case GLFW_KEY_RIGHT:
+            translateCube(cube, createVec4(+deltaX, 0.0f, 0.0f, 1.0f));
+            break;
+
+        case GLFW_KEY_UP:
+            translateCube(cube, createVec4(0.0f, deltaY, 0.0f, 1.0f));
+            break;
+
+        case GLFW_KEY_DOWN:
+            translateCube(cube, createVec4(0.0f, -deltaY, 0.0f, 1.0f));
+            break;
+
+        // Rotations
+        case GLFW_KEY_A:
+            xrotateCube(cube, 10);
+            break;
+        
+        case GLFW_KEY_S:
+            xrotateCube(cube, -10);
+            break;
+
+        case GLFW_KEY_D:
+            yrotateCube(cube, 10);
+            break;
+        
+        case GLFW_KEY_F:
+            yrotateCube(cube, -10);
+            break;
+
+        case GLFW_KEY_G:
+            zrotateCube(cube, 10);
+            break;
+        
+        case GLFW_KEY_H:
+            zrotateCube(cube, -10);
+            break;
+
+        // Scaling
+        case GLFW_KEY_T:
+            scaleCube(cube, 0.99f);
+            break;
+
+        case GLFW_KEY_Y:
+            scaleCube(cube, 1.01f);
+            break;
+
+        // Reflect
+        case GLFW_KEY_Q:
+            xreflectCube(cube);
+            break;
+
+        case GLFW_KEY_W:
+            yreflectCube(cube);
+            break;
+    }
+}
+
+/* ******************************************************************************** */
+
 none renderCube(struct cube *cube){
     glUniformMatrix4fv(
         cube->modelMatrix.position, 

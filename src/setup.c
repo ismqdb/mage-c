@@ -73,89 +73,12 @@ none openglTeardown(){
 /* ******************************************************************************** */
 
 none update(){
-    f32 deltaX = 1.0/64;
-    f32 deltaY = 1.0/64;
-    f32 deltaZ = 1.0/64;
-
     for(i32 i = 0; i < GLFW_KEY_LAST; i++){
         if(!pressed[i])
             continue;
 
-        switch(i){
-            // Translations
-            case GLFW_KEY_LEFT:
-                translateCube(&cube1, createVec4(-deltaX, 0.0f, 0.0f, 1.0f));
-                translateCube(&cube2, createVec4(-deltaX, 0.0f, 0.0f, 1.0f));
-                break;
-
-            case GLFW_KEY_RIGHT:
-                translateCube(&cube1, createVec4(+deltaX, 0.0f, 0.0f, 1.0f));
-                translateCube(&cube2, createVec4(+deltaX, 0.0f, 0.0f, 1.0f));
-                break;
-
-            case GLFW_KEY_UP:
-                translateCube(&cube1, createVec4(0.0f, deltaY, 0.0f, 1.0f));
-                translateCube(&cube2, createVec4(0.0f, deltaY, 0.0f, 1.0f));
-                break;
-
-            case GLFW_KEY_DOWN:
-                translateCube(&cube1, createVec4(0.0f, -deltaY, 0.0f, 1.0f));
-                translateCube(&cube2, createVec4(0.0f, -deltaY, 0.0f, 1.0f));
-                break;
-
-            // Rotations
-            case GLFW_KEY_A:
-                xrotateCube(&cube1, 10);
-                xrotateCube(&cube2, 10);
-                break;
-            
-            case GLFW_KEY_S:
-                xrotateCube(&cube1, -10);
-                xrotateCube(&cube2, -10);
-                break;
-
-            case GLFW_KEY_D:
-                yrotateCube(&cube1, 10);
-                yrotateCube(&cube2, 10);
-                break;
-            
-            case GLFW_KEY_F:
-                yrotateCube(&cube1, -10);
-                yrotateCube(&cube2, -10);
-                break;
-
-            case GLFW_KEY_G:
-                zrotateCube(&cube1, 10);
-                zrotateCube(&cube2, 10);
-                break;
-            
-            case GLFW_KEY_H:
-                zrotateCube(&cube1, -10);
-                zrotateCube(&cube2, -10);
-                break;
-
-            // Scaling
-            case GLFW_KEY_T:
-                scaleCube(&cube1, 0.99f);
-                scaleCube(&cube2, 0.99f);
-                break;
-
-            case GLFW_KEY_Y:
-                scaleCube(&cube1, 1.01f);
-                scaleCube(&cube2, 1.01f);
-                break;
-
-            // Reflect
-            case GLFW_KEY_Q:
-                xreflectCube(&cube1);
-                xreflectCube(&cube2);
-                break;
-
-            case GLFW_KEY_W:
-                yreflectCube(&cube1);
-                yreflectCube(&cube2);
-                break;
-        }
+        onKeyCube(&cube1, i);
+        onKeyCube(&cube2, i);
     }
 
     prepareVertexArray(&cube1.vertexArray);
