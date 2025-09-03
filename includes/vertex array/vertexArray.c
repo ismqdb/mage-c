@@ -4,14 +4,17 @@
 
 /* ******************************************************************************** */
 
-struct vertexArray createVertexArray(enum arrayRenderType rtype){
-    assert(rtype > ARRAY_RENDER_TYPE_MIN && rtype < ARRAY_RENDER_TYPE_MAX);
+struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
+    assert(type > ARRAY_RENDER_TYPE_MIN && type < ARRAY_RENDER_TYPE_MAX);
 
     struct vertexArray vertexArray;
 
-    vertexArray.renderType  = rtype;
-    vertexArray.vertices    = createArray(ARRAY_TYPE_FLOAT);
-    vertexArray.colors      = createArray(ARRAY_TYPE_FLOAT);
+    vertexArray.renderType  = type;
+    vertexArray.program     = program;
+
+    vertexArray.vertices    = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "position");
+    vertexArray.colors      = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "colors");
+
     vertexArray.indices     = createArray(ARRAY_TYPE_INT);
 
     vertexArray.vao[0] = -1;
@@ -24,8 +27,9 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
 /* ******************************************************************************** */
 
 none destroyVertexArray(struct vertexArray *vertexArray){
-    destroyArray(&vertexArray->vertices);
-    destroyArray(&vertexArray->colors);
+    destroyVertexAttribute(&vertexArray->vertices);
+    destroyVertexAttribute(&vertexArray->colors);
+
     destroyArray(&vertexArray->indices);
 
     vertexArray->vao[0] = -1;
@@ -36,13 +40,13 @@ none destroyVertexArray(struct vertexArray *vertexArray){
 /* ******************************************************************************** */
 
 i32 sizeofVertices(struct vertexArray *array){
-    return byteSize(&array->vertices);
+    return byteSize(&array->vertices.value);
 }
 
 /* ******************************************************************************** */
 
 i32 sizeofColors(struct vertexArray *array){
-    return byteSize(&array->colors);
+    return byteSize(&array->colors.value);
 }
 
 /* ******************************************************************************** */
@@ -54,13 +58,13 @@ i32 sizeofIndices(struct vertexArray *array){
 /* ******************************************************************************** */
 
 i32 countVertices(struct vertexArray *array){
-    return array->vertices.size;
+    return array->vertices.value.size;
 }
 
 /* ******************************************************************************** */
 
 i32 countColors(struct vertexArray *array){
-    return array->colors.size;
+    return array->colors.value.size;
 }
 
 /* ******************************************************************************** */
@@ -72,13 +76,13 @@ i32 countIndices(struct vertexArray *array){
 /* ******************************************************************************** */
 
 f32* rawVertices(struct vertexArray *array){
-    return (f32*)getBytes(&array->vertices);
+    return (f32*)getBytes(&array->vertices.value);
 }
 
 /* ******************************************************************************** */
 
 f32* rawColors(struct vertexArray *array){
-    return (f32*)getBytes(&array->colors);
+    return (f32*)getBytes(&array->colors.value);
 }
 
 /* ******************************************************************************** */

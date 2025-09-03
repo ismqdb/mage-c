@@ -19,7 +19,7 @@
 
 /* ******************************************************************************** */
 
-#include "../array/array.h"
+#include "../vertex attribute/vertexAttribute.h"
 
 /* ******************************************************************************** */
 
@@ -39,18 +39,21 @@ enum arrayRenderType {
 struct vertexArray {
     enum arrayRenderType renderType;
 
-    struct array vertices;
-    struct array colors;
+    struct vertexAttr vertices;
+    struct vertexAttr colors;
+
     struct array indices;
 
     i32 vao[1];
     i32 vbo[1];
     i32 ebo[1];
+    
+    i32 program;
 };
 
 /* ******************************************************************************** */
 
-struct vertexArray createVertexArray(enum arrayRenderType);
+struct vertexArray createVertexArray(enum arrayRenderType, i32);
 none destroyVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
