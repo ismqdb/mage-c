@@ -96,6 +96,55 @@ struct cube createCube(i32 currentProgram){
 
 /* ******************************************************************************** */
 
+none xrotateCube(struct cube *cube, f32 value){
+    cube->modelMatrix.value = 
+        xrotateMat4(cube->modelMatrix.value, value);
+}
+
+/* ******************************************************************************** */
+
+none yrotateCube(struct cube *cube, f32 value){
+    cube->modelMatrix.value = 
+        yrotateMat4(cube->modelMatrix.value, value);
+}
+
+/* ******************************************************************************** */
+
+none zrotateCube(struct cube *cube, f32 value){
+    cube->modelMatrix.value = 
+        zrotateMat4(cube->modelMatrix.value, value);
+}
+
+/* ******************************************************************************** */
+
+none translateCube(struct cube* cube, struct vec4 trans){
+    cube->modelMatrix.value =
+        translateMat4(cube->modelMatrix.value, trans);
+}
+
+/* ******************************************************************************** */
+
+none scaleCube(struct cube* cube, f32 factor){
+    cube->modelMatrix.value =
+        scaleMat4(cube->modelMatrix.value, factor);
+}
+
+/* ******************************************************************************** */
+
+none xreflectCube(struct cube *cube){
+    cube->modelMatrix.value = 
+        xreflectMat4(cube->modelMatrix.value);
+}
+
+/* ******************************************************************************** */
+
+none yreflectCube(struct cube *cube){
+    cube->modelMatrix.value = 
+        yreflectMat4(cube->modelMatrix.value);
+}
+
+/* ******************************************************************************** */
+
 none renderCube(struct cube *cube){
     glUniformMatrix4fv(
         cube->modelMatrix.position, 

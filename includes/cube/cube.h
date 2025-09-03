@@ -24,6 +24,25 @@ none renderCube(struct cube*);
 
 /* ******************************************************************************** */
 
+none translateCube(struct cube*, struct vec4);
+
+/* ******************************************************************************** */
+
+none scaleCube(struct cube*, f32);
+
+/* ******************************************************************************** */
+
+none xreflectCube(struct cube*);
+none yreflectCube(struct cube*);
+
+/* ******************************************************************************** */
+
+none xrotateCube(struct cube*, f32);
+none yrotateCube(struct cube*, f32);
+none zrotateCube(struct cube*, f32);
+
+/* ******************************************************************************** */
+
 struct cube {
     i32 program;
     struct uniformMat4 modelMatrix;
