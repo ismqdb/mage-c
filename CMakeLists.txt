@@ -10,8 +10,8 @@ set(SOURCE_FILES
 )
 
 set(LIB_FILES
-    "includes/farray/farray.c"
-    "includes/iarray/iarray.c"
+    "includes/array/farray.c"
+    "includes/array/iarray.c"
 
     "includes/rand/rand.c"
 

@@ -6,8 +6,8 @@
 
 #include "../point/point.h"
 
-#include "../farray/farray.h"
-#include "../iarray/iarray.h"
+#include "../array/farray.h"
+#include "../array/iarray.h"
 
 /* ******************************************************************************** */
 
