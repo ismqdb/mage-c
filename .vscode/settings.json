@@ -31,6 +31,7 @@
         "point.h": "c",
         "mat4.h": "c",
         "math.h": "c",
-        "types.h": "c"
+        "types.h": "c",
+        "arraytype.h": "c"
     }
 }

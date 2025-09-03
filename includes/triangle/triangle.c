@@ -11,8 +11,8 @@ struct triangle createTriangle(struct point _a, struct point _b, struct point _c
     triangle.bpt = _b;
     triangle.cpt = _c;
 
-    triangle.vertices = fcreateArray();
-    triangle.indices = icreateArray();
+    triangle.vertices   = createArray(ARRAY_TYPE_FLOAT);
+    triangle.indices    = createArray(ARRAY_TYPE_INT);
 
     insertVec4(&triangle.vertices, triangle.apt.position);
     insertVec4(&triangle.vertices, triangle.bpt.position);

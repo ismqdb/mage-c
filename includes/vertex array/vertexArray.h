@@ -19,8 +19,7 @@
 
 /* ******************************************************************************** */
 
-#include "../array/farray.h"
-#include "../array/iarray.h"
+#include "../array/array.h"
 
 /* ******************************************************************************** */
 
@@ -40,9 +39,9 @@ enum arrayRenderType {
 struct vertexArray {
     enum arrayRenderType renderType;
 
-    struct farray vertices;
-    struct farray colors;
-    struct iarray indices;
+    struct array vertices;
+    struct array colors;
+    struct array indices;
 
     i32 vao[1];
     i32 vbo[1];

@@ -6,8 +6,7 @@
 
 #include "../point/point.h"
 
-#include "../array/farray.h"
-#include "../array/iarray.h"
+#include "../array/array.h"
 
 /* ******************************************************************************** */
 
@@ -20,8 +19,8 @@ struct triangle {
     struct point bpt;
     struct point cpt;
 
-    struct farray vertices;
-    struct iarray indices;
+    struct array vertices;
+    struct array indices;
 };
 
 /* ******************************************************************************** */

@@ -10,9 +10,9 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
     struct vertexArray vertexArray;
 
     vertexArray.renderType  = rtype;
-    vertexArray.vertices    = fcreateArray();
-    vertexArray.colors      = fcreateArray();
-    vertexArray.indices     = icreateArray();
+    vertexArray.vertices    = createArray(ARRAY_TYPE_FLOAT);
+    vertexArray.colors      = createArray(ARRAY_TYPE_FLOAT);
+    vertexArray.indices     = createArray(ARRAY_TYPE_INT);
 
     vertexArray.vao[0] = -1;
     vertexArray.vbo[0] = -1;
@@ -24,9 +24,9 @@ struct vertexArray createVertexArray(enum arrayRenderType rtype){
 /* ******************************************************************************** */
 
 none destroyVertexArray(struct vertexArray *vertexArray){
-    fdestroyArray(&vertexArray->vertices);
-    fdestroyArray(&vertexArray->colors);
-    idestroyArray(&vertexArray->indices);
+    destroyArray(&vertexArray->vertices);
+    destroyArray(&vertexArray->colors);
+    destroyArray(&vertexArray->indices);
 
     vertexArray->vao[0] = -1;
     vertexArray->vbo[0] = -1;
@@ -36,19 +36,19 @@ none destroyVertexArray(struct vertexArray *vertexArray){
 /* ******************************************************************************** */
 
 i32 sizeofVertices(struct vertexArray *array){
-    return fbyteSize(&array->vertices);
+    return byteSize(&array->vertices);
 }
 
 /* ******************************************************************************** */
 
 i32 sizeofColors(struct vertexArray *array){
-    return fbyteSize(&array->colors);
+    return byteSize(&array->colors);
 }
 
 /* ******************************************************************************** */
 
 i32 sizeofIndices(struct vertexArray *array){
-    return ibyteSize(&array->indices);
+    return byteSize(&array->indices);
 }
 
 /* ******************************************************************************** */
@@ -72,19 +72,19 @@ i32 countIndices(struct vertexArray *array){
 /* ******************************************************************************** */
 
 f32* rawVertices(struct vertexArray *array){
-    return (f32*)fgetBytes(&array->vertices);
+    return (f32*)getBytes(&array->vertices);
 }
 
 /* ******************************************************************************** */
 
 f32* rawColors(struct vertexArray *array){
-    return (f32*)fgetBytes(&array->colors);
+    return (f32*)getBytes(&array->colors);
 }
 
 /* ******************************************************************************** */
 
 i32* rawIndices(struct vertexArray *array){
-    return (i32*)igetBytes(&array->indices);
+    return (i32*)getBytes(&array->indices);
 }
 
 /* ******************************************************************************** */

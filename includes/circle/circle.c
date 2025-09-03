@@ -10,8 +10,8 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
 
     struct circle circle;
 
-    circle.vertices = fcreateArray();
-    circle.indices = icreateArray();
+    circle.vertices = createArray(ARRAY_TYPE_FLOAT);
+    circle.indices  = createArray(ARRAY_TYPE_INT);
 
     circle.position = _pos;
     circle.radius = _rad;

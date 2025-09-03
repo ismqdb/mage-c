@@ -17,8 +17,7 @@
 
 /* ******************************************************************************** */
 
-#include "../array/farray.h"
-#include "../array/iarray.h"
+#include "../array/array.h"
 
 /* ******************************************************************************** */
 
@@ -37,8 +36,8 @@ struct circle {
     u32 noOfTriangles;
     struct vec4 position;
 
-    struct farray vertices;
-    struct iarray indices;
+    struct array vertices;
+    struct array indices;
 };
 
 /* ******************************************************************************** */

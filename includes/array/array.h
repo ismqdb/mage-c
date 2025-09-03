@@ -10,13 +10,20 @@
 
 /* ******************************************************************************** */
 
+#include "../types.h"
 #include "../point/point.h"
 #include "../allocMacros.h"
+#include "../arrayType.h"
 
 /* ******************************************************************************** */
 
-struct farray {
-    f32 *elems;
+struct array {
+    enum arrayType type;
+
+    union {
+        i32 *i;
+        f32 *f;
+    } elems;
 
     i32 size;
     i32 capacity;
@@ -24,27 +31,28 @@ struct farray {
 
 /* ******************************************************************************** */
 
-struct farray fcreateArray();
-none fdestroyArray(struct farray*);
+struct array createArray(enum arrayType);
+none destroyArray(struct array*);
 
 /* ******************************************************************************** */
 
-none freserve(struct farray*);
+none reserve(struct array*);
 
 /* ******************************************************************************** */
 
-none* fgetBytes(struct farray*);
+none* getBytes(struct array*);
+i32 byteSize(struct array*);
 
 /* ******************************************************************************** */
 
-i32 fbyteSize(struct farray*);
+none insertIndice(struct array*, i32);
 
 /* ******************************************************************************** */
 
-none insertFloat(struct farray*, f32);
+none insertFloat(struct array*, f32);
 
 /* ******************************************************************************** */
 
-none insertVec4(struct farray*, struct vec4);
+none insertVec4(struct array*, struct vec4);
 
 /* ******************************************************************************** */
