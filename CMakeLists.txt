@@ -24,8 +24,8 @@ set(LIB_FILES
     "includes/mat4/cameraMat4.c"
     "includes/mat4/transformationsMat4.c"
 
-    "includes/vertex attr/mat4vertexAttr.c"
-    "includes/vertex attr/vec4vertexAttr.c"
+    "includes/uniform/uniformMat4.c"
+    "includes/uniform/uniformVec4.c"
 
     "includes/triangle/triangle.c"
     "includes/circle/circle.c"

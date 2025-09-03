@@ -4,11 +4,18 @@
 
 /* ******************************************************************************** */
 
-struct cube createCube(){
+struct cube createCube(i32 currentProgram){
+    assert(currentProgram > 0);
+
     struct cube cube;
 
     cube.vertexArray = createVertexArray(GL_TRIANGLES);
-    cube.modelMatrix = identityMat4();
+    cube.program = currentProgram;
+
+    cube.modelMatrix.name = "model";
+    cube.modelMatrix.position = 
+        glGetUniformLocation(currentProgram, cube.modelMatrix.name);
+    cube.modelMatrix.value = identityMat4();
 
     insertVec4(&cube.vertexArray.vertices, createPoint(-0.25f, +0.25f, +0.00f, 1.0f).position);
     insertVec4(&cube.vertexArray.vertices, createPoint(+0.25f, +0.25f, +0.00f, 1.0f).position);
@@ -89,12 +96,12 @@ struct cube createCube(){
 
 /* ******************************************************************************** */
 
-none renderCube(struct cube *cube, i32 modelMatrixLocation){
+none renderCube(struct cube *cube){
     glUniformMatrix4fv(
-        modelMatrixLocation, 
+        cube->modelMatrix.position, 
         1, 
         GL_FALSE, 
-        &cube->modelMatrix.field[0][0]
+        &cube->modelMatrix.value.field[0][0]
     );
 
     renderVertexArray(&cube->vertexArray);

@@ -16,9 +16,10 @@
 
 /* ******************************************************************************** */
 
+GLuint program;
+
 GLint projectionMatrixLocation;
 GLint viewMatrixLocation;
-GLint modelMatrixLocation;
 
 struct mat4 projectionMatrix;
 struct mat4 viewMatrix;
