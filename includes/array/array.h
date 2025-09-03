@@ -13,7 +13,7 @@
 #include "../types.h"
 #include "../point/point.h"
 #include "../allocMacros.h"
-#include "../arrayType.h"
+#include "./arrayType.h"
 
 /* ******************************************************************************** */
 
