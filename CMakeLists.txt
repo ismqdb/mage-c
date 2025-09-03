@@ -11,7 +11,6 @@ set(SOURCE_FILES
 
 set(LIB_FILES
     "includes/array/array.c"
-
     "includes/rand/rand.c"
 
     "includes/vertex array/vertexArray.c"
@@ -23,8 +22,7 @@ set(LIB_FILES
     "includes/mat4/cameraMat4.c"
     "includes/mat4/transformationsMat4.c"
 
-    "includes/uniform/uniformMat4.c"
-    "includes/uniform/uniformVec4.c"
+    "includes/uniform/uniform.c"
 
     "includes/triangle/triangle.c"
     "includes/circle/circle.c"
