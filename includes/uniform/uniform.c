@@ -27,3 +27,14 @@ struct uniform createVec4Uniform(i32 program, u8 *name, struct vec4 vec){
 }
 
 /* ******************************************************************************** */
+
+none setMat4Uniform(struct uniform *uniform){
+    glUniformMatrix4fv(
+        uniform->position,    
+        1, 
+        GL_FALSE, 
+        &uniform->value.m.field[0][0]
+    );
+}
+
+/* ******************************************************************************** */

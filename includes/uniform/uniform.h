@@ -23,6 +23,10 @@ struct uniform createVec4Uniform(i32, u8*, struct vec4);
 
 /* ******************************************************************************** */
 
+none setMat4Uniform(struct uniform*);
+
+/* ******************************************************************************** */
+
 struct uniform {
     union {
         struct vec4 v;

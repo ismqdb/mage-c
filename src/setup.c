@@ -51,19 +51,8 @@ none openglSetup(){
         )
     );
 
-    glUniformMatrix4fv(
-        projection.position,    
-        1, 
-        GL_FALSE, 
-        &projection.value.m.field[0][0]
-    );
-
-    glUniformMatrix4fv(
-        view.position,          
-        1, 
-        GL_FALSE, 
-        &view.value.m.field[0][0]
-    );
+    setMat4Uniform(&projection);
+    setMat4Uniform(&view);
 }
 
 /* ******************************************************************************** */
