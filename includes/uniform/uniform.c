@@ -4,12 +4,11 @@
 
 /* ******************************************************************************** */
 
-struct uniform createMat4Uniform(u8* n, i32 pos, struct mat4 mat){
+struct uniform createMat4Uniform(i32 program, u8 *name, struct mat4 mat){
     struct uniform uniform;
 
-    uniform.type = UNIFORM_TYPE_MAT4;
-    uniform.name = n;
-    uniform.position = pos;
+    uniform.name = name;
+    uniform.position = glGetUniformLocation(program, name);
     uniform.value.m = mat;
 
     return uniform;
@@ -17,12 +16,11 @@ struct uniform createMat4Uniform(u8* n, i32 pos, struct mat4 mat){
 
 /* ******************************************************************************** */
 
-struct uniform createVec4Uniform(u8* n, i32 pos, struct vec4 vec){
+struct uniform createVec4Uniform(i32 program, u8 *name, struct vec4 vec){
     struct uniform uniform;
 
-    uniform.type = UNIFORM_TYPE_VEC4;
-    uniform.name = n;
-    uniform.position = pos;
+    uniform.name = name;
+    uniform.position = glGetUniformLocation(program, name);
     uniform.value.v = vec;
 
     return uniform;

@@ -4,7 +4,11 @@
 
 /* ******************************************************************************** */
 
-#include "./uniformType.h"
+#include "../../glad/glad.h"
+#include <GLFW/glfw3.h>
+
+/* ******************************************************************************** */
+
 #include "../types.h"
 
 /* ******************************************************************************** */
@@ -14,14 +18,12 @@
 
 /* ******************************************************************************** */
 
-struct uniform createMat4Uniform(u8*, i32, struct mat4);
-struct uniform createVec4Uniform(u8*, i32, struct vec4);
+struct uniform createMat4Uniform(i32, u8*, struct mat4);
+struct uniform createVec4Uniform(i32, u8*, struct vec4);
 
 /* ******************************************************************************** */
 
 struct uniform {
-    enum uniformType type;
-
     union {
         struct vec4 v;
         struct mat4 m;

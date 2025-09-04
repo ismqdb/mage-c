@@ -16,8 +16,8 @@ struct cube createCube(i32 currentProgram){
     i32 pos = glGetUniformLocation(currentProgram, name);
 
     cube.modelMatrix = createMat4Uniform(
-        name,
         pos,
+        name,
         identityMat4()
     );
 
