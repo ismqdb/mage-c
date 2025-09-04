@@ -8,7 +8,7 @@
 
 /* ******************************************************************************** */
 
-#include "../uniform/uniform.h"
+#include "../mat4/mat4.h"
 
 /* ******************************************************************************** */
 
@@ -58,7 +58,8 @@ none onKeyCube(struct cube*, i32);
 
 struct cube {
     i32 program;
-    struct uniform modelMatrix;
+    i32 modelMatrixPosition;
+    struct mat4 modelMatrix;
     struct vertexArray vertexArray;
 };
 

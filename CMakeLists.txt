@@ -24,7 +24,7 @@ set(LIB_FILES
     "includes/mat4/cameraMat4.c"
     "includes/mat4/transformationsMat4.c"
 
-    "includes/uniform/uniform.c"
+
 
     "includes/triangle/triangle.c"
     "includes/circle/circle.c"
