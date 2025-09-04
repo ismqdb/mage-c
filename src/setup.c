@@ -35,13 +35,15 @@ none openglSetup(){
     program = loadShader(shaders);
     glUseProgram(program);
 
-    projectionMatrixLocation = 
-        glGetUniformLocation(program, "projection");
 
     viewMatrixLocation = 
         glGetUniformLocation(program, "view");
 
-    projectionMatrix = perspective(100.0f, 1.0f, 800.0/600, 45);
+    projection = createMat4Uniform(
+        program,
+        "projection",
+        perspective(100.0f, 1.0f, 800.0/600, 45)
+    );
 
     viewMatrix = lookat(
         createVec4(0.0f, 0.0f, 1.0f, 1.0f),
@@ -50,17 +52,17 @@ none openglSetup(){
     );
 
     glUniformMatrix4fv(
+        projection.position,    
+        1, 
+        GL_FALSE, 
+        &projection.value.m.field[0][0]
+    );
+
+    glUniformMatrix4fv(
         viewMatrixLocation,          
         1, 
         GL_FALSE, 
         &viewMatrix.field[0][0]
-    );
-    
-    glUniformMatrix4fv(
-        projectionMatrixLocation,    
-        1, 
-        GL_FALSE, 
-        &projectionMatrix.field[0][0]
     );
 }
 

@@ -13,15 +13,15 @@
 #include "../includes/circle/circle.h"
 #include "../includes/mat4/mat4.h"
 #include "../includes/cube/cube.h"
+#include "../includes/uniform/uniform.h"
 
 /* ******************************************************************************** */
 
 GLuint program;
 
-GLint projectionMatrixLocation;
-GLint viewMatrixLocation;
+struct uniform projection;
 
-struct mat4 projectionMatrix;
+GLint viewMatrixLocation;
 struct mat4 viewMatrix;
 
 struct cube cube1;
