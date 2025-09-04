@@ -20,9 +20,7 @@
 GLuint program;
 
 struct uniform projection;
-
-GLint viewMatrixLocation;
-struct mat4 viewMatrix;
+struct uniform view;
 
 struct cube cube1;
 struct cube cube2;
