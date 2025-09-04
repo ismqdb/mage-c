@@ -32,6 +32,7 @@
         "mat4.h": "c",
         "math.h": "c",
         "types.h": "c",
-        "arraytype.h": "c"
+        "arraytype.h": "c",
+        "array.h": "c"
     }
 }
