@@ -56,35 +56,23 @@ none destroyVertexArray(struct vertexArray *vertexArray){
 /* ******************************************************************************** */
 
 none prepareVertexArray(struct vertexArray *array){
-    glGenVertexArrays(1, array->vao);
-    glBindVertexArray(array->vao[0]);
+    createVAO(array);
+    bindVAO(array);
 
-    glGenBuffers(1, &array->position.buffer);
-    glGenBuffers(1, &array->color.buffer);
+    createBuffer(&array->position);
+    createBuffer(&array->color);
 
-    glBindBuffer(GL_ARRAY_BUFFER, array->position.buffer);
+    bindBuffer(&array->position);
+    fillBuffer(&array->position);
+    layoutBuffer(&array->position);
+    enableBuffer(&array->position);
+    unbindBuffer();
 
-    glBufferData(
-        GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->position),
-        rawElements(&array->position),
-        GL_DYNAMIC_DRAW
-    );
-
-    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
-    glEnableVertexAttribArray(array->position.position);
-
-    glBindBuffer(GL_ARRAY_BUFFER, array->color.buffer);
-
-    glBufferData(
-        GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->position),
-        rawElements(&array->color),
-        GL_DYNAMIC_DRAW
-    );
-
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, NULL);
-    glEnableVertexAttribArray(array->color.position);
+    bindBuffer(&array->color);
+    fillBuffer(&array->color);
+    layoutBuffer(&array->color);
+    enableBuffer(&array->color);
+    unbindBuffer();
 
     fillElementBuffer(array);
 }

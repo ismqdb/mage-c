@@ -99,6 +99,12 @@ none bindBuffer(struct vertexAttribute *attr){
 
 /* ******************************************************************************** */
 
+none unbindBuffer(){
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+}
+
+/* ******************************************************************************** */
+
 none fillBuffer(struct vertexAttribute *attr){
     glBufferData(
         GL_ARRAY_BUFFER,
@@ -110,9 +116,9 @@ none fillBuffer(struct vertexAttribute *attr){
 
 /* ******************************************************************************** */
 
-none layoutBuffer(){
+none layoutBuffer(struct vertexAttribute *attr){
     glVertexAttribPointer(
-        0, 
+        attr->position, 
         4, 
         GL_FLOAT, 
         GL_FALSE, 
