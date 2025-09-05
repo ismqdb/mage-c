@@ -75,7 +75,7 @@ none prepareVertexArray(struct vertexArray *array){
         0, 
         NULL
     );
-    glEnableVertexAttribArray(0);
+    glEnableVertexAttribArray(array->vertices.position);
 
     glVertexAttribPointer(
         1, 
@@ -85,7 +85,7 @@ none prepareVertexArray(struct vertexArray *array){
         0, 
         (const none*)sizeofAttribute(&array->colors)
     );
-    glEnableVertexAttribArray(1);
+    glEnableVertexAttribArray(array->colors.position);
 
     glGenBuffers(1, array->ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);
