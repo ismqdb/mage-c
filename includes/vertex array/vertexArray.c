@@ -36,7 +36,6 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.indices = createArray(ARRAY_TYPE_INT);
 
     vertexArray.vao[0] = -1;
-    vertexArray.vbo[0] = -1;
     vertexArray.ebo[0] = -1;
 
     return vertexArray;
@@ -51,38 +50,23 @@ none destroyVertexArray(struct vertexArray *vertexArray){
     destroyArray(&vertexArray->indices);
 
     vertexArray->vao[0] = -1;
-    vertexArray->vbo[0] = -1;
     vertexArray->ebo[0] = -1;
 }
 
 /* ******************************************************************************** */
 
 none prepareVertexArray(struct vertexArray *array){
-    glGenVertexArrays(1, array->vao);
-    glBindVertexArray(array->vao[0]);
+    createVAO(array);
+    bindVAO(array);
 
-    glGenBuffers(1, array->vbo);
-    glBindBuffer(GL_ARRAY_BUFFER, array->vbo[0]);
+    glGenBuffers(1, &array->position.buffer);
+    glBindBuffer(GL_ARRAY_BUFFER, array->position.buffer);
 
     glBufferData(
         GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->position) + sizeofAttribute(&array->color),
-        NULL,
+        sizeofAttribute(&array->position),
+        rawElements(&array->position),
         GL_DYNAMIC_DRAW
-    );
-
-    glBufferSubData(
-        GL_ARRAY_BUFFER, 
-        0,
-        sizeofAttribute(&array->position),
-        rawElements(&array->position)
-    );
-
-    glBufferSubData(
-        GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->position),
-        sizeofAttribute(&array->color),
-        rawElements(&array->color)
     );
 
     glVertexAttribPointer(
@@ -94,16 +78,6 @@ none prepareVertexArray(struct vertexArray *array){
         NULL
     );
     glEnableVertexAttribArray(array->position.position);
-
-    glVertexAttribPointer(
-        1, 
-        4, 
-        GL_FLOAT, 
-        GL_FALSE, 
-        0, 
-        (const none*)sizeofAttribute(&array->color)
-    );
-    glEnableVertexAttribArray(array->color.position);
 
     fillElementBuffer(array);
 }
@@ -143,6 +117,18 @@ none fillElementBuffer(struct vertexArray *array){
         getBytes(&array->indices),
         GL_DYNAMIC_DRAW
     );
+}
+
+/* ******************************************************************************** */
+
+none createVAO(struct vertexArray *array){
+    glGenVertexArrays(1, array->vao);
+}
+
+/* ******************************************************************************** */
+
+none bindVAO(struct vertexArray *array){
+    glBindVertexArray(array->vao[0]);
 }
 
 /* ******************************************************************************** */

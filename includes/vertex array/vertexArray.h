@@ -46,7 +46,6 @@ struct vertexArray {
     struct array indices;
 
     i32 vao[1];
-    i32 vbo[1];
     i32 ebo[1];
     
     i32 program;
@@ -56,6 +55,11 @@ struct vertexArray {
 
 struct vertexArray createVertexArray(enum arrayRenderType, i32);
 none destroyVertexArray(struct vertexArray*);
+
+/* ******************************************************************************** */
+
+none createVAO(struct vertexArray*);
+none bindVAO(struct vertexArray*);
 
 /* ******************************************************************************** */
 
