@@ -39,6 +39,26 @@ f32* rawElements(struct vertexAttribute*);
 
 /* ******************************************************************************** */
 
+none createBuffer(struct vertexAttribute*);
+
+/* ******************************************************************************** */
+
+none bindBuffer(struct vertexAttribute*);
+
+/* ******************************************************************************** */
+
+none fillBuffer(struct vertexAttribute*);
+
+/* ******************************************************************************** */
+
+none layoutBuffer();
+
+/* ******************************************************************************** */
+
+none enableBuffer(struct vertexAttribute*);
+
+/* ******************************************************************************** */
+
 struct vertexAttribute {
     enum arrayType utype;
     enum vertexAttributeType attrType;

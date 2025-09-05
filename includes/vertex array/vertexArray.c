@@ -59,25 +59,11 @@ none prepareVertexArray(struct vertexArray *array){
     createVAO(array);
     bindVAO(array);
 
-    glGenBuffers(1, &array->position.buffer);
-    glBindBuffer(GL_ARRAY_BUFFER, array->position.buffer);
-
-    glBufferData(
-        GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->position),
-        rawElements(&array->position),
-        GL_DYNAMIC_DRAW
-    );
-
-    glVertexAttribPointer(
-        0, 
-        4, 
-        GL_FLOAT, 
-        GL_FALSE, 
-        0, 
-        NULL
-    );
-    glEnableVertexAttribArray(array->position.position);
+    createBuffer(&array->position);
+    bindBuffer(&array->position);
+    fillBuffer(&array->position);
+    layoutBuffer();
+    enableBuffer(&array->position);
 
     fillElementBuffer(array);
 }

@@ -86,3 +86,45 @@ f32* rawElements(struct vertexAttribute *attr){
 }
 
 /* ******************************************************************************** */
+
+none createBuffer(struct vertexAttribute *attr){
+    glGenBuffers(1, &attr->buffer);
+}
+
+/* ******************************************************************************** */
+
+none bindBuffer(struct vertexAttribute *attr){
+    glBindBuffer(GL_ARRAY_BUFFER, attr->buffer);
+}
+
+/* ******************************************************************************** */
+
+none fillBuffer(struct vertexAttribute *attr){
+    glBufferData(
+        GL_ARRAY_BUFFER,
+        sizeofAttribute(attr),
+        rawElements(attr),
+        GL_DYNAMIC_DRAW
+    );
+}
+
+/* ******************************************************************************** */
+
+none layoutBuffer(){
+    glVertexAttribPointer(
+        0, 
+        4, 
+        GL_FLOAT, 
+        GL_FALSE, 
+        0, 
+        NULL
+    );
+}
+
+/* ******************************************************************************** */
+
+none enableBuffer(struct vertexAttribute *attr){
+    glEnableVertexAttribArray(attr->position);
+}
+
+/* ******************************************************************************** */
