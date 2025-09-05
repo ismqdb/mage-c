@@ -39,8 +39,8 @@ enum arrayRenderType {
 struct vertexArray {
     enum arrayRenderType renderType;
 
-    struct vertexAttr vertices;
-    struct vertexAttr colors;
+    struct vertexAttribute vertices;
+    struct vertexAttribute colors;
 
     struct array indices;
 

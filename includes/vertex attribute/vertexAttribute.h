@@ -12,27 +12,27 @@
 
 /* ******************************************************************************** */
 
-struct vertexAttr createVertexAttribute(enum arrayType, i32, u8*);
+struct vertexAttribute createVertexAttribute(enum arrayType, i32, u8*);
 
 /* ******************************************************************************** */
 
-none destroyVertexAttribute(struct vertexAttr*);
+none destroyVertexAttribute(struct vertexAttribute*);
 
 /* ******************************************************************************** */
 
-i32 sizeofAttr(struct vertexAttr*);
+i32 sizeofAttribute(struct vertexAttribute*);
 
 /* ******************************************************************************** */
 
-i32 countElements(struct vertexAttr*);
+i32 countElements(struct vertexAttribute*);
 
 /* ******************************************************************************** */
 
-f32* rawElements(struct vertexAttr*);
+f32* rawElements(struct vertexAttribute*);
 
 /* ******************************************************************************** */
 
-struct vertexAttr {
+struct vertexAttribute {
     enum arrayType type;
     struct array value;
 
