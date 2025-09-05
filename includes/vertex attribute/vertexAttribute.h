@@ -48,6 +48,8 @@ struct vertexAttribute {
         struct mat4  mat4;
     } value;
 
+    i32 buffer;
+
     i32 program;
     i32 position;
     u8 *name;
