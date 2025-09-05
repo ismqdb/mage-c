@@ -63,6 +63,10 @@ none enableBuffer(struct vertexAttribute*);
 
 /* ******************************************************************************** */
 
+none setupBuffer(struct vertexAttribute*);
+
+/* ******************************************************************************** */
+
 struct vertexAttribute {
     enum arrayType utype;
     enum vertexAttributeType attrType;

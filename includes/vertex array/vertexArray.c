@@ -59,20 +59,8 @@ none prepareVertexArray(struct vertexArray *array){
     createVAO(array);
     bindVAO(array);
 
-    createBuffer(&array->position);
-    createBuffer(&array->color);
-
-    bindBuffer(&array->position);
-    fillBuffer(&array->position);
-    layoutBuffer(&array->position);
-    enableBuffer(&array->position);
-    unbindBuffer();
-
-    bindBuffer(&array->color);
-    fillBuffer(&array->color);
-    layoutBuffer(&array->color);
-    enableBuffer(&array->color);
-    unbindBuffer();
+    setupBuffer(&array->position);
+    setupBuffer(&array->color);
 
     fillElementBuffer(array);
 }

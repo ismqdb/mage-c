@@ -134,3 +134,14 @@ none enableBuffer(struct vertexAttribute *attr){
 }
 
 /* ******************************************************************************** */
+
+none setupBuffer(struct vertexAttribute *attr){
+    createBuffer(attr);
+    bindBuffer(attr);
+    fillBuffer(attr);
+    layoutBuffer(attr);
+    enableBuffer(attr);
+    unbindBuffer();
+}
+
+/* ******************************************************************************** */
