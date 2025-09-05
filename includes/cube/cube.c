@@ -97,13 +97,13 @@ struct cube createCube(i32 currentProgram){
 /* ******************************************************************************** */
 
 none insertPointCube(struct cube *cube, struct point point){
-    insertVec4(&cube->vertexArray.position.value, point.position);
+    insertVec4(&cube->vertexArray.position.value.array, point.position);
 }
 
 /* ******************************************************************************** */
 
 none insertColorCube(struct cube *cube, struct vec4 color){
-    insertVec4(&cube->vertexArray.color.value, color);
+    insertVec4(&cube->vertexArray.color.value.array, color);
 }
 
 /* ******************************************************************************** */

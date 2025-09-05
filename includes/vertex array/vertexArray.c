@@ -12,10 +12,21 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.renderType  = type;
     vertexArray.program     = program;
 
-    vertexArray.position    = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "position");
-    vertexArray.color      = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "color");
+    vertexArray.position = createVertexAttribute(
+        ARRAY_TYPE_FLOAT, 
+        VERTEX_ATTRIBUTE_TYPE_VEC4,
+        program, 
+        "position"
+    );
 
-    vertexArray.indices     = createArray(ARRAY_TYPE_INT);
+    vertexArray.color = createVertexAttribute(
+        ARRAY_TYPE_FLOAT, 
+        VERTEX_ATTRIBUTE_TYPE_VEC4,
+        program, 
+        "color"
+    );
+
+    vertexArray.indices = createArray(ARRAY_TYPE_INT);
 
     vertexArray.vao[0] = -1;
     vertexArray.vbo[0] = -1;

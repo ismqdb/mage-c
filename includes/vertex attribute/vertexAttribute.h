@@ -9,10 +9,17 @@
 /* ******************************************************************************** */
 
 #include "../array/array.h"
+#include "../mat4/mat4.h"
 
 /* ******************************************************************************** */
 
-struct vertexAttribute createVertexAttribute(enum arrayType, i32, u8*);
+#include "vertexAttributeType.h"
+
+/* ******************************************************************************** */
+
+struct vertexAttribute createVertexAttribute(
+    enum arrayType, enum vertexAttributeType, i32, u8*
+);
 
 /* ******************************************************************************** */
 
@@ -33,8 +40,13 @@ f32* rawElements(struct vertexAttribute*);
 /* ******************************************************************************** */
 
 struct vertexAttribute {
-    enum arrayType type;
-    struct array value;
+    enum arrayType utype;
+    enum vertexAttributeType attrType;
+    
+    union {
+        struct array array;
+        struct mat4  mat4;
+    } value;
 
     i32 program;
     i32 position;
