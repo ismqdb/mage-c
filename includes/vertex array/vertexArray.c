@@ -12,8 +12,8 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.renderType  = type;
     vertexArray.program     = program;
 
-    vertexArray.vertices    = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "position");
-    vertexArray.colors      = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "color");
+    vertexArray.position    = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "position");
+    vertexArray.color      = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "color");
 
     vertexArray.indices     = createArray(ARRAY_TYPE_INT);
 
@@ -27,8 +27,8 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
 /* ******************************************************************************** */
 
 none destroyVertexArray(struct vertexArray *vertexArray){
-    destroyVertexAttribute(&vertexArray->vertices);
-    destroyVertexAttribute(&vertexArray->colors);
+    destroyVertexAttribute(&vertexArray->position);
+    destroyVertexAttribute(&vertexArray->color);
 
     destroyArray(&vertexArray->indices);
 
@@ -48,7 +48,7 @@ none prepareVertexArray(struct vertexArray *array){
 
     glBufferData(
         GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->vertices) + sizeofAttribute(&array->colors),
+        sizeofAttribute(&array->position) + sizeofAttribute(&array->color),
         NULL,
         GL_DYNAMIC_DRAW
     );
@@ -56,15 +56,15 @@ none prepareVertexArray(struct vertexArray *array){
     glBufferSubData(
         GL_ARRAY_BUFFER,
         0,
-        sizeofAttribute(&array->vertices),
-        rawElements(&array->vertices)
+        sizeofAttribute(&array->position),
+        rawElements(&array->position)
     );
 
     glBufferSubData(
         GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->vertices),
-        sizeofAttribute(&array->colors),
-        rawElements(&array->colors)
+        sizeofAttribute(&array->position),
+        sizeofAttribute(&array->color),
+        rawElements(&array->color)
     );
 
     glVertexAttribPointer(
@@ -75,7 +75,7 @@ none prepareVertexArray(struct vertexArray *array){
         0, 
         NULL
     );
-    glEnableVertexAttribArray(array->vertices.position);
+    glEnableVertexAttribArray(array->position.position);
 
     glVertexAttribPointer(
         1, 
@@ -83,9 +83,9 @@ none prepareVertexArray(struct vertexArray *array){
         GL_FLOAT, 
         GL_FALSE, 
         0, 
-        (const none*)sizeofAttribute(&array->colors)
+        (const none*)sizeofAttribute(&array->color)
     );
-    glEnableVertexAttribArray(array->colors.position);
+    glEnableVertexAttribArray(array->color.position);
 
     glGenBuffers(1, array->ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);
