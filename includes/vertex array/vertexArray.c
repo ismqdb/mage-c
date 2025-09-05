@@ -39,60 +39,6 @@ none destroyVertexArray(struct vertexArray *vertexArray){
 
 /* ******************************************************************************** */
 
-i32 sizeofVertices(struct vertexArray *array){
-    return byteSize(&array->vertices.value);
-}
-
-/* ******************************************************************************** */
-
-i32 sizeofColors(struct vertexArray *array){
-    return byteSize(&array->colors.value);
-}
-
-/* ******************************************************************************** */
-
-i32 sizeofIndices(struct vertexArray *array){
-    return byteSize(&array->indices);
-}
-
-/* ******************************************************************************** */
-
-i32 countVertices(struct vertexArray *array){
-    return array->vertices.value.size;
-}
-
-/* ******************************************************************************** */
-
-i32 countColors(struct vertexArray *array){
-    return array->colors.value.size;
-}
-
-/* ******************************************************************************** */
-
-i32 countIndices(struct vertexArray *array){
-    return array->indices.size;
-}
-
-/* ******************************************************************************** */
-
-f32* rawVertices(struct vertexArray *array){
-    return (f32*)getBytes(&array->vertices.value);
-}
-
-/* ******************************************************************************** */
-
-f32* rawColors(struct vertexArray *array){
-    return (f32*)getBytes(&array->colors.value);
-}
-
-/* ******************************************************************************** */
-
-i32* rawIndices(struct vertexArray *array){
-    return (i32*)getBytes(&array->indices);
-}
-
-/* ******************************************************************************** */
-
 none prepareVertexArray(struct vertexArray *array){
     glGenVertexArrays(1, array->vao);
     glBindVertexArray(array->vao[0]);

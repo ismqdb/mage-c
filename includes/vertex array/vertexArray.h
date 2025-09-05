@@ -58,24 +58,6 @@ none destroyVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-i32 sizeofVertices(struct vertexArray*);
-i32 sizeofColors(struct vertexArray*);
-i32 sizeofIndices(struct vertexArray*);
-
-/* ******************************************************************************** */
-
-i32 countVertices(struct vertexArray*);
-i32 countColors(struct vertexArray*);
-i32 countIndices(struct vertexArray*);
-
-/* ******************************************************************************** */
-
-f32* rawVertices(struct vertexArray*);
-f32* rawColors(struct vertexArray*);
-i32* rawIndices(struct vertexArray*);
-
-/* ******************************************************************************** */
-
 none prepareVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
