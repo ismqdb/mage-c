@@ -61,6 +61,7 @@ none prepareVertexArray(struct vertexArray *array){
 
     setupBuffer(&array->position);
     setupBuffer(&array->color);
+    setupBuffer(&array->model);
 
     fillElementBuffer(array);
 }

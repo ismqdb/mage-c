@@ -73,7 +73,10 @@ struct vertexAttribute {
     
     union {
         struct array array;
-        struct mat4  mat4;
+        struct {
+            struct array marray;
+            struct mat4 mat;
+        } mat4;
     } value;
 
     i32 buffer;

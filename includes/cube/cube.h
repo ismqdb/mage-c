@@ -58,8 +58,6 @@ none onKeyCube(struct cube*, i32);
 
 struct cube {
     i32 program;
-    i32 modelMatrixPosition;
-    struct mat4 modelMatrix;
     struct vertexArray vertexArray;
 };
 

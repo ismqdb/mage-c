@@ -12,11 +12,6 @@ struct cube createCube(i32 currentProgram){
     cube.vertexArray = createVertexArray(GL_TRIANGLES, currentProgram);
     cube.program = currentProgram;
 
-    u8 *name = "model";
-    cube.modelMatrixPosition = glGetUniformLocation(currentProgram, name);
-
-    cube.modelMatrix = identityMat4();
-
     insertPointCube(&cube, createPoint(-0.25f, +0.25f, +0.00f, 1.0f));
     insertPointCube(&cube, createPoint(+0.25f, +0.25f, +0.00f, 1.0f));
     insertPointCube(&cube, createPoint(+0.25f, -0.25f, +0.00f, 1.0f));
@@ -115,50 +110,50 @@ none insertIndiceCube(struct cube *cube, i32 ind){
 /* ******************************************************************************** */
 
 none xrotateCube(struct cube *cube, f32 value){
-    cube->modelMatrix = 
-        xrotateMat4(cube->modelMatrix, value);
+    cube->vertexArray.model.value.mat4.mat = 
+        xrotateMat4(cube->vertexArray.model.value.mat4.mat, value);
 }
 
 /* ******************************************************************************** */
 
 none yrotateCube(struct cube *cube, f32 value){
-    cube->modelMatrix = 
-        yrotateMat4(cube->modelMatrix, value);
+    cube->vertexArray.model.value.mat4.mat = 
+        yrotateMat4(cube->vertexArray.model.value.mat4.mat, value);
 }
 
 /* ******************************************************************************** */
 
 none zrotateCube(struct cube *cube, f32 value){
-    cube->modelMatrix = 
-        zrotateMat4(cube->modelMatrix, value);
+    cube->vertexArray.model.value.mat4.mat = 
+        zrotateMat4(cube->vertexArray.model.value.mat4.mat, value);
 }
 
 /* ******************************************************************************** */
 
 none translateCube(struct cube* cube, struct vec4 trans){
-    cube->modelMatrix =
-        translateMat4(cube->modelMatrix, trans);
+    cube->vertexArray.model.value.mat4.mat =
+        translateMat4(cube->vertexArray.model.value.mat4.mat, trans);
 }
 
 /* ******************************************************************************** */
 
 none scaleCube(struct cube* cube, f32 factor){
-    cube->modelMatrix =
-        scaleMat4(cube->modelMatrix, factor);
+    cube->vertexArray.model.value.mat4.mat =
+        scaleMat4(cube->vertexArray.model.value.mat4.mat, factor);
 }
 
 /* ******************************************************************************** */
 
 none xreflectCube(struct cube *cube){
-    cube->modelMatrix = 
-        xreflectMat4(cube->modelMatrix);
+    cube->vertexArray.model.value.mat4.mat = 
+        xreflectMat4(cube->vertexArray.model.value.mat4.mat);
 }
 
 /* ******************************************************************************** */
 
 none yreflectCube(struct cube *cube){
-    cube->modelMatrix = 
-        yreflectMat4(cube->modelMatrix);
+    cube->vertexArray.model.value.mat4.mat = 
+        yreflectMat4(cube->vertexArray.model.value.mat4.mat);
 }
 
 /* ******************************************************************************** */
@@ -234,13 +229,6 @@ none onKeyCube(struct cube *cube, i32 key){
 /* ******************************************************************************** */
 
 none renderCube(struct cube *cube){
-    glUniformMatrix4fv(
-        cube->modelMatrixPosition, 
-        1, 
-        GL_FALSE, 
-        &cube->modelMatrix.field[0][0]
-    );
-
     renderVertexArray(&cube->vertexArray);
 }
 

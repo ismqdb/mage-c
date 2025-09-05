@@ -27,7 +27,7 @@ struct vertexAttribute createVertexAttribute(
             break;
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            result.value.mat4 = identityMat4();
+            result.value.mat4.mat = identityMat4();
             break;
     }
 
@@ -57,7 +57,8 @@ i32 sizeofAttribute(struct vertexAttribute *attr){
             return byteSize(&attr->value.array);
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            return sizeof(struct mat4);
+            attr->value.mat4.marray = mat4ToArray(attr->value.mat4.mat);
+            return byteSize(&attr->value.mat4.marray);
     }
 }
 
@@ -69,7 +70,8 @@ i32 countElements(struct vertexAttribute *attr){
             return attr->value.array.size;
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            return 16;
+            attr->value.mat4.marray = mat4ToArray(attr->value.mat4.mat);
+            return attr->value.mat4.marray.size;
     }
 }
 
@@ -81,7 +83,8 @@ f32* rawElements(struct vertexAttribute *attr){
             return (f32*)getBytes(&attr->value.array);
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            return (f32*)&attr->value.mat4.field[0][0];
+            attr->value.mat4.marray = mat4ToArray(attr->value.mat4.mat);
+            return (f32*)getBytes(&attr->value.mat4.marray);
     }
 }
 
