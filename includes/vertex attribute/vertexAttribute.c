@@ -31,3 +31,21 @@ none destroyVertexAttribute(struct vertexAttr *attr){
 }
 
 /* ******************************************************************************** */
+
+i32 sizeofAttr(struct vertexAttr *attr){
+    return byteSize(&attr->value);
+}
+
+/* ******************************************************************************** */
+
+i32 countElements(struct vertexAttr *attr){
+    return attr->value.size;
+}
+
+/* ******************************************************************************** */
+
+f32* rawElements(struct vertexAttr *attr){
+    return (f32*)getBytes(&attr->value);
+}
+
+/* ******************************************************************************** */

@@ -20,6 +20,18 @@ none destroyVertexAttribute(struct vertexAttr*);
 
 /* ******************************************************************************** */
 
+i32 sizeofAttr(struct vertexAttr*);
+
+/* ******************************************************************************** */
+
+i32 countElements(struct vertexAttr*);
+
+/* ******************************************************************************** */
+
+f32* rawElements(struct vertexAttr*);
+
+/* ******************************************************************************** */
+
 struct vertexAttr {
     enum arrayType type;
     struct array value;
