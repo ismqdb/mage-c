@@ -28,6 +28,11 @@ struct vertexAttribute createVertexAttribute(
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
             result.value.mat4.mat = identityMat4();
+
+            result.value.mat4.row1 = result.position + 0;
+            result.value.mat4.row2 = result.position + 1;
+            result.value.mat4.row3 = result.position + 2;
+            result.value.mat4.row4 = result.position + 3;
             break;
     }
 
@@ -120,20 +125,49 @@ none fillBuffer(struct vertexAttribute *attr){
 /* ******************************************************************************** */
 
 none layoutBuffer(struct vertexAttribute *attr){
-    glVertexAttribPointer(
-        attr->position, 
-        4, 
-        GL_FLOAT, 
-        GL_FALSE, 
-        0, 
-        NULL
-    );
+    switch(attr->attrType){
+        case VERTEX_ATTRIBUTE_TYPE_VEC4:
+            glVertexAttribPointer(
+                attr->position, 
+                4, 
+                GL_FLOAT, 
+                GL_FALSE, 
+                0, 
+                NULL
+            );
+            return;
+
+        case VERTEX_ATTRIBUTE_TYPE_MAT4:
+            glVertexAttribPointer(attr->value.mat4.row1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4 * 4, (void*)(0));
+            glVertexAttribPointer(attr->value.mat4.row2, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4 * 4, (void*)(sizeof(float) * 4));
+            glVertexAttribPointer(attr->value.mat4.row3, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4 * 4, (void*)(sizeof(float) * 8));
+            glVertexAttribPointer(attr->value.mat4.row4, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4 * 4, (void*)(sizeof(float) * 12));
+
+            glVertexAttribDivisor(attr->value.mat4.row1, 1);
+            glVertexAttribDivisor(attr->value.mat4.row2, 1);
+            glVertexAttribDivisor(attr->value.mat4.row3, 1);
+            glVertexAttribDivisor(attr->value.mat4.row4, 1);
+            return;
+    }
 }
 
 /* ******************************************************************************** */
 
 none enableBuffer(struct vertexAttribute *attr){
-    glEnableVertexAttribArray(attr->position);
+    switch(attr->attrType){
+        case VERTEX_ATTRIBUTE_TYPE_VEC4:
+            glEnableVertexAttribArray(attr->position);
+            return;
+
+        case VERTEX_ATTRIBUTE_TYPE_MAT4:
+            glEnableVertexAttribArray(attr->position);
+
+            glEnableVertexAttribArray(attr->value.mat4.row1);
+            glEnableVertexAttribArray(attr->value.mat4.row2);
+            glEnableVertexAttribArray(attr->value.mat4.row3);
+            glEnableVertexAttribArray(attr->value.mat4.row4);
+            return;
+    }
 }
 
 /* ******************************************************************************** */
