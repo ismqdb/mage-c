@@ -26,6 +26,13 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
         "color"
     );
 
+    vertexArray.model = createVertexAttribute(
+        ARRAY_TYPE_FLOAT,
+        VERTEX_ATTRIBUTE_TYPE_MAT4,
+        program,
+        "model"
+    );
+
     vertexArray.indices = createArray(ARRAY_TYPE_INT);
 
     vertexArray.vao[0] = -1;
@@ -65,7 +72,7 @@ none prepareVertexArray(struct vertexArray *array){
     );
 
     glBufferSubData(
-        GL_ARRAY_BUFFER,
+        GL_ARRAY_BUFFER, 
         0,
         sizeofAttribute(&array->position),
         rawElements(&array->position)

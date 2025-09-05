@@ -42,25 +42,47 @@ none destroyVertexAttribute(struct vertexAttribute *attr){
     attr->program = -1;
     attr->utype = ARRAY_TYPE_MIN;
 
-    destroyArray(&attr->value.array);
+    switch(attr->attrType){
+        case VERTEX_ATTRIBUTE_TYPE_VEC4:
+            destroyArray(&attr->value.array);
+            break;
+    }
 }
 
 /* ******************************************************************************** */
 
 i32 sizeofAttribute(struct vertexAttribute *attr){
-    return byteSize(&attr->value.array);
+    switch(attr->attrType){
+        case VERTEX_ATTRIBUTE_TYPE_VEC4:
+            return byteSize(&attr->value.array);
+
+        case VERTEX_ATTRIBUTE_TYPE_MAT4:
+            return sizeof(struct mat4);
+    }
 }
 
 /* ******************************************************************************** */
 
 i32 countElements(struct vertexAttribute *attr){
-    return attr->value.array.size;
+    switch(attr->attrType){
+        case VERTEX_ATTRIBUTE_TYPE_VEC4:
+            return attr->value.array.size;
+
+        case VERTEX_ATTRIBUTE_TYPE_MAT4:
+            return 16;
+    }
 }
 
 /* ******************************************************************************** */
 
 f32* rawElements(struct vertexAttribute *attr){
-    return (f32*)getBytes(&attr->value.array);
+    switch(attr->attrType){
+        case VERTEX_ATTRIBUTE_TYPE_VEC4:
+            return (f32*)getBytes(&attr->value.array);
+
+        case VERTEX_ATTRIBUTE_TYPE_MAT4:
+            return (f32*)&attr->value.mat4.field[0][0];
+    }
 }
 
 /* ******************************************************************************** */

@@ -41,6 +41,7 @@ struct vertexArray {
 
     struct vertexAttribute position;
     struct vertexAttribute color;
+    struct vertexAttribute model;
 
     struct array indices;
 
