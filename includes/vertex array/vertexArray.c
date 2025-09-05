@@ -102,7 +102,7 @@ none prepareVertexArray(struct vertexArray *array){
 
     glBufferData(
         GL_ARRAY_BUFFER,
-        sizeofVertices(array) + sizeofColors(array),
+        sizeofAttr(&array->vertices) + sizeofAttr(&array->colors),
         NULL,
         GL_DYNAMIC_DRAW
     );
@@ -110,15 +110,15 @@ none prepareVertexArray(struct vertexArray *array){
     glBufferSubData(
         GL_ARRAY_BUFFER,
         0,
-        sizeofVertices(array),
-        rawVertices(array)
+        sizeofAttr(&array->vertices),
+        rawElements(&array->vertices)
     );
 
     glBufferSubData(
         GL_ARRAY_BUFFER,
-        sizeofVertices(array),
-        sizeofColors(array),
-        rawColors(array)
+        sizeofAttr(&array->vertices),
+        sizeofAttr(&array->colors),
+        rawElements(&array->colors)
     );
 
     glVertexAttribPointer(
@@ -137,7 +137,7 @@ none prepareVertexArray(struct vertexArray *array){
         GL_FLOAT, 
         GL_FALSE, 
         0, 
-        (const none*)sizeofColors(array)
+        (const none*)sizeofAttr(&array->colors)
     );
     glEnableVertexAttribArray(1);
 
