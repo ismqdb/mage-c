@@ -105,15 +105,7 @@ none prepareVertexArray(struct vertexArray *array){
     );
     glEnableVertexAttribArray(array->color.position);
 
-    glGenBuffers(1, array->ebo);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);
-
-    glBufferData(
-        GL_ELEMENT_ARRAY_BUFFER,
-        byteSize(&array->indices),
-        getBytes(&array->indices),
-        GL_DYNAMIC_DRAW
-    );
+    fillElementBuffer(array);
 }
 
 /* ******************************************************************************** */
@@ -136,6 +128,20 @@ none renderVertexArrayInstanced(struct vertexArray *array, i32 count){
         GL_UNSIGNED_INT, 
         NULL,
         count
+    );
+}
+
+/* ******************************************************************************** */
+
+none fillElementBuffer(struct vertexArray *array){
+    glGenBuffers(1, array->ebo);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);
+
+    glBufferData(
+        GL_ELEMENT_ARRAY_BUFFER,
+        byteSize(&array->indices),
+        getBytes(&array->indices),
+        GL_DYNAMIC_DRAW
     );
 }
 
