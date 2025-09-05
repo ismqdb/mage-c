@@ -60,47 +60,30 @@ none prepareVertexArray(struct vertexArray *array){
     glBindVertexArray(array->vao[0]);
 
     glGenBuffers(1, &array->position.buffer);
+    glGenBuffers(1, &array->color.buffer);
+
     glBindBuffer(GL_ARRAY_BUFFER, array->position.buffer);
 
     glBufferData(
         GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->position) + sizeofAttribute(&array->color),
-        NULL,
+        sizeofAttribute(&array->position),
+        rawElements(&array->position),
         GL_DYNAMIC_DRAW
     );
 
-    glBufferSubData(
-        GL_ARRAY_BUFFER, 
-        0,
-        sizeofAttribute(&array->position),
-        rawElements(&array->position)
-    );
-
-    glBufferSubData(
-        GL_ARRAY_BUFFER,
-        sizeofAttribute(&array->position),
-        sizeofAttribute(&array->color),
-        rawElements(&array->color)
-    );
-
-    glVertexAttribPointer(
-        0, 
-        4, 
-        GL_FLOAT, 
-        GL_FALSE, 
-        0, 
-        NULL
-    );
+    glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(array->position.position);
 
-    glVertexAttribPointer(
-        1, 
-        4, 
-        GL_FLOAT, 
-        GL_FALSE, 
-        0, 
-        (const none*)sizeofAttribute(&array->color)
+    glBindBuffer(GL_ARRAY_BUFFER, array->color.buffer);
+
+    glBufferData(
+        GL_ARRAY_BUFFER,
+        sizeofAttribute(&array->position),
+        rawElements(&array->color),
+        GL_DYNAMIC_DRAW
     );
+
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, 0, NULL);
     glEnableVertexAttribArray(array->color.position);
 
     fillElementBuffer(array);
