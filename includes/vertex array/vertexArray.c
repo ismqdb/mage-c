@@ -13,7 +13,7 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.program     = program;
 
     vertexArray.vertices    = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "position");
-    vertexArray.colors      = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "colors");
+    vertexArray.colors      = createVertexAttribute(ARRAY_TYPE_FLOAT, program, "color");
 
     vertexArray.indices     = createArray(ARRAY_TYPE_INT);
 
