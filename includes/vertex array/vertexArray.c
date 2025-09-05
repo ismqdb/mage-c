@@ -146,8 +146,8 @@ none prepareVertexArray(struct vertexArray *array){
 
     glBufferData(
         GL_ELEMENT_ARRAY_BUFFER,
-        sizeofIndices(array),
-        rawIndices(array),
+        byteSize(&array->indices),
+        getBytes(&array->indices),
         GL_DYNAMIC_DRAW
     );
 }
@@ -157,7 +157,7 @@ none prepareVertexArray(struct vertexArray *array){
 none renderVertexArray(struct vertexArray *array){
     glDrawElements(
         array->renderType, 
-        countIndices(array), 
+        array->indices.size, 
         GL_UNSIGNED_INT, 
         NULL
     );
@@ -168,7 +168,7 @@ none renderVertexArray(struct vertexArray *array){
 none renderVertexArrayInstanced(struct vertexArray *array, i32 count){
     glDrawElementsInstanced(
         array->renderType, 
-        countIndices(array), 
+        array->indices.size, 
         GL_UNSIGNED_INT, 
         NULL,
         count
