@@ -46,6 +46,7 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
 none destroyVertexArray(struct vertexArray *vertexArray){
     destroyVertexAttribute(&vertexArray->position);
     destroyVertexAttribute(&vertexArray->color);
+    destroyVertexAttribute(&vertexArray->model);
 
     destroyArray(&vertexArray->indices);
 
