@@ -148,10 +148,41 @@ none layoutBuffer(struct vertexAttribute *attr){
             return;
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            glVertexAttribPointer(attr->value.mat4.row1, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4 * 4, (void*)(0));
-            glVertexAttribPointer(attr->value.mat4.row2, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4 * 4, (void*)(sizeof(float) * 4));
-            glVertexAttribPointer(attr->value.mat4.row3, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4 * 4, (void*)(sizeof(float) * 8));
-            glVertexAttribPointer(attr->value.mat4.row4, 4, GL_FLOAT, GL_FALSE, sizeof(GLfloat) * 4 * 4, (void*)(sizeof(float) * 12));
+            glVertexAttribPointer(
+                attr->value.mat4.row1, 
+                4, 
+                GL_FLOAT, 
+                GL_FALSE, 
+                sizeof(GLfloat)*4*4, 
+                (void*)(0)
+            );
+
+            glVertexAttribPointer(
+                attr->value.mat4.row2, 
+                4, 
+                GL_FLOAT, 
+                GL_FALSE, 
+                sizeof(GLfloat)*4*4, 
+                (void*)(sizeof(f32) * 4)
+            );
+            
+            glVertexAttribPointer(
+                attr->value.mat4.row3, 
+                4, 
+                GL_FLOAT, 
+                GL_FALSE, 
+                sizeof(GLfloat)*4*4, 
+                (void*)(sizeof(f32) * 8)
+            );
+            
+            glVertexAttribPointer(
+                attr->value.mat4.row4, 
+                4, 
+                GL_FLOAT, 
+                GL_FALSE, 
+                sizeof(GLfloat)*4*4, 
+                (void*)(sizeof(f32) * 12)
+            );
 
             glVertexAttribDivisor(attr->value.mat4.row1, 1);
             glVertexAttribDivisor(attr->value.mat4.row2, 1);
