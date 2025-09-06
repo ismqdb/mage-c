@@ -76,10 +76,7 @@ struct vertexAttribute {
         struct {
             struct array marray;
             struct mat4 mat;
-            i32 row1;
-            i32 row2;
-            i32 row3;
-            i32 row4;
+            i32 pos[4];
         } mat4;
     } value;
 
