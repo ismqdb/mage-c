@@ -116,3 +116,19 @@ none insertVec4(struct array *array, struct vec4 vec){
 }
 
 /* ******************************************************************************** */
+
+none filli32(struct array *array, i32 *ptr, i32 size){
+    // Refactor to memcpy
+    for(i32 i = 0; i < size; i++)
+        insertIndice(array, *(ptr+i));
+}
+
+/* ******************************************************************************** */
+
+none fillf32(struct array *array, f32 *ptr, i32 size){
+    // Refactor to memcpy
+    for(i32 i = 0; i < size; i++)
+        insertFloat(array, *(ptr+i));
+}
+
+/* ******************************************************************************** */
