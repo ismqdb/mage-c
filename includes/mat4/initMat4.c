@@ -88,9 +88,9 @@ struct mat4 identityMat4(){
 
 /* ******************************************************************************** */
 
-struct mat4 randomMat4(i32 lo, i32 hi){
-    assert(lo >= -1 && lo <= 1);
-    assert(hi >= -1 && hi <= 1);
+struct mat4 randomMat4(f32 lo, f32 hi){
+    assert(lo >= -1.0f && lo <= 1.0f);
+    assert(hi >= -1.0f && hi <= 1.0f);
 
     assert(lo < hi);
 
