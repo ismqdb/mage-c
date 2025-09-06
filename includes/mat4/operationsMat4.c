@@ -145,7 +145,7 @@ struct array mat4ToArray(struct mat4 mat){
 
     for(i32 i = 0; i < 4; i++)
         for(i32 j = 0; j < 4; j++)
-            insertFloat(&result, mat.field[i][j]);
+            insertf32(&result, mat.field[i][j]);
 
     return result;
 }

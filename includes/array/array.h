@@ -45,15 +45,15 @@ i32 byteSize(struct array*);
 
 /* ******************************************************************************** */
 
-none insertIndice(struct array*, i32);
+none inserti32(struct array*, i32);
 
 /* ******************************************************************************** */
 
-none insertFloat(struct array*, f32);
+none insertf32(struct array*, f32);
 
 /* ******************************************************************************** */
 
-none insertVec4(struct array*, struct vec4);
+none insertvec4(struct array*, struct vec4);
 
 /* ******************************************************************************** */
 

@@ -88,7 +88,7 @@ i32 byteSize(struct array *array){
 
 /* ******************************************************************************** */
 
-none insertIndice(struct array *array, i32 value){
+none inserti32(struct array *array, i32 value){
     if(array->size == array->capacity)
         reserve(array);
 
@@ -98,7 +98,7 @@ none insertIndice(struct array *array, i32 value){
 
 /* ******************************************************************************** */
 
-none insertFloat(struct array *array, f32 value){
+none insertf32(struct array *array, f32 value){
     if(array->size == array->capacity)
         reserve(array);
 
@@ -108,11 +108,11 @@ none insertFloat(struct array *array, f32 value){
 
 /* ******************************************************************************** */
 
-none insertVec4(struct array *array, struct vec4 vec){
-    insertFloat(array, vec.x);
-    insertFloat(array, vec.y);
-    insertFloat(array, vec.z);
-    insertFloat(array, vec.w);
+none insertvec4(struct array *array, struct vec4 vec){
+    insertf32(array, vec.x);
+    insertf32(array, vec.y);
+    insertf32(array, vec.z);
+    insertf32(array, vec.w);
 }
 
 /* ******************************************************************************** */
@@ -120,7 +120,7 @@ none insertVec4(struct array *array, struct vec4 vec){
 none filli32(struct array *array, i32 *ptr, i32 size){
     // Refactor to memcpy
     for(i32 i = 0; i < size; i++)
-        insertIndice(array, *(ptr+i));
+        inserti32(array, *(ptr+i));
 }
 
 /* ******************************************************************************** */
@@ -128,7 +128,7 @@ none filli32(struct array *array, i32 *ptr, i32 size){
 none fillf32(struct array *array, f32 *ptr, i32 size){
     // Refactor to memcpy
     for(i32 i = 0; i < size; i++)
-        insertFloat(array, *(ptr+i));
+        insertf32(array, *(ptr+i));
 }
 
 /* ******************************************************************************** */

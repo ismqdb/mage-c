@@ -19,7 +19,7 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
     circle.arcLen = 360.0/noOfTri;
 
     struct point centerPoint = createPoint(_pos.x, _pos.y, 0.0, 1.0);
-    insertVec4(&circle.vertices, centerPoint.position);
+    insertvec4(&circle.vertices, centerPoint.position);
 
     struct point pt2;
     struct point pt3;
@@ -47,21 +47,21 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
             1.0
         );
 
-        insertVec4(&circle.vertices, pt2.position);
-        insertVec4(&circle.vertices, pt3.position);
+        insertvec4(&circle.vertices, pt2.position);
+        insertvec4(&circle.vertices, pt3.position);
 
         angle += circle.arcLen;
     }
 
     for(i32 i = 1; i < (noOfTri*2); i++){
-        insertIndice(&circle.indices, 0);
-        insertIndice(&circle.indices, i);
-        insertIndice(&circle.indices, i + 1);
+        inserti32(&circle.indices, 0);
+        inserti32(&circle.indices, i);
+        inserti32(&circle.indices, i + 1);
     }
 
-    insertIndice(&circle.indices, 0);
-    insertIndice(&circle.indices, noOfTri*2);
-    insertIndice(&circle.indices, 1);
+    inserti32(&circle.indices, 0);
+    inserti32(&circle.indices, noOfTri*2);
+    inserti32(&circle.indices, 1);
 
     return circle;
 }
