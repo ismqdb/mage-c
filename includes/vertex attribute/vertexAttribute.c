@@ -51,6 +51,16 @@ none destroyVertexAttribute(struct vertexAttribute *attr){
         case VERTEX_ATTRIBUTE_TYPE_VEC4:
             destroyArray(&attr->value.array);
             break;
+
+        case VERTEX_ATTRIBUTE_TYPE_MAT4:
+            destroyArray(&attr->value.mat4.marray);
+            attr->value.mat4.mat = identityMat4();
+
+            attr->value.mat4.row1 = -1;
+            attr->value.mat4.row2 = -1;
+            attr->value.mat4.row3 = -1;
+            attr->value.mat4.row4 = -1;
+            break;
     }
 }
 
