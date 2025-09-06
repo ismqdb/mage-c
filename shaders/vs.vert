@@ -1,8 +1,9 @@
 #version 450
 
-layout (location = 0) in vec4 position;
-layout (location = 1) in vec4 color;
-layout (location = 2) in mat4 model;
+in vec4 position;
+in vec4 color;
+
+in mat4 model;
 
 out vec4 i_color;
 
