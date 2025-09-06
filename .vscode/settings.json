@@ -33,6 +33,7 @@
         "math.h": "c",
         "types.h": "c",
         "arraytype.h": "c",
-        "array.h": "c"
+        "array.h": "c",
+        "uniform.h": "c"
     }
 }

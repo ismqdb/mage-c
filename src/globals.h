@@ -22,8 +22,7 @@ GLuint program;
 struct uniform projection;
 struct uniform view;
 
-struct cube cube1;
-struct cube cube2;
+struct cube cube;
 
 struct vertexArray vertexArray;
 
