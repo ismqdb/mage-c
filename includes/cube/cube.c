@@ -110,50 +110,43 @@ none insertIndiceCube(struct cube *cube, i32 ind){
 /* ******************************************************************************** */
 
 none xrotateCube(struct cube *cube, f32 value){
-    cube->vertexArray.model.value.mat4.mat = 
-        xrotateMat4(cube->vertexArray.model.value.mat4.mat, value);
+    cube->matModel = xrotateMat4(cube->matModel, value);
 }
 
 /* ******************************************************************************** */
 
 none yrotateCube(struct cube *cube, f32 value){
-    cube->vertexArray.model.value.mat4.mat = 
-        yrotateMat4(cube->vertexArray.model.value.mat4.mat, value);
+    cube->matModel = yrotateMat4(cube->matModel, value);
 }
 
 /* ******************************************************************************** */
 
 none zrotateCube(struct cube *cube, f32 value){
-    cube->vertexArray.model.value.mat4.mat = 
-        zrotateMat4(cube->vertexArray.model.value.mat4.mat, value);
+    cube->matModel = zrotateMat4(cube->matModel, value);
 }
 
 /* ******************************************************************************** */
 
 none translateCube(struct cube* cube, struct vec4 trans){
-    cube->vertexArray.model.value.mat4.mat =
-        translateMat4(cube->vertexArray.model.value.mat4.mat, trans);
+    cube->matModel = translateMat4(cube->matModel, trans);
 }
 
 /* ******************************************************************************** */
 
 none scaleCube(struct cube* cube, f32 factor){
-    cube->vertexArray.model.value.mat4.mat =
-        scaleMat4(cube->vertexArray.model.value.mat4.mat, factor);
+    cube->matModel = scaleMat4(cube->matModel, factor);
 }
 
 /* ******************************************************************************** */
 
 none xreflectCube(struct cube *cube){
-    cube->vertexArray.model.value.mat4.mat = 
-        xreflectMat4(cube->vertexArray.model.value.mat4.mat);
+    cube->matModel = xreflectMat4(cube->matModel);
 }
 
 /* ******************************************************************************** */
 
 none yreflectCube(struct cube *cube){
-    cube->vertexArray.model.value.mat4.mat = 
-        yreflectMat4(cube->vertexArray.model.value.mat4.mat);
+    cube->matModel = yreflectMat4(cube->matModel);
 }
 
 /* ******************************************************************************** */
