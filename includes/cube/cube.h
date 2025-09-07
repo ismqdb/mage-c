@@ -59,7 +59,6 @@ none onKeyCube(struct cube*, i32);
 struct cube {
     #define matModel vertexArray.model.value.mat4.mat
 
-    i32 program;
     struct vertexArray vertexArray;
 };
 

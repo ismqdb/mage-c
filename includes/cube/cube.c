@@ -8,9 +8,7 @@ struct cube createCube(i32 currentProgram){
     assert(currentProgram > 0);
 
     struct cube cube;
-
     cube.vertexArray = createVertexArray(GL_TRIANGLES, currentProgram);
-    cube.program = currentProgram;
 
     insertPointCube(&cube, createPoint(-0.25f, +0.25f, +0.00f, 1.0f));
     insertPointCube(&cube, createPoint(+0.25f, +0.25f, +0.00f, 1.0f));
