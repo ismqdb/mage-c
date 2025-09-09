@@ -74,7 +74,6 @@ struct vertexAttribute {
     union {
         struct array array;
         struct {
-            struct array marray;
             struct mat4 mat;
             i32 pos[4];
         } mat4;
