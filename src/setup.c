@@ -9,9 +9,11 @@
 /* ******************************************************************************** */
 
 none objectSetup(){
-    cube = createCube(program);
+    for(i32 i = 0; i < noOfCubes; i++)
+        cubes[i] = createCube(program);
 
-    scaleCube(&cube, 0.5f);
+    translateCube(&cubes[0], createVec4(+0.5f, 0.0f, 0.0f, 0.0f));
+    translateCube(&cubes[1], createVec4(-0.5f, 0.0f, 0.0f, 0.0f));
 }
 
 /* ******************************************************************************** */
@@ -63,10 +65,12 @@ none update(){
         if(!pressed[i])
             continue;
 
-        onKeyCube(&cube, i);
+        for(i32 i = 0; i < noOfCubes; i++)
+            onKeyCube(&cubes[i], i);
     }
 
-    prepareVertexArray(&cube.vertexArray);
+    for(i32 i = 0; i < noOfCubes; i++)
+        prepareVertexArray(&cubes[i].vertexArray);
 }
 
 /* ******************************************************************************** */
@@ -77,7 +81,8 @@ none render(f64 currentTime){
     GLfloat green[] = {0.0f, 0.25f, 0.0f, 1.0f};
     glClearBufferfv(GL_COLOR, 0, green);
     
-    renderCube(&cube);
+    for(i32 i = 0; i < noOfCubes; i++)
+        renderCube(&cubes[i]);
 }
 
 /* ******************************************************************************** */

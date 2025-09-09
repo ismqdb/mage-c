@@ -17,11 +17,13 @@
 
 /* ******************************************************************************** */
 
+enum {noOfCubes = 2};
+
 GLuint program;
 
 struct uniform projection;
 struct uniform view;
 
-struct cube cube;
+struct cube cubes[noOfCubes];
 
 /* ******************************************************************************** */
