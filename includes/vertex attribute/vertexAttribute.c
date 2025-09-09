@@ -151,8 +151,8 @@ none layoutBuffer(struct vertexAttribute *attr){
                 4, 
                 GL_FLOAT, 
                 GL_FALSE, 
-                sizeof(GLfloat)*4*4, 
-                (void*)(0)
+                sizeof(f32)*4*4, 
+                (none*)(0)
             );
 
             glVertexAttribPointer(
@@ -160,8 +160,8 @@ none layoutBuffer(struct vertexAttribute *attr){
                 4, 
                 GL_FLOAT, 
                 GL_FALSE, 
-                sizeof(GLfloat)*4*4, 
-                (void*)(sizeof(f32) * 4)
+                sizeof(f32)*4*4, 
+                (none*)(sizeof(f32) * 4)
             );
             
             glVertexAttribPointer(
@@ -169,8 +169,8 @@ none layoutBuffer(struct vertexAttribute *attr){
                 4, 
                 GL_FLOAT, 
                 GL_FALSE, 
-                sizeof(GLfloat)*4*4, 
-                (void*)(sizeof(f32) * 8)
+                sizeof(f32)*4*4, 
+                (none*)(sizeof(f32) * 8)
             );
             
             glVertexAttribPointer(
@@ -178,8 +178,8 @@ none layoutBuffer(struct vertexAttribute *attr){
                 4, 
                 GL_FLOAT, 
                 GL_FALSE, 
-                sizeof(GLfloat)*4*4, 
-                (void*)(sizeof(f32) * 12)
+                sizeof(f32)*4*4, 
+                (none*)(sizeof(f32) * 12)
             );
 
             for(i32 i = 0; i < 4; i++)

@@ -24,6 +24,4 @@ struct uniform view;
 
 struct cube cube;
 
-struct vertexArray vertexArray;
-
 /* ******************************************************************************** */
