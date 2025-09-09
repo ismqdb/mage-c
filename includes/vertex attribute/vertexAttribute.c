@@ -28,6 +28,7 @@ struct vertexAttribute createVertexAttribute(
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
             result.value.mat4.mat = identityMat4();
+            result.value.mat4.marray = createArray(ARRAY_TYPE_FLOAT);
 
             for(i32 i = 0; i < 4; i++)
                 result.value.mat4.pos[i] = result.position + i;
