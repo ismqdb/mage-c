@@ -94,12 +94,12 @@ i32 gameLoop(){
     objectSetup();
 
     while (running) {
-        render(glfwGetTime());
+        update();
 
         glfwSwapBuffers(window);
         glfwPollEvents();
 
-        update();
+        render(glfwGetTime());
 
         running &= (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_RELEASE);
         running &= (glfwWindowShouldClose(window) != GL_TRUE);
