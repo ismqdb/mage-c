@@ -75,18 +75,6 @@ i32 sizeofAttribute(struct vertexAttribute *attr){
 
 /* ******************************************************************************** */
 
-i32 countElements(struct vertexAttribute *attr){
-    switch(attr->attrType){
-        case VERTEX_ATTRIBUTE_TYPE_VEC4:
-            return attr->value.array.size;
-
-        case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            return 16;
-    }
-}
-
-/* ******************************************************************************** */
-
 f32* rawElements(struct vertexAttribute *attr){
     switch(attr->attrType){
         case VERTEX_ATTRIBUTE_TYPE_VEC4:
