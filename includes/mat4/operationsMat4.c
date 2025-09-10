@@ -139,15 +139,3 @@ struct mat4 mulMat4(struct mat4 a, struct mat4 b){
 }
 
 /* ******************************************************************************** */
-
-struct array mat4ToArray(struct mat4 mat){
-    struct array result = createArray(ARRAY_TYPE_FLOAT);
-
-    for(i32 i = 0; i < 4; i++)
-        for(i32 j = 0; j < 4; j++)
-            insertf32(&result, mat.field[i][j]);
-
-    return result;
-}
-
-/* ******************************************************************************** */
