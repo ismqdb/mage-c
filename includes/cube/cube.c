@@ -84,6 +84,8 @@ struct cube createCube(i32 currentProgram){
     insertIndiceCube(&cube, 6);
     insertIndiceCube(&cube, 2);
 
+    updateCube(&cube);
+
     return cube;
 }
 
@@ -226,7 +228,7 @@ none renderCube(struct cube *cube){
 /* ******************************************************************************** */
 
 none updateCube(struct cube *cube){
-
+    updateVertexArray(&cube->vertexArray);
 }
 
 /* ******************************************************************************** */

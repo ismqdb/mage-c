@@ -14,9 +14,6 @@ none objectSetup(){
 
     translateCube(&cubes[0], createVec4(+0.5f, 0.0f, 0.0f, 0.0f));
     translateCube(&cubes[1], createVec4(-0.5f, 0.0f, 0.0f, 0.0f));
-
-    for(i32 i = 0; i < noOfCubes; i++)
-        setupVertexArray(&cubes[i].vertexArray);
 }
 
 /* ******************************************************************************** */
@@ -71,6 +68,9 @@ none update(){
         for(i32 i = 0; i < noOfCubes; i++)
             onKeyCube(&cubes[i], i);
     }
+
+    for(i32 i = 0; i < noOfCubes; i++)
+        updateCube(cubes+i);
 }
 
 /* ******************************************************************************** */

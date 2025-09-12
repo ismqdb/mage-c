@@ -62,7 +62,7 @@ none destroyVertexArray(struct vertexArray *vertexArray){
 
 /* ******************************************************************************** */
 
-none setupVertexArray(struct vertexArray *array){
+none updateVertexArray(struct vertexArray *array){
     bindVAO(array);
 
     setupBuffer(&array->position);
@@ -72,12 +72,6 @@ none setupVertexArray(struct vertexArray *array){
     fillElementBuffer(array);
 
     unbindVAO();
-}
-
-/* ******************************************************************************** */
-
-none updateVertexArray(struct vertexArray *array){
-
 }
 
 /* ******************************************************************************** */
