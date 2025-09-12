@@ -59,6 +59,9 @@ none destroyVertexArray(struct vertexArray*);
 /* ******************************************************************************** */
 
 none createVAO(struct vertexArray*);
+
+/* ******************************************************************************** */
+
 none bindVAO(struct vertexArray*);
 none unbindVAO();
 
@@ -66,8 +69,12 @@ none unbindVAO();
 
 none createEBO(struct vertexArray*);
 
+/* ******************************************************************************** */
+
 none bindEBO(struct vertexArray*);
 none unbindEBO();
+
+/* ******************************************************************************** */
 
 none fillElementBuffer(struct vertexArray*);
 
