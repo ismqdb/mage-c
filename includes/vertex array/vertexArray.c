@@ -103,7 +103,7 @@ none renderVertexArrayInstanced(struct vertexArray *array, i32 count){
 /* ******************************************************************************** */
 
 none fillElementBuffer(struct vertexArray *array){
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);
+    bindEBO(array);
 
     glBufferData(
         GL_ELEMENT_ARRAY_BUFFER,
@@ -111,6 +111,8 @@ none fillElementBuffer(struct vertexArray *array){
         getBytes(&array->indices),
         GL_DYNAMIC_DRAW
     );
+
+    unbindEBO();
 }
 
 /* ******************************************************************************** */
@@ -140,7 +142,7 @@ none createEBO(struct vertexArray *array){
 /* ******************************************************************************** */
 
 none bindEBO(struct vertexArray *array){
-    glBindVertexArray(array->ebo[0]);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);
 }
 
 /* ******************************************************************************** */
