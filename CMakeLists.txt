@@ -32,3 +32,5 @@ set(LIB_FILES
 )
 
 add_executable(mage ${SOURCE_FILES} ${LIB_FILES} src/src.c src/setup.c)
+
+target_compile_options(mage PRIVATE -O0 -g3)
