@@ -62,7 +62,7 @@ none destroyVertexArray(struct vertexArray *vertexArray){
 
 /* ******************************************************************************** */
 
-none prepareVertexArray(struct vertexArray *array){
+none setupVertexArray(struct vertexArray *array){
     bindVAO(array);
 
     setupBuffer(&array->position);

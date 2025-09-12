@@ -80,7 +80,7 @@ none fillElementBuffer(struct vertexArray*);
 
 /* ******************************************************************************** */
 
-none prepareVertexArray(struct vertexArray*);
+none setupVertexArray(struct vertexArray*);
 
 /* ******************************************************************************** */
 
