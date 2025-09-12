@@ -9,21 +9,23 @@
 /* ******************************************************************************** */
 
 none objectSetup(){
-    for(i32 i = 0; i < noOfCubes; i++)
+    for(i32 i = 0; i < noOfCubes; i++){
         cubes[i] = createCube(program);
+        scaleCube(
+            &cubes[i], 
+            fgetRand(1.0f/16, 1.0f/8)
+        );
 
-    for(i32 i = 0; i < noOfCubes; i++)
-        scaleCube(&cubes[i], 0.25);
-
-    translateCube(&cubes[0], createVec4(+0.5f, 0.0f, 0.0f, 0.0f));
-    translateCube(&cubes[1], createVec4(-0.5f, 0.0f, 0.0f, 0.0f));
-    translateCube(&cubes[2], createVec4(+0.5f, 0.0f, 0.0f, 0.0f));
-    translateCube(&cubes[3], createVec4(-0.5f, 0.0f, 0.0f, 0.0f));
-
-    translateCube(&cubes[0], createVec4(+0.0f, +0.5f, 0.0f, 0.0f));
-    translateCube(&cubes[1], createVec4(-0.0f, +0.5f, 0.0f, 0.0f));
-    translateCube(&cubes[2], createVec4(+0.0f, -0.5f, 0.0f, 0.0f));
-    translateCube(&cubes[3], createVec4(-0.0f, -0.5f, 0.0f, 0.0f));
+        translateCube(
+            &cubes[i], 
+            createVec4(
+                fgetRand(-10.0f, 10.0f),
+                fgetRand(-10.0f, 10.0f),
+                fgetRand(-10.0f, 10.0f),
+                0.0f
+            )
+        );
+    }
 }
 
 /* ******************************************************************************** */

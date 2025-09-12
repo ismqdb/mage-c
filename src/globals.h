@@ -16,6 +16,8 @@
 #include "../includes/cube/cube.h"
 #include "../includes/uniform/uniform.h"
 
+#include "../includes/rand/rand.h"
+
 /* ******************************************************************************** */
 
 enum {noOfCubes = 4};
