@@ -13,7 +13,7 @@ none objectSetup(){
         cubes[i] = createCube(program);
 
     for(i32 i = 0; i < noOfCubes; i++)
-        scaleCube(&cubes[i], 0.5);
+        scaleCube(&cubes[i], 0.25);
 
     translateCube(&cubes[0], createVec4(+0.5f, 0.0f, 0.0f, 0.0f));
     translateCube(&cubes[1], createVec4(-0.5f, 0.0f, 0.0f, 0.0f));
@@ -75,8 +75,8 @@ none update(){
         if(!pressed[i])
             continue;
 
-        for(i32 i = 0; i < noOfCubes; i++)
-            onKeyCube(&cubes[i], i);
+        for(i32 j = 0; j < noOfCubes; j++)
+            onKeyCube(&cubes[j], i);
     }
 
     for(i32 i = 0; i < noOfCubes; i++)
