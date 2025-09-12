@@ -12,6 +12,7 @@
 #include "../includes/vertex array/vertexArray.h"
 #include "../includes/circle/circle.h"
 #include "../includes/mat4/mat4.h"
+#include "../includes/camera/camera.h"
 #include "../includes/cube/cube.h"
 #include "../includes/uniform/uniform.h"
 

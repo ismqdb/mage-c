@@ -21,8 +21,9 @@ set(LIB_FILES
 
     "includes/mat4/initMat4.c"
     "includes/mat4/operationsMat4.c"
-    "includes/mat4/cameraMat4.c"
     "includes/mat4/transformationsMat4.c"
+
+    "includes/camera/camera.c"
 
     "includes/uniform/uniform.c"
 

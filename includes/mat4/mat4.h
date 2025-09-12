@@ -57,8 +57,3 @@ struct mat4 yrotateMat4(struct mat4, f32);
 struct mat4 zrotateMat4(struct mat4, f32);
 
 /* ******************************************************************************** */
-
-struct mat4 perspective(f64, f64, f64, i32);
-struct mat4 lookat(struct vec4, struct vec4, struct vec4);
-
-/* ******************************************************************************** */
