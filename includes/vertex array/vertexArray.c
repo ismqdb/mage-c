@@ -42,6 +42,7 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.ebo[0] = -1;
 
     createVAO(&vertexArray);
+    createEBO(&vertexArray);
 
     return vertexArray;
 }
@@ -102,7 +103,6 @@ none renderVertexArrayInstanced(struct vertexArray *array, i32 count){
 /* ******************************************************************************** */
 
 none fillElementBuffer(struct vertexArray *array){
-    glGenBuffers(1, array->ebo);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, array->ebo[0]);
 
     glBufferData(
