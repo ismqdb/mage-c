@@ -7,6 +7,7 @@
 struct vertexAttribute createVertexAttribute(
     enum arrayType type, 
     enum vertexAttributeType attrType,
+    enum attributeRenderType rtype,
     i32 program, 
     u8 *name
 ){
@@ -20,6 +21,7 @@ struct vertexAttribute createVertexAttribute(
     result.program = program;
     result.utype = type;
     result.attrType = attrType;
+    result.renderType = rtype;
 
     switch(result.attrType){
         case VERTEX_ATTRIBUTE_TYPE_VEC4:

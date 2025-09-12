@@ -14,11 +14,16 @@
 /* ******************************************************************************** */
 
 #include "vertexAttributeType.h"
+#include "attributeRenderType.h"
 
 /* ******************************************************************************** */
 
 struct vertexAttribute createVertexAttribute(
-    enum arrayType, enum vertexAttributeType, i32, u8*
+    enum arrayType, 
+    enum vertexAttributeType, 
+    enum attributeRenderType,
+    i32, 
+    u8*
 );
 
 /* ******************************************************************************** */
@@ -66,6 +71,7 @@ none setupBuffer(struct vertexAttribute*);
 struct vertexAttribute {
     enum arrayType utype;
     enum vertexAttributeType attrType;
+    enum attributeRenderType renderType;
     
     union {
         struct array array;

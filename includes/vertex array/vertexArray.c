@@ -15,6 +15,7 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.position = createVertexAttribute(
         ARRAY_TYPE_FLOAT, 
         VERTEX_ATTRIBUTE_TYPE_VEC4,
+        ATTRIBUTE_RENDER_STATIC,
         program, 
         "position"
     );
@@ -22,6 +23,7 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.color = createVertexAttribute(
         ARRAY_TYPE_FLOAT, 
         VERTEX_ATTRIBUTE_TYPE_VEC4,
+        ATTRIBUTE_RENDER_DYNAMIC,
         program, 
         "color"
     );
@@ -29,6 +31,7 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.model = createVertexAttribute(
         ARRAY_TYPE_FLOAT,
         VERTEX_ATTRIBUTE_TYPE_MAT4,
+        ATTRIBUTE_RENDER_DYNAMIC,
         program,
         "model"
     );
