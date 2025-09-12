@@ -64,6 +64,11 @@ none unbindVAO();
 
 /* ******************************************************************************** */
 
+none createEBO(struct vertexArray*);
+
+none bindEBO(struct vertexArray*);
+none unbindEBO();
+
 none fillElementBuffer(struct vertexArray*);
 
 /* ******************************************************************************** */
