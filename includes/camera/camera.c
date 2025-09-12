@@ -48,3 +48,9 @@ struct mat4 lookat(struct vec4 eye, struct vec4 center, struct vec4 up){
 }
 
 /* ******************************************************************************** */
+
+none onKeyCamera(struct uniform *camera, i32 key){
+
+}
+
+/* ******************************************************************************** */
