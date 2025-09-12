@@ -73,6 +73,13 @@ none setupVertexArray(struct vertexArray *array){
 
     unbindVAO();
 }
+
+/* ******************************************************************************** */
+
+none updateVertexArray(struct vertexArray *array){
+
+}
+
 /* ******************************************************************************** */
 
 none renderVertexArray(struct vertexArray *array){
