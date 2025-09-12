@@ -15,11 +15,18 @@ i32 igetRand(i32 lo, i32 hi){
 /* ******************************************************************************** */
 
 f32 fgetRand(f32 lo, f32 hi){
-    assert(lo < hi);
+    i32 urandom = open("/dev/urandom", O_RDONLY);
+    if (urandom < 0) {
+        perror("open");
+        exit(1);
+    }
 
-    f32 result = igetRand(lo*1000, hi*1000);
+    u32 result;
+    read(urandom, &result, sizeof(result));
+    close(urandom);
 
-    return result/1000;
+    f32 scale = result / (f32) UINT_MAX;
+    return lo + scale * (hi - lo);
 }
 
 /* ******************************************************************************** */
