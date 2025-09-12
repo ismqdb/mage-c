@@ -35,6 +35,8 @@ struct vertexAttribute createVertexAttribute(
             break;
     }
 
+    createBuffer(&result);
+
     return result;
 }
 
@@ -194,7 +196,6 @@ none enableBuffer(struct vertexAttribute *attr){
 /* ******************************************************************************** */
 
 none setupBuffer(struct vertexAttribute *attr){
-    createBuffer(attr);
     bindBuffer(attr);
     fillBuffer(attr);
     layoutBuffer(attr);

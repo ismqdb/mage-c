@@ -60,6 +60,7 @@ none destroyVertexArray(struct vertexArray*);
 
 none createVAO(struct vertexArray*);
 none bindVAO(struct vertexArray*);
+none unbindVAO();
 
 /* ******************************************************************************** */
 

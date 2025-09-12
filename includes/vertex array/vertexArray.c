@@ -38,6 +38,8 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
     vertexArray.vao[0] = -1;
     vertexArray.ebo[0] = -1;
 
+    createVAO(&vertexArray);
+
     return vertexArray;
 }
 
@@ -57,7 +59,6 @@ none destroyVertexArray(struct vertexArray *vertexArray){
 /* ******************************************************************************** */
 
 none prepareVertexArray(struct vertexArray *array){
-    createVAO(array);
     bindVAO(array);
 
     setupBuffer(&array->position);
@@ -65,16 +66,22 @@ none prepareVertexArray(struct vertexArray *array){
     setupBuffer(&array->model);
 
     fillElementBuffer(array);
+
+    unbindVAO();
 }
 /* ******************************************************************************** */
 
 none renderVertexArray(struct vertexArray *array){
+    bindVAO(array);
+
     glDrawElements(
         array->renderType, 
         array->indices.size, 
         GL_UNSIGNED_INT, 
         NULL
     );
+
+    unbindVAO();
 }
 
 /* ******************************************************************************** */
@@ -113,6 +120,12 @@ none createVAO(struct vertexArray *array){
 
 none bindVAO(struct vertexArray *array){
     glBindVertexArray(array->vao[0]);
+}
+
+/* ******************************************************************************** */
+
+none unbindVAO(){
+    glBindVertexArray(0);
 }
 
 /* ******************************************************************************** */
