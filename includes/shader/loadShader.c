@@ -14,7 +14,7 @@
 
 /* ******************************************************************************** */
 
-static const GLchar* readShader(const u8* path){
+const GLchar* readShader(const u8* path){
     #ifdef WIN32
         FILE* infile;
         fopen_s(&infile, path, "rb");

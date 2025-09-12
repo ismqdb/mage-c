@@ -22,6 +22,6 @@ struct shader {
 /* ******************************************************************************** */
 
 GLuint loadShader(struct shader*);
-static const GLchar* readShader(const u8*);
+const GLchar* readShader(const u8*);
 
 /* ******************************************************************************** */
