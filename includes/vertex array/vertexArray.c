@@ -90,18 +90,6 @@ none renderVertexArray(struct vertexArray *array){
 
 /* ******************************************************************************** */
 
-none renderVertexArrayInstanced(struct vertexArray *array, i32 count){
-    glDrawElementsInstanced(
-        array->renderType, 
-        array->indices.size, 
-        GL_UNSIGNED_INT, 
-        NULL,
-        count
-    );
-}
-
-/* ******************************************************************************** */
-
 none fillElementBuffer(struct vertexArray *array){
     bindEBO(array);
 
