@@ -67,8 +67,8 @@ none glfwSetup(){
         abort();
     }
 
-    info.windowWidth = 800;
-    info.windowHeight = 600;
+    info.windowWidth = 1920;
+    info.windowHeight = 1080;
 
     const char title[] = "MAGE";
     memcpy(info.title, title, sizeof(title));
