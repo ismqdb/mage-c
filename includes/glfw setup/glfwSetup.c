@@ -14,6 +14,8 @@ i32 pressed[GLFW_KEY_LAST];
 none onResize(GLFWwindow* window, i32 w, i32 h){
     info.windowWidth = w;
     info.windowHeight = h;
+
+    glViewport(0, 0, info.windowWidth, info.windowHeight);
 }
 
 /* ******************************************************************************** */
