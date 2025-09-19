@@ -9,9 +9,9 @@ enum arrayType {
 
     ARRAY_TYPE_INT,
     ARRAY_TYPE_FLOAT,
+    ARRAY_TYPE_MAT4,
 
     ARRAY_TYPE_MAX
 };
 
 /* ******************************************************************************** */
-
