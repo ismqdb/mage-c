@@ -30,59 +30,35 @@ struct cube createCube(i32 currentProgram){
     insertColorCube(&cube, createVec4(+0.95f, +0.05f, +0.30f, 1.0f));
     insertColorCube(&cube, createVec4(+0.05f, +0.55f, +0.40f, 1.0f));
 
-    // Back
-    insertIndiceCube(&cube, 0);
-    insertIndiceCube(&cube, 1);
-    insertIndiceCube(&cube, 2);
+    enum {sizeIndices = 36};
 
-    insertIndiceCube(&cube, 2);
-    insertIndiceCube(&cube, 3);
-    insertIndiceCube(&cube, 0);
+    i32 indices[sizeIndices] = {
+        // Back
+        0, 1, 2,
+        2, 3, 0,
 
-    // Front
-    insertIndiceCube(&cube, 4);
-    insertIndiceCube(&cube, 5);
-    insertIndiceCube(&cube, 6);
+        // Front
+        4, 5, 6,
+        4, 7, 6,
 
-    insertIndiceCube(&cube, 4);
-    insertIndiceCube(&cube, 7);
-    insertIndiceCube(&cube, 6);
+        // Right
+        1, 5, 6,
+        6, 2, 1,
 
-    // Right
-    insertIndiceCube(&cube, 1);
-    insertIndiceCube(&cube, 5);
-    insertIndiceCube(&cube, 6);
+        // Left
+        4, 7, 3,
+        3, 0, 4,
 
-    insertIndiceCube(&cube, 6);
-    insertIndiceCube(&cube, 2);
-    insertIndiceCube(&cube, 1);
+        // Top
+        1, 0, 4,
+        4, 5, 1,
 
-    // Left
-    insertIndiceCube(&cube, 4);
-    insertIndiceCube(&cube, 7);
-    insertIndiceCube(&cube, 3);
+        // Bottom
+        2, 3, 7,
+        7, 6, 2
+    };
 
-    insertIndiceCube(&cube, 3);
-    insertIndiceCube(&cube, 0);
-    insertIndiceCube(&cube, 4);
-
-    // Top
-    insertIndiceCube(&cube, 1);
-    insertIndiceCube(&cube, 0);
-    insertIndiceCube(&cube, 4);
-
-    insertIndiceCube(&cube, 4);
-    insertIndiceCube(&cube, 5);
-    insertIndiceCube(&cube, 1);
-
-    // Bottom
-    insertIndiceCube(&cube, 2);
-    insertIndiceCube(&cube, 3);
-    insertIndiceCube(&cube, 7);
-    
-    insertIndiceCube(&cube, 7);
-    insertIndiceCube(&cube, 6);
-    insertIndiceCube(&cube, 2);
+    cube.vertexArray.indices = arrayFromRaw_i32(ARRAY_TYPE_FLOAT, indices, sizeIndices);
 
     updateCube(&cube);
 
