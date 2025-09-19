@@ -29,10 +29,10 @@ struct vertexAttribute createVertexAttribute(
             break;
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            result.value.mat4.mat = identityMat4();
+            result.value.mat = identityMat4();
 
             for(i32 i = 0; i < 4; i++)
-                result.value.mat4.pos[i] = result.position + i;
+                result.pos[i] = result.position + i;
 
             break;
     }
@@ -56,10 +56,10 @@ none destroyVertexAttribute(struct vertexAttribute *attr){
             break;
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            attr->value.mat4.mat = identityMat4();
+            attr->value.mat = identityMat4();
 
             for(i32 i = 0; i < 4; i++)
-                attr->value.mat4.pos[i] = -1;
+                attr->pos[i] = -1;
 
             break;
     }
@@ -85,7 +85,7 @@ f32* rawElements(struct vertexAttribute *attr){
             return (f32*)arrayGetBytes(&attr->value.array);
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
-            return (f32*)&attr->value.mat4.mat.field[0][0];
+            return (f32*)&attr->value.mat.field[0][0];
     }
 }
 
@@ -135,7 +135,7 @@ none layoutBuffer(struct vertexAttribute *attr){
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
             glVertexAttribPointer(
-                attr->value.mat4.pos[0], 
+                attr->pos[0], 
                 4, 
                 GL_FLOAT, 
                 GL_FALSE, 
@@ -144,7 +144,7 @@ none layoutBuffer(struct vertexAttribute *attr){
             );
 
             glVertexAttribPointer(
-                attr->value.mat4.pos[1], 
+                attr->pos[1], 
                 4, 
                 GL_FLOAT, 
                 GL_FALSE, 
@@ -153,7 +153,7 @@ none layoutBuffer(struct vertexAttribute *attr){
             );
             
             glVertexAttribPointer(
-                attr->value.mat4.pos[2], 
+                attr->pos[2], 
                 4, 
                 GL_FLOAT, 
                 GL_FALSE, 
@@ -162,7 +162,7 @@ none layoutBuffer(struct vertexAttribute *attr){
             );
             
             glVertexAttribPointer(
-                attr->value.mat4.pos[3], 
+                attr->pos[3], 
                 4, 
                 GL_FLOAT, 
                 GL_FALSE, 
@@ -171,7 +171,7 @@ none layoutBuffer(struct vertexAttribute *attr){
             );
 
             for(i32 i = 0; i < 4; i++)
-                glVertexAttribDivisor(attr->value.mat4.pos[i], 1);
+                glVertexAttribDivisor(attr->pos[i], 1);
 
             return;
     }
@@ -189,7 +189,7 @@ none enableBuffer(struct vertexAttribute *attr){
             glEnableVertexAttribArray(attr->position);
 
             for(i32 i = 0; i < 4; i++)
-                glEnableVertexAttribArray(attr->value.mat4.pos[i]);
+                glEnableVertexAttribArray(attr->pos[i]);
 
             return;
     }

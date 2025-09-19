@@ -75,16 +75,14 @@ struct vertexAttribute {
     
     union {
         struct array array;
-        struct {
-            struct mat4 mat;
-            i32 pos[4];
-        } mat4;
+        struct mat4 mat; 
     } value;
 
     i32 buffer;
 
     i32 program;
     i32 position;
+    i32 pos[4];
     u8 *name;
 };
 
