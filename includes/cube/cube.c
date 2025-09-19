@@ -11,6 +11,8 @@ struct cube createCube(i32 currentProgram){
     cube.vertexArray = createVertexArray(GL_TRIANGLES, currentProgram);
 
     enum {sizePositions = 64};
+    enum {sizeColors = 32};
+    enum {sizeIndices = 36};
 
     f32 positions[sizePositions] = {
         -0.25f, +0.25f, +0.00f, 1.0f,
@@ -24,13 +26,6 @@ struct cube createCube(i32 currentProgram){
         -0.25f, -0.25f, -0.50f, 1.0f
     };
 
-    cube.vertexArray.position.value.array = arrayFromRaw_f32(
-        ARRAY_TYPE_FLOAT, 
-        positions, sizePositions
-    );
-
-    enum {sizeColors = 32};
-
     f32 colors[sizeColors] = {
         +0.95f, +0.25f, +0.80f, 1.0f,
         +0.95f, +0.75f, +0.20f, 1.0f,
@@ -43,41 +38,43 @@ struct cube createCube(i32 currentProgram){
         +0.05f, +0.55f, +0.40f, 1.0f
     };
 
+    i32 indices[sizeIndices] = {
+        // Back
+        0, 1, 2, 2, 3, 0,
+
+        // Front
+        4, 5, 6, 4, 7, 6,
+
+        // Right
+        1, 5, 6, 6, 2, 1,
+
+        // Left
+        4, 7, 3, 3, 0, 4,
+
+        // Top
+        1, 0, 4, 4, 5, 1,
+
+        // Bottom
+        2, 3, 7, 7, 6, 2
+    };
+
+    cube.vertexArray.position.value.array = arrayFromRaw_f32(
+        ARRAY_TYPE_FLOAT, 
+        positions, 
+        sizePositions
+    );
+
     cube.vertexArray.color.value.array = arrayFromRaw_f32(
         ARRAY_TYPE_FLOAT,
         colors,
         sizeColors
     );
 
-    enum {sizeIndices = 36};
-
-    i32 indices[sizeIndices] = {
-        // Back
-        0, 1, 2,
-        2, 3, 0,
-
-        // Front
-        4, 5, 6,
-        4, 7, 6,
-
-        // Right
-        1, 5, 6,
-        6, 2, 1,
-
-        // Left
-        4, 7, 3,
-        3, 0, 4,
-
-        // Top
-        1, 0, 4,
-        4, 5, 1,
-
-        // Bottom
-        2, 3, 7,
-        7, 6, 2
-    };
-
-    cube.vertexArray.indices = arrayFromRaw_i32(ARRAY_TYPE_FLOAT, indices, sizeIndices);
+    cube.vertexArray.indices = arrayFromRaw_i32(
+        ARRAY_TYPE_FLOAT, 
+        indices, 
+        sizeIndices
+    );
 
     updateCube(&cube);
 
