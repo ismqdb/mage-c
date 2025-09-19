@@ -10,25 +10,34 @@ struct cube createCube(i32 currentProgram){
     struct cube cube;
     cube.vertexArray = createVertexArray(GL_TRIANGLES, currentProgram);
 
-    insertPointCube(&cube, createPoint(-0.25f, +0.25f, +0.00f, 1.0f));
-    insertPointCube(&cube, createPoint(+0.25f, +0.25f, +0.00f, 1.0f));
-    insertPointCube(&cube, createPoint(+0.25f, -0.25f, +0.00f, 1.0f));
-    insertPointCube(&cube, createPoint(-0.25f, -0.25f, +0.00f, 1.0f));
+    enum {sizePositions = 64};
 
-    insertPointCube(&cube, createPoint(-0.25f, +0.25f, -0.50f, 1.0f));
-    insertPointCube(&cube, createPoint(+0.25f, +0.25f, -0.50f, 1.0f));
-    insertPointCube(&cube, createPoint(+0.25f, -0.25f, -0.50f, 1.0f));
-    insertPointCube(&cube, createPoint(-0.25f, -0.25f, -0.50f, 1.0f));
+    f32 positions[sizePositions] = {
+        -0.25f, +0.25f, +0.00f, 1.0f,
+        +0.25f, +0.25f, +0.00f, 1.0f,
+        +0.25f, -0.25f, +0.00f, 1.0f,
+        -0.25f, -0.25f, +0.00f, 1.0f,
 
-    insertColorCube(&cube, createVec4(+0.95f, +0.25f, +0.80f, 1.0f));
-    insertColorCube(&cube, createVec4(+0.95f, +0.75f, +0.20f, 1.0f));
-    insertColorCube(&cube, createVec4(+0.95f, +0.95f, +0.70f, 1.0f));
-    insertColorCube(&cube, createVec4(-0.95f, +0.15f, +0.50f, 1.0f));
+        -0.25f, +0.25f, -0.50f, 1.0f,
+        +0.25f, +0.25f, -0.50f, 1.0f,
+        +0.25f, -0.25f, -0.50f, 1.0f,
+        -0.25f, -0.25f, -0.50f, 1.0f
+    };
 
-    insertColorCube(&cube, createVec4(+0.25f, +0.45f, +0.70f, 1.0f));
-    insertColorCube(&cube, createVec4(+0.95f, +0.05f, +0.80f, 1.0f));
-    insertColorCube(&cube, createVec4(+0.95f, +0.05f, +0.30f, 1.0f));
-    insertColorCube(&cube, createVec4(+0.05f, +0.55f, +0.40f, 1.0f));
+    cube.vertexArray.position.value.array = arrayFromRaw_f32(
+        ARRAY_TYPE_FLOAT, 
+        positions, sizePositions
+    );
+
+        insertColorCube(&cube, createVec4(+0.95f, +0.25f, +0.80f, 1.0f));
+        insertColorCube(&cube, createVec4(+0.95f, +0.75f, +0.20f, 1.0f));
+        insertColorCube(&cube, createVec4(+0.95f, +0.95f, +0.70f, 1.0f));
+        insertColorCube(&cube, createVec4(-0.95f, +0.15f, +0.50f, 1.0f));
+
+        insertColorCube(&cube, createVec4(+0.25f, +0.45f, +0.70f, 1.0f));
+        insertColorCube(&cube, createVec4(+0.95f, +0.05f, +0.80f, 1.0f));
+        insertColorCube(&cube, createVec4(+0.95f, +0.05f, +0.30f, 1.0f));
+        insertColorCube(&cube, createVec4(+0.05f, +0.55f, +0.40f, 1.0f));
 
     enum {sizeIndices = 36};
 
