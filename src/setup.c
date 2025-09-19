@@ -47,7 +47,7 @@ none openglSetup(){
     projection = createMat4Uniform(
         program,
         "projection",
-        perspective(100.0f, 1.0f, 800.0/600, 45)
+        perspective(100.0f, 1.0f, 1920.0/1080, 45)
     );
 
     view = createMat4Uniform(
