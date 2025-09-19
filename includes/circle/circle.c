@@ -10,8 +10,8 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
 
     struct circle circle;
 
-    circle.vertices = createArray(ARRAY_TYPE_FLOAT);
-    circle.indices  = createArray(ARRAY_TYPE_INT);
+    circle.vertices = arrayCreate(ARRAY_TYPE_FLOAT);
+    circle.indices  = arrayCreate(ARRAY_TYPE_INT);
 
     circle.position = _pos;
     circle.radius = _rad;
@@ -19,7 +19,7 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
     circle.arcLen = 360.0/noOfTri;
 
     struct point centerPoint = createPoint(_pos.x, _pos.y, 0.0, 1.0);
-    insertvec4(&circle.vertices, centerPoint.position);
+    arrayInsert_vec4(&circle.vertices, centerPoint.position);
 
     struct point pt2;
     struct point pt3;
@@ -47,21 +47,21 @@ struct circle createCircle(struct vec4 _pos, f32 _rad, i32 noOfTri){
             1.0
         );
 
-        insertvec4(&circle.vertices, pt2.position);
-        insertvec4(&circle.vertices, pt3.position);
+        arrayInsert_vec4(&circle.vertices, pt2.position);
+        arrayInsert_vec4(&circle.vertices, pt3.position);
 
         angle += circle.arcLen;
     }
 
     for(i32 i = 1; i < (noOfTri*2); i++){
-        inserti32(&circle.indices, 0);
-        inserti32(&circle.indices, i);
-        inserti32(&circle.indices, i + 1);
+        arrayInsert_i32(&circle.indices, 0);
+        arrayInsert_i32(&circle.indices, i);
+        arrayInsert_i32(&circle.indices, i + 1);
     }
 
-    inserti32(&circle.indices, 0);
-    inserti32(&circle.indices, noOfTri*2);
-    inserti32(&circle.indices, 1);
+    arrayInsert_i32(&circle.indices, 0);
+    arrayInsert_i32(&circle.indices, noOfTri*2);
+    arrayInsert_i32(&circle.indices, 1);
 
     return circle;
 }

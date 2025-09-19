@@ -25,7 +25,7 @@ struct vertexAttribute createVertexAttribute(
 
     switch(result.attrType){
         case VERTEX_ATTRIBUTE_TYPE_VEC4:
-            result.value.array = createArray(type);
+            result.value.array = arrayCreate(type);
             break;
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
@@ -52,7 +52,7 @@ none destroyVertexAttribute(struct vertexAttribute *attr){
 
     switch(attr->attrType){
         case VERTEX_ATTRIBUTE_TYPE_VEC4:
-            destroyArray(&attr->value.array);
+            arrayDestroy(&attr->value.array);
             break;
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
@@ -70,7 +70,7 @@ none destroyVertexAttribute(struct vertexAttribute *attr){
 i32 sizeofAttribute(struct vertexAttribute *attr){
     switch(attr->attrType){
         case VERTEX_ATTRIBUTE_TYPE_VEC4:
-            return byteSize(&attr->value.array);
+            return arrayByteSize(&attr->value.array);
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
             return sizeof(struct mat4);
@@ -82,7 +82,7 @@ i32 sizeofAttribute(struct vertexAttribute *attr){
 f32* rawElements(struct vertexAttribute *attr){
     switch(attr->attrType){
         case VERTEX_ATTRIBUTE_TYPE_VEC4:
-            return (f32*)getBytes(&attr->value.array);
+            return (f32*)arrayGetBytes(&attr->value.array);
 
         case VERTEX_ATTRIBUTE_TYPE_MAT4:
             return (f32*)&attr->value.mat4.mat.field[0][0];

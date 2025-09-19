@@ -4,7 +4,7 @@
 
 /* ******************************************************************************** */
 
-struct array createArray(enum arrayType t){
+struct array arrayCreate(enum arrayType t){
     assert(t > ARRAY_TYPE_MIN && t < ARRAY_TYPE_MAX);
 
     struct array array;
@@ -30,7 +30,7 @@ struct array createArray(enum arrayType t){
 
 /* ******************************************************************************** */
 
-none destroyArray(struct array *array){
+none arrayDestroy(struct array *array){
     array->size = 0;
 
     switch(array->type){
@@ -46,7 +46,7 @@ none destroyArray(struct array *array){
 
 /* ******************************************************************************** */
 
-none reserve(struct array *array){
+none arrayReserve(struct array *array){
     array->capacity *= 2;
 
     switch(array->type){
@@ -64,7 +64,7 @@ none reserve(struct array *array){
 
 /* ******************************************************************************** */
 
-none* getBytes(struct array *array){
+none* arrayGetBytes(struct array *array){
     switch(array->type){
         case ARRAY_TYPE_INT:
             return (none*)array->elems.i;
@@ -76,7 +76,7 @@ none* getBytes(struct array *array){
 
 /* ******************************************************************************** */
 
-i32 byteSize(struct array *array){
+i32 arrayByteSize(struct array *array){
     switch(array->type){
         case ARRAY_TYPE_INT:
             return sizeof(i32) * array->size;
@@ -88,9 +88,9 @@ i32 byteSize(struct array *array){
 
 /* ******************************************************************************** */
 
-none inserti32(struct array *array, i32 value){
+none arrayInsert_i32(struct array *array, i32 value){
     if(array->size == array->capacity)
-        reserve(array);
+        arrayReserve(array);
 
     array->elems.i[array->size] = value;
     array->size++;
@@ -98,9 +98,9 @@ none inserti32(struct array *array, i32 value){
 
 /* ******************************************************************************** */
 
-none insertf32(struct array *array, f32 value){
+none arrayInsert_f32(struct array *array, f32 value){
     if(array->size == array->capacity)
-        reserve(array);
+        arrayReserve(array);
 
     array->elems.f[array->size] = value;
     array->size++;
@@ -108,27 +108,27 @@ none insertf32(struct array *array, f32 value){
 
 /* ******************************************************************************** */
 
-none insertvec4(struct array *array, struct vec4 vec){
-    insertf32(array, vec.x);
-    insertf32(array, vec.y);
-    insertf32(array, vec.z);
-    insertf32(array, vec.w);
+none arrayInsert_vec4(struct array *array, struct vec4 vec){
+    arrayInsert_f32(array, vec.x);
+    arrayInsert_f32(array, vec.y);
+    arrayInsert_f32(array, vec.z);
+    arrayInsert_f32(array, vec.w);
 }
 
 /* ******************************************************************************** */
 
-none filli32(struct array *array, i32 *ptr, i32 size){
+none arrayFill_i32(struct array *array, i32 *ptr, i32 size){
     // Refactor to memcpy
     for(i32 i = 0; i < size; i++)
-        inserti32(array, *(ptr+i));
+        arrayInsert_i32(array, *(ptr+i));
 }
 
 /* ******************************************************************************** */
 
-none fillf32(struct array *array, f32 *ptr, i32 size){
+none arrayFill_f32(struct array *array, f32 *ptr, i32 size){
     // Refactor to memcpy
     for(i32 i = 0; i < size; i++)
-        insertf32(array, *(ptr+i));
+        arrayInsert_f32(array, *(ptr+i));
 }
 
 /* ******************************************************************************** */

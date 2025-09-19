@@ -31,42 +31,42 @@ struct array {
 
 /* ******************************************************************************** */
 
-struct array createArray(enum arrayType);
+struct array arrayCreate(enum arrayType);
 
 /* ******************************************************************************** */
 
-none destroyArray(struct array*);
+none arrayDestroy(struct array*);
 
 /* ******************************************************************************** */
 
-none reserve(struct array*);
+none arrayReserve(struct array*);
 
 /* ******************************************************************************** */
 
-none* getBytes(struct array*);
+none* arrayGetBytes(struct array*);
 
 /* ******************************************************************************** */
 
-i32 byteSize(struct array*);
+i32 arrayByteSize(struct array*);
 
 /* ******************************************************************************** */
 
-none inserti32(struct array*, i32);
+none arrayInsert_i32(struct array*, i32);
 
 /* ******************************************************************************** */
 
-none insertf32(struct array*, f32);
+none arrayInsert_f32(struct array*, f32);
 
 /* ******************************************************************************** */
 
-none insertvec4(struct array*, struct vec4);
+none arrayInsert_vec4(struct array*, struct vec4);
 
 /* ******************************************************************************** */
 
-none filli32(struct array*, i32*, i32);
+none arrayFill_i32(struct array*, i32*, i32);
 
 /* ******************************************************************************** */
 
-none fillf32(struct array*, f32*, i32);
+none arrayFill_f32(struct array*, f32*, i32);
 
 /* ******************************************************************************** */

@@ -36,7 +36,7 @@ struct vertexArray createVertexArray(enum arrayRenderType type, i32 program){
         "model"
     );
 
-    vertexArray.indices = createArray(ARRAY_TYPE_INT);
+    vertexArray.indices = arrayCreate(ARRAY_TYPE_INT);
 
     vertexArray.vao[0] = -1;
     vertexArray.ebo[0] = -1;
@@ -54,7 +54,7 @@ none destroyVertexArray(struct vertexArray *vertexArray){
     destroyVertexAttribute(&vertexArray->color);
     destroyVertexAttribute(&vertexArray->model);
 
-    destroyArray(&vertexArray->indices);
+    arrayDestroy(&vertexArray->indices);
 
     vertexArray->vao[0] = -1;
     vertexArray->ebo[0] = -1;
@@ -96,8 +96,8 @@ none fillElementBuffer(struct vertexArray *array){
 
     glBufferData(
         GL_ELEMENT_ARRAY_BUFFER,
-        byteSize(&array->indices),
-        getBytes(&array->indices),
+        arrayByteSize(&array->indices),
+        arrayGetBytes(&array->indices),
         GL_DYNAMIC_DRAW
     );
 
