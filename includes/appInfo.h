@@ -5,7 +5,7 @@
 /* ******************************************************************************** */
 
 struct appInfo {
-    char title[128];
+    u8 title[128];
     i32 windowWidth;
     i32 windowHeight;
     i32 majorVersion;

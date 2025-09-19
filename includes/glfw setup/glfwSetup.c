@@ -72,7 +72,7 @@ none glfwSetup(){
     info.windowWidth = 1920;
     info.windowHeight = 1080;
 
-    const char title[] = "MAGE";
+    const u8 title[] = "MAGE";
     memcpy(info.title, title, sizeof(title));
     
     #ifdef __APPLE__
