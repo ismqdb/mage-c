@@ -1,7 +1,11 @@
 cmake_minimum_required(VERSION 3.10.0)
 project(mage VERSION 0.1.0 LANGUAGES C)
 
-set(CMAKE_EXE_LINKER_FLAGS "-lglfw -lm")
+# Paths to your local GLFW build (adjust these!)
+set(GLFW_ROOT "C:/glfw-3.4.bin.WIN64")
+
+set(GLFW_INCLUDE_DIR "${GLFW_ROOT}/include")
+set(GLFW_LIB_DIR "${GLFW_ROOT}/lib-mingw-w64")
 
 set(SOURCE_FILES 
     ./glad/glad.c
@@ -32,3 +36,11 @@ set(LIB_FILES
 )
 
 add_executable(mage ${SOURCE_FILES} ${LIB_FILES} src/src.c src/setup.c)
+
+target_include_directories(mage PRIVATE
+    ${GLFW_INCLUDE_DIR}
+    ${CMAKE_SOURCE_DIR}/includes
+)
+
+target_link_directories(mage PRIVATE ${GLFW_LIB_DIR})
+target_link_libraries(mage PRIVATE glfw3 opengl32 gdi32)
